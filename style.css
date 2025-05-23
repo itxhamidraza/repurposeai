@@ -1,0 +1,57 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #0A0A23;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0.3em;
+    color: #4ADEDE;
+}
+
+.tagline {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+    color: #D1D5DB;
+}
+
+.button, .linkedin-button {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    margin: 0.5em;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button {
+    background-color: #4ADEDE;
+    color: #0A0A23;
+}
+
+.linkedin-button {
+    background-color: #0077B5;
+    color: white;
+}
+
+.button:hover {
+    background-color: #38BDF8;
+}
+
+.linkedin-button:hover {
+    background-color: #005983;
+}
