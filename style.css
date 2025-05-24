@@ -370,7 +370,8 @@ a:hover {
     border-color: var(--accent-color-v3);
 }
 
-/* Animations (for a more dynamic feel) */
+/* Animations */
+/* These initial animations for the hero text will still run */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -388,17 +389,17 @@ a:hover {
 
 .fade-in {
     animation: fadeIn 1s ease-out forwards;
-    opacity: 0; /* Hidden by default */
+    opacity: 0; /* Hidden by default for animation */
 }
 
 .scale-in {
     animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-    opacity: 0;
+    opacity: 0; /* Hidden by default for animation */
 }
 
 .slide-up {
     animation: slideUp 1s ease-out forwards;
-    opacity: 0;
+    opacity: 0; /* Hidden by default for animation */
 }
 
 /* Add delays for staggered animations */
@@ -406,19 +407,8 @@ a:hover {
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.6s; }
 
-/* Reveal on scroll for sections - requires JavaScript to be fully effective,
-   but we'll include CSS for the initial state for demonstration */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* When an element is 'in view' (can be toggled by JS on scroll) */
-.reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* REMOVED: The .reveal class that was hiding sections by default.
+   Now, content is visible by default unless you explicitly add a class for an animation. */
 
 
 /* Responsive Design V3 */
