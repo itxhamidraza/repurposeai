@@ -82,7 +82,45 @@ a:hover {
     padding: 0 var(--spacing-unit);
 }
 
-/* Header (Hero Section V4) */
+/* Common Section Styles */
+.section-v4 {
+    padding: 7rem 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.bg-light-v4 {
+    background-color: var(--bg-light);
+}
+
+.bg-dark-v4 {
+    background-color: var(--bg-dark);
+    color: var(--white);
+}
+
+.bg-dark-v4 h2, .bg-dark-v4 h3 {
+    color: var(--white);
+}
+
+.section-description-v4 {
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto;
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+/* For dark backgrounds, adjust description color */
+.bg-dark-v4 .section-description-v4 {
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.text-center-v4 {
+    text-align: center;
+}
+
+/* Hero Section V4 */
 .hero-v4 {
     background: linear-gradient(135deg, var(--brand-primary) 0%, #7E6CFB 100%); /* Subtle gradient */
     color: var(--white);
@@ -113,24 +151,27 @@ a:hover {
     color: var(--white);
     text-shadow: 0 4px 15px rgba(0,0,0,0.3);
     line-height: 1.1;
+    margin-bottom: 1.5rem; /* Space below headline */
 }
 
 .hero-v4 .subtitle-v4 {
     font-size: 2.4rem;
     font-style: italic;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem; /* More space below subtitle */
     opacity: 0.95;
-    font-weight: 400; /* Lato font for subtitle */
+    font-weight: 400;
     font-family: var(--font-body);
 }
 
-.hero-v4 .one-liner-v4 {
+/* Removed one-liner-v4 as the subheadline now serves this purpose */
+/* If you want to keep a separate one-liner, uncomment and adjust its style */
+/* .hero-v4 .one-liner-v4 {
     font-size: 1.5rem;
     max-width: 850px;
     margin: 0 auto 3.5rem auto;
     line-height: 1.6;
     opacity: 0.9;
-}
+} */
 
 .cta-button-v4 {
     display: inline-block;
@@ -141,7 +182,7 @@ a:hover {
     font-size: 1.45rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em; /* Slightly tighter letter spacing */
     transition: var(--transition-slow);
     box-shadow: 0 10px 30px rgba(160, 160, 160, 0.4);
     border: none;
@@ -155,26 +196,61 @@ a:hover {
     text-decoration: none;
 }
 
-/* Sections V4 */
-.section-v4 {
-    padding: 7rem 0;
-    overflow: hidden;
+/* Who Is For / Why Choose Us Sections (General Text Blocks) */
+.bullet-list-v4, .icon-list-v4 {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    max-width: 700px;
+    margin: 2rem auto 3rem auto;
+    text-align: left; /* Align list items to left */
+    font-size: 1.25rem;
+    line-height: 2.2;
+}
+
+.bullet-list-v4 li {
     position: relative;
-    z-index: 1;
+    padding-left: 2.5rem; /* Space for custom bullet */
+    margin-bottom: 1rem;
+    color: var(--text-dark); /* Ensure text color */
 }
 
-.bg-light-v4 {
-    background-color: var(--bg-light);
+.bullet-list-v4 li::before {
+    content: '•'; /* Custom bullet point */
+    position: absolute;
+    left: 0;
+    color: var(--brand-primary); /* Primary color for bullets */
+    font-size: 1.8em;
+    line-height: 1;
+    top: 0;
 }
 
-.bg-dark-v4 {
-    background-color: var(--bg-dark);
-    color: var(--white);
+.icon-list-v4 li {
+    display: flex; /* Align icon and text */
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark); /* Ensure text color */
 }
 
-.bg-dark-v4 h2, .bg-dark-v4 h3 {
-    color: var(--white);
+.icon-list-v4 li::before {
+    content: attr(data-icon); /* Use data-icon for content if you were using custom icons */
+    font-size: 2.2rem;
+    margin-right: 1.2rem;
+    color: var(--brand-primary); /* Icon color */
+    flex-shrink: 0;
+    line-height: 1;
 }
+/* Adjusting to directly use emojis in HTML for simplicity as per prompt */
+.icon-list-v4 li span {
+    font-size: 2.2rem;
+    margin-right: 1.2rem;
+    color: var(--brand-primary); /* Icon color */
+    flex-shrink: 0;
+    line-height: 1;
+}
+.icon-list-v4 li {
+    font-size: 1.25rem; /* Match list font size */
+}
+
 
 /* How It Works Section V4 */
 #how-it-works-v4 .steps-grid-v4 {
@@ -232,53 +308,6 @@ a:hover {
     font-size: 1.05rem;
     color: var(--text-dark);
     opacity: 0.85;
-}
-
-/* What You Get Section V4 */
-.deliverables-grid-v4 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-top: var(--spacing-unit);
-}
-
-.deliverable-item-v4 {
-    background-color: var(--white);
-    padding: 2.5rem 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
-    display: flex;
-    align-items: flex-start; /* Align icon and text at top */
-    font-size: 1.15rem;
-    transition: var(--transition-slow);
-    border: 1px solid rgba(0, 0, 0, 0.03); /* Very subtle border */
-}
-
-.deliverable-item-v4:hover {
-    transform: translateX(15px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border-color: var(--brand-primary);
-}
-
-.deliverable-icon-v4 {
-    font-size: 2.8rem;
-    margin-right: 1.5rem;
-    flex-shrink: 0;
-    line-height: 1;
-    color: var(--brand-primary); /* Icon color */
-}
-
-.deliverable-item-v4 p {
-    margin: 0;
-    line-height: 1.6;
-    color: var(--text-dark);
-}
-
-.deliverable-item-v4 p strong {
-    color: var(--text-dark); /* Keep strong text dark for professionalism */
-    font-weight: 700;
 }
 
 /* Founder Section V4 */
@@ -378,8 +407,8 @@ a:hover {
     margin: 0;
     opacity: 0.8;
 }
-
-.footer-links-v4 a {
+/* Removed footer-links-v4 as it's not in the new content strategy */
+/* .footer-links-v4 a {
     color: var(--subtle-accent);
     margin: 0 1.2rem;
     font-size: 0.9rem;
@@ -392,7 +421,7 @@ a:hover {
     color: var(--white);
     text-decoration: none;
     border-color: var(--white);
-}
+} */
 
 /* Animations (for initial load only) */
 @keyframes animateFadeIn {
@@ -428,7 +457,8 @@ a:hover {
 /* Staggered delays */
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
+/* .delay-3 removed as only 2 delays needed now */
+
 
 /* Responsive Design V4 */
 @media (min-width: 769px) {
@@ -452,8 +482,8 @@ a:hover {
     h2 { font-size: 2.8rem; }
     h3 { font-size: 1.8rem; }
     p { font-size: 1.05rem; }
-    .hero-v4 .subtitle-v4 { font-size: 2.2rem; }
-    .hero-v4 .one-liner-v4 { font-size: 1.3rem; }
+    .hero-v4 .subtitle-v4 { font-size: 2rem; }
+    .hero-v4 .one-liner-v4 { font-size: 1.2rem; } /* Re-added in case needed */
     .cta-button-v4 { padding: 1.2rem 3.2rem; font-size: 1.3rem; }
     .step-number-v4 { font-size: 3.5rem; }
 }
@@ -466,34 +496,36 @@ a:hover {
     }
 
     .hero-v4 h1 { font-size: 3.2rem; }
-    .hero-v4 .subtitle-v4 { font-size: 1.8rem; }
-    .hero-v4 .one-liner-v4 { font-size: 1.15rem; }
+    .hero-v4 .subtitle-v4 { font-size: 1.6rem; }
+    /* .hero-v4 .one-liner-v4 { font-size: 1.1rem; } Re-added in case needed */
     .cta-button-v4 { padding: 1rem 2.5rem; font-size: 1.1rem; }
 
     h2 { font-size: 2.5rem; margin-bottom: calc(1.8 * var(--spacing-unit)); }
     .section-v4 { padding: 4.5rem 0; }
-    .steps-grid-v4, .deliverables-grid-v4 { grid-template-columns: 1fr; }
-    .step-card-v4, .deliverable-item-v4 { padding: 2.5rem; }
+    .steps-grid-v4 { grid-template-columns: 1fr; }
+    .step-card-v4 { padding: 2.5rem; }
 
-    .deliverable-item-v4 { flex-direction: column; text-align: center; align-items: center; }
-    .deliverable-icon-v4 { margin-right: 0; margin-bottom: 1rem; }
+    .section-description-v4 { font-size: 1.1rem; }
+    .bullet-list-v4, .icon-list-v4 { font-size: 1.1rem; margin: 1.5rem auto 2rem auto; }
+    .bullet-list-v4 li, .icon-list-v4 li { padding-left: 2rem; }
+    .bullet-list-v4 li::before { font-size: 1.5em; top: -0.1em; }
+    .icon-list-v4 li span { font-size: 1.8rem; margin-right: 0.8rem; }
+
 
     .founder-card-v4 { padding: 2.5rem; flex-direction: column; gap: 2rem; }
     .founder-photo-v4 { width: 200px; height: 200px; margin-bottom: 2rem; }
     .founder-text-v4 h2 { font-size: 2.2rem; }
     .founder-bio-v4 { font-size: 1.05rem; }
-    .footer-links-v4 { flex-direction: column; gap: 0.5rem;}
-    .footer-links-v4 a { margin: 0; }
 }
 
 @media (max-width: 480px) {
     .hero-v4 h1 { font-size: 2.6rem; }
-    .hero-v4 .subtitle-v4 { font-size: 1.5rem; }
-    .hero-v4 .one-liner-v4 { font-size: 1rem; }
+    .hero-v4 .subtitle-v4 { font-size: 1.4rem; }
+    /* .hero-v4 .one-liner-v4 { font-size: 0.95rem; } Re-added in case needed */
     .cta-button-v4 { padding: 0.9rem 2.2rem; font-size: 1rem; }
     h2 { font-size: 2rem; }
     h3 { font-size: 1.8rem; }
-    .step-card-v4, .deliverable-item-v4 { padding: 2rem; }
+    .step-card-v4 { padding: 2rem; }
     .step-number-v4 { font-size: 3rem; }
     .founder-photo-v4 { width: 160px; height: 160px; }
 }
