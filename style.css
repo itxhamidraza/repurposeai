@@ -1,4 +1,4 @@
-/* Design 4: Minimal Elegance */
+/* Design 4: Minimal Elegance - Enhanced */
 
 /* Root Variables - New Limited Color Palette & Fonts */
 :root {
@@ -110,7 +110,6 @@ a:hover {
     font-size: 1.25rem;
     line-height: 1.8;
 }
-/* For dark backgrounds, adjust description color */
 .bg-dark-v4 .section-description-v4 {
     color: var(--white);
     opacity: 0.9;
@@ -163,16 +162,6 @@ a:hover {
     font-family: var(--font-body);
 }
 
-/* Removed one-liner-v4 as the subheadline now serves this purpose */
-/* If you want to keep a separate one-liner, uncomment and adjust its style */
-/* .hero-v4 .one-liner-v4 {
-    font-size: 1.5rem;
-    max-width: 850px;
-    margin: 0 auto 3.5rem auto;
-    line-height: 1.6;
-    opacity: 0.9;
-} */
-
 .cta-button-v4 {
     display: inline-block;
     background-color: var(--subtle-accent); /* Using subtle accent for CTA initially, might change to primary */
@@ -196,63 +185,54 @@ a:hover {
     text-decoration: none;
 }
 
-/* Who Is For / Why Choose Us Sections (General Text Blocks) */
-.bullet-list-v4, .icon-list-v4 {
-    list-style: none; /* Remove default bullets */
-    padding: 0;
-    max-width: 700px;
-    margin: 2rem auto 3rem auto;
-    text-align: left; /* Align list items to left */
-    font-size: 1.25rem;
-    line-height: 2.2;
+/* Who Is For / Why Choose Us Sections (New Feature Grid & Cards) */
+.feature-grid-v4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1000px; /* Constrain width for cleaner look */
+    margin: 2rem auto 3.5rem auto; /* Space around the grid */
 }
 
-.bullet-list-v4 li {
-    position: relative;
-    padding-left: 2.5rem; /* Space for custom bullet */
-    margin-bottom: 1rem;
-    color: var(--text-dark); /* Ensure text color */
-}
-
-.bullet-list-v4 li::before {
-    content: '•'; /* Custom bullet point */
-    position: absolute;
-    left: 0;
-    color: var(--brand-primary); /* Primary color for bullets */
-    font-size: 1.8em;
-    line-height: 1;
-    top: 0;
-}
-
-.icon-list-v4 li {
-    display: flex; /* Align icon and text */
+.feature-card-v4 {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    display: flex;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
-    color: var(--text-dark); /* Ensure text color */
+    text-align: left; /* Align text left within card */
+    transition: var(--transition-slow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.icon-list-v4 li::before {
-    content: attr(data-icon); /* Use data-icon for content if you were using custom icons */
-    font-size: 2.2rem;
-    margin-right: 1.2rem;
-    color: var(--brand-primary); /* Icon color */
-    flex-shrink: 0;
+.feature-card-v4:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--brand-primary);
+}
+
+.feature-icon-v4 {
+    font-size: 2.8rem; /* Larger icons */
+    margin-right: 1.5rem;
+    flex-shrink: 0; /* Prevent icon from shrinking */
     line-height: 1;
+    color: var(--brand-primary); /* Ensure icon color */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for icon */
 }
-/* Adjusting to directly use emojis in HTML for simplicity as per prompt */
-.icon-list-v4 li span {
-    font-size: 2.2rem;
-    margin-right: 1.2rem;
-    color: var(--brand-primary); /* Icon color */
-    flex-shrink: 0;
-    line-height: 1;
+
+.feature-card-v4 p {
+    margin: 0;
+    font-size: 1.1rem; /* Slightly smaller than section description */
+    line-height: 1.6;
 }
-.icon-list-v4 li {
-    font-size: 1.25rem; /* Match list font size */
+.feature-card-v4 p strong {
+    color: var(--text-dark); /* Keep strong text dark */
+    font-weight: 700;
 }
 
 
-/* How It Works Section V4 */
+/* How It Works Section V4 (Already good, slight tweaks) */
 #how-it-works-v4 .steps-grid-v4 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -268,13 +248,13 @@ a:hover {
     text-align: center;
     transition: var(--transition-slow);
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle border */
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .step-card-v4:hover {
     transform: translateY(-12px);
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-    border-color: var(--brand-primary); /* Border highlight on hover */
+    border-color: var(--brand-primary);
 }
 
 .step-number-v4 {
@@ -297,9 +277,8 @@ a:hover {
     border-radius: 2px;
 }
 
-
 .step-card-v4 h3 {
-    color: var(--text-dark); /* Changed to darker text */
+    color: var(--text-dark);
     margin-bottom: 0.8rem;
     font-size: 2.2rem;
 }
@@ -310,12 +289,35 @@ a:hover {
     opacity: 0.85;
 }
 
-/* Founder Section V4 */
+
+/* Founder Section V4 (Powerful & Energetic!) */
 #founder-section-v4 {
     text-align: center;
     position: relative;
     z-index: 1;
+    overflow: hidden; /* Important for background effects */
 }
+
+/* Background gradient for energy */
+#founder-section-v4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(90, 64, 245, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    z-index: 0;
+    animation: pulseBackground 15s infinite alternate ease-in-out; /* Subtle breathing animation */
+}
+
+@keyframes pulseBackground {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.95; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 
 .founder-content-v4 {
     max-width: 950px;
@@ -325,26 +327,31 @@ a:hover {
     align-items: center;
     gap: 3rem;
     padding-top: var(--spacing-unit);
+    position: relative; /* Ensure content is above ::before */
+    z-index: 1;
 }
 
 .founder-card-v4 {
     display: flex;
-    flex-direction: column; /* Stack on mobile */
+    flex-direction: column;
     align-items: center;
-    background-color: var(--bg-dark); /* Dark card background */
+    background-color: var(--bg-dark);
     padding: 3.5rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-deep);
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4); /* Deeper initial shadow */
     position: relative;
     z-index: 2;
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.8s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle white border on dark card */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Slightly more prominent white border */
+    /* Add an internal glow */
+    box-shadow: 0 0 0 5px rgba(90, 64, 245, 0.1) inset, var(--shadow-deep);
 }
 
 .founder-card-v4:hover {
-    transform: rotateY(3deg) scale(1.01); /* More subtle hover */
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+    transform: translateY(-15px) scale(1.02); /* More lift and slight scale */
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 8px var(--brand-primary) inset; /* Deeper shadow, stronger internal glow */
+    border-color: var(--brand-primary); /* Border shifts to primary */
 }
 
 .founder-photo-v4 {
@@ -353,16 +360,17 @@ a:hover {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 2.5rem;
-    border: 8px solid var(--brand-primary); /* Strong primary border */
-    box-shadow: 0 0 35px rgba(90, 64, 245, 0.7); /* Primary color glow */
-    transition: var(--transition-slow);
-    filter: grayscale(80%); /* Stronger grayscale */
+    border: 8px solid var(--subtle-accent); /* Start with subtle border */
+    box-shadow: 0 0 0 0 rgba(90, 64, 245, 0); /* Initial zero glow */
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+    filter: grayscale(100%) brightness(80%); /* Stronger grayscale, slightly darker */
 }
 
 .founder-card-v4:hover .founder-photo-v4 {
-    filter: grayscale(0%); /* Full color on hover */
-    border-color: var(--white); /* White border on hover */
-    transform: translateY(-8px);
+    filter: grayscale(0%) brightness(100%); /* Full color and brightness */
+    border-color: var(--brand-primary); /* Strong primary border on hover */
+    box-shadow: 0 0 0 10px rgba(90, 64, 245, 0.8); /* Stronger primary glow */
+    transform: scale(1.05); /* Slight photo pop */
 }
 
 .founder-text-v4 {
@@ -374,25 +382,35 @@ a:hover {
     color: var(--white);
     font-size: 2.8rem;
     margin-bottom: 1.8rem;
+    font-weight: 800; /* Bolder for more power */
+    letter-spacing: -0.02em;
+}
+
+.quote-wrapper-v4 {
+    background: rgba(255, 255, 255, 0.05); /* Slightly lighter background for the quote */
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1.5rem; /* Space from title */
+    border-left: 5px solid var(--brand-primary); /* Strong brand primary left border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .founder-bio-v4 {
     font-size: 1.15rem;
-    line-height: 2;
-    opacity: 0.9;
-    max-width: 750px;
-    margin: 0 auto;
-    font-weight: 300; /* Lighter weight for long text */
+    line-height: 1.8; /* Tighter line height for quote */
+    opacity: 0.95; /* Slightly less opaque */
+    font-weight: 400; /* Regular weight for readability in quote */
+    margin: 0; /* Remove default paragraph margin */
 }
 
-/* Footer V4 */
+/* Footer V4 (No changes needed here for requested sections) */
 .footer-v4 {
     background-color: var(--bg-dark);
     color: var(--subtle-accent);
     text-align: center;
     padding: 3.5rem 0;
     font-size: 0.95rem;
-    border-top: 6px solid var(--brand-primary); /* Strong brand line */
+    border-top: 6px solid var(--brand-primary);
 }
 
 .footer-v4 .container {
@@ -407,21 +425,6 @@ a:hover {
     margin: 0;
     opacity: 0.8;
 }
-/* Removed footer-links-v4 as it's not in the new content strategy */
-/* .footer-links-v4 a {
-    color: var(--subtle-accent);
-    margin: 0 1.2rem;
-    font-size: 0.9rem;
-    transition: var(--transition-fast);
-    padding: 0.5rem 0;
-    border-bottom: 1px solid transparent;
-}
-
-.footer-links-v4 a:hover {
-    color: var(--white);
-    text-decoration: none;
-    border-color: var(--white);
-} */
 
 /* Animations (for initial load only) */
 @keyframes animateFadeIn {
@@ -457,7 +460,6 @@ a:hover {
 /* Staggered delays */
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
-/* .delay-3 removed as only 2 delays needed now */
 
 
 /* Responsive Design V4 */
@@ -483,9 +485,14 @@ a:hover {
     h3 { font-size: 1.8rem; }
     p { font-size: 1.05rem; }
     .hero-v4 .subtitle-v4 { font-size: 2rem; }
-    .hero-v4 .one-liner-v4 { font-size: 1.2rem; } /* Re-added in case needed */
     .cta-button-v4 { padding: 1.2rem 3.2rem; font-size: 1.3rem; }
     .step-number-v4 { font-size: 3.5rem; }
+
+    .section-description-v4 { font-size: 1.15rem; }
+    .feature-grid-v4 { gap: 2rem; }
+    .feature-card-v4 { padding: 2rem; }
+    .feature-icon-v4 { font-size: 2.5rem; margin-right: 1.2rem;}
+    .feature-card-v4 p { font-size: 1.05rem; }
 }
 
 @media (max-width: 768px) {
@@ -497,7 +504,6 @@ a:hover {
 
     .hero-v4 h1 { font-size: 3.2rem; }
     .hero-v4 .subtitle-v4 { font-size: 1.6rem; }
-    /* .hero-v4 .one-liner-v4 { font-size: 1.1rem; } Re-added in case needed */
     .cta-button-v4 { padding: 1rem 2.5rem; font-size: 1.1rem; }
 
     h2 { font-size: 2.5rem; margin-bottom: calc(1.8 * var(--spacing-unit)); }
@@ -505,23 +511,23 @@ a:hover {
     .steps-grid-v4 { grid-template-columns: 1fr; }
     .step-card-v4 { padding: 2.5rem; }
 
-    .section-description-v4 { font-size: 1.1rem; }
-    .bullet-list-v4, .icon-list-v4 { font-size: 1.1rem; margin: 1.5rem auto 2rem auto; }
-    .bullet-list-v4 li, .icon-list-v4 li { padding-left: 2rem; }
-    .bullet-list-v4 li::before { font-size: 1.5em; top: -0.1em; }
-    .icon-list-v4 li span { font-size: 1.8rem; margin-right: 0.8rem; }
+    .section-description-v4 { font-size: 1.05rem; }
+    .feature-grid-v4 { grid-template-columns: 1fr; gap: 1.8rem; margin: 1.5rem auto 2rem auto; }
+    .feature-card-v4 { padding: 2rem; }
+    .feature-icon-v4 { font-size: 2.2rem; margin-right: 1rem; }
+    .feature-card-v4 p { font-size: 1rem; }
 
 
     .founder-card-v4 { padding: 2.5rem; flex-direction: column; gap: 2rem; }
     .founder-photo-v4 { width: 200px; height: 200px; margin-bottom: 2rem; }
     .founder-text-v4 h2 { font-size: 2.2rem; }
     .founder-bio-v4 { font-size: 1.05rem; }
+    .quote-wrapper-v4 { padding: 1.5rem 2rem; }
 }
 
 @media (max-width: 480px) {
     .hero-v4 h1 { font-size: 2.6rem; }
     .hero-v4 .subtitle-v4 { font-size: 1.4rem; }
-    /* .hero-v4 .one-liner-v4 { font-size: 0.95rem; } Re-added in case needed */
     .cta-button-v4 { padding: 0.9rem 2.2rem; font-size: 1rem; }
     h2 { font-size: 2rem; }
     h3 { font-size: 1.8rem; }
