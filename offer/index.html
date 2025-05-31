@@ -25,7 +25,7 @@
                 <p class="subtitle-v4 animate-fade-in delay-1">⚡ Normally $5,000 — Available for $1,000 This Week Only</p>
                 <div class="hero-cta-group animate-scale-in delay-2">
                     <a href="https://calendly.com/hamid-repurposeai/repurposing-strategy-call" class="cta-button-v4">Book a 15-Min Call →</a>
-                    <a href="#whats-included-v4" class="cta-secondary-button-v4">See What You Get</a>
+                    <a id="see-what-you-get-btn" class="cta-secondary-button-v4">See What You Get</a>
                 </div>
             </div>
         </div>
@@ -112,5 +112,19 @@
             <p class="footer-text-v4">&copy; 2025 RepurposeAI. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const seeWhatYouGetBtn = document.getElementById('see-what-you-get-btn');
+            const whatsIncludedSection = document.getElementById('whats-included-v4');
+
+            if (seeWhatYouGetBtn && whatsIncludedSection) {
+                seeWhatYouGetBtn.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default anchor link behavior
+                    whatsIncludedSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
