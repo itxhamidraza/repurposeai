@@ -46,13 +46,13 @@
         </div>
     </section>
 
-    <section id="problem-solution" class="section-padding content-section platinum-gray-bg">
+    <section id="problem-solution" class="section-padding content-section light-cool-gray-bg">
         <div class="container">
             <h2 class="section-title reveal-up">RepurposeAI is for creators who don’t just want to post more. They want to <span class="highlight">own the feed</span> without wasting hours in editing hell.</h2>
         </div>
     </section>
 
-    <section id="offer-details" class="section-padding content-section deep-charcoal-bg">
+    <section id="offer-details" class="section-padding content-section deep-midnight-blue-bg">
         <div class="container">
             <div class="package-intro reveal-up">
                 <h3 class="intro-heading">✅ The RepurposeAI Momentum Package</h3>
@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <section id="how-it-works" class="section-padding content-section platinum-gray-bg">
+    <section id="how-it-works" class="section-padding content-section light-cool-gray-bg">
         <div class="container">
             <h2 class="section-title reveal-up">Here’s what happens when you say yes…</h2>
             <div class="progress-steps-container">
@@ -118,7 +118,7 @@
         </div>
     </section>
 
-    <section id="personal-media-machine" class="section-padding content-section deep-charcoal-bg">
+    <section id="personal-media-machine" class="section-padding content-section deep-midnight-blue-bg">
         <div class="container">
             <h2 class="section-title reveal-up">This Is Not a Content Package.</h2>
             <p class="section-description text-light reveal-up delay-1">It’s the start of your <span class="emphasis-white">Personal Media Machine.</span></p>
@@ -131,7 +131,7 @@
         </div>
     </section>
 
-    <section id="value-comparison" class="section-padding content-section platinum-gray-bg">
+    <section id="value-comparison" class="section-padding content-section light-cool-gray-bg">
         <div class="container">
             <h2 class="section-title text-dark reveal-up">💸 $5,000+ of Value — for $2,000</h2>
             <p class="section-description reveal-up delay-1">If you had to build this yourself:</p>
@@ -162,7 +162,7 @@
         </div>
     </section>
 
-    <section id="call-to-action" class="section-padding content-section deep-charcoal-bg">
+    <section id="call-to-action" class="section-padding content-section deep-midnight-blue-bg">
         <div class="container">
             <h2 class="section-title text-light reveal-up">Only 2 Spots Left This Week</h2>
             <p class="section-description text-light reveal-up delay-1">No testimonials. No <span class="emphasis-white">“maybe later.”</span></p>
@@ -170,8 +170,8 @@
             <p class="action-prompt text-light reveal-up delay-3">🟢 If you’re ready to scale your voice like a pro —</p>
             <div class="button-center-wrapper reveal-up delay-4">
                 <a href="https://repurposeai.co/offer" target="_blank" class="btn btn-primary btn-large animate-scale">Book your strategy call now →</a>
+                <p class="fine-print text-light reveal-up delay-5">Offer valid for the next <span id="final-countdown-short">X hours</span>. Limited capacity.</p>
             </div>
-            <p class="fine-print text-light reveal-up delay-5">Offer valid for the next <span id="final-countdown-short">X hours</span>. Limited capacity.</p>
         </div>
     </section>
 
@@ -247,29 +247,20 @@
             }
 
             // Set the countdown to end 7 days from now as an example
-            const offerEndDate = new Date();
-            offerEndDate.setDate(offerEndDate.getDate() + 7); // Offer ends 7 days from page load
+            // Current time in Pakistan: Sunday, June 8, 2025 at 1:24:29 AM PKT.
+            // Let's make it end at 23:59:59 on June 14, 2025 PKT (approx 6 days and 22 hours from now)
+            const targetDate = new Date('June 14, 2025 23:59:59 GMT+0500'); // PKT is GMT+5
+            setupCountdown(targetDate.getTime());
+
 
             updateCountdown(); // Initial call
             const interval = setInterval(updateCountdown, 1000);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Set countdown for 7 days from now as an example
-            setupCountdown(new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000));
-            // To set a specific date and time, uncomment and modify:
-            // setupCountdown(new Date("June 15, 2025 23:59:59").getTime());
-
-
-            // Smooth scrolling for internal links (removed for the specific button, but kept general)
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
+            // Set countdown to specific target date (June 14, 2025 23:59:59 PKT)
+            const targetDate = new Date('June 14, 2025 23:59:59 GMT+0500'); // PKT is GMT+5
+            setupCountdown(targetDate.getTime());
 
             // Intersection Observer for scroll animations
             const observer = new IntersectionObserver((entries) => {
@@ -287,6 +278,18 @@
             document.querySelectorAll('.reveal-up, .reveal-down, .reveal-left, .reveal-right, .animate-scale, .pulse-animation').forEach(element => {
                 observer.observe(element);
             });
+        });
+
+        // Sticky Header Shrink Logic
+        document.addEventListener('scroll', function() {
+            const urgencyBanner = document.getElementById('urgency-banner');
+            const scrollThreshold = 100; // Adjust as needed
+
+            if (window.scrollY > scrollThreshold) {
+                urgencyBanner.classList.add('shrunk');
+            } else {
+                urgencyBanner.classList.remove('shrunk');
+            }
         });
     </script>
 </body>
