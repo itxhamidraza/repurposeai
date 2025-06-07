@@ -11,6 +11,7 @@
     --secondary-cta-color: #8C7BFC; /* Lighter shade of primary for secondary button */
     --highlight-light: #ECE8FF; /* New: very light primary for backgrounds */
     --highlight-dark: #4532C0; /* New: darker primary for accents */
+    --vibrant-gradient: linear-gradient(135deg, #7E6CFC 0%, #5A40F5 100%); /* New: for dynamic elements */
 
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Lato', sans-serif;
@@ -18,6 +19,7 @@
     --spacing-unit: 1.5rem;
     --border-radius: 10px;
     --shadow-light: 0 6px 20px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.1); /* Slightly stronger */
     --shadow-deep: 0 12px 35px rgba(0, 0, 0, 0.2);
     --transition-fast: all 0.25s ease-out;
     --transition-slow: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -87,7 +89,7 @@ a:hover {
 
 /* Common Section Styles */
 .section-v4 {
-    padding: 7rem 0;
+    padding: 7rem 0; /* Consistent vertical padding for all sections */
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -124,9 +126,9 @@ a:hover {
 
 /* Hero Section V4 */
 .hero-v4 {
-    background: linear-gradient(135deg, var(--brand-primary) 0%, #7E6CFB 100%); /* Subtle gradient */
+    background: linear-gradient(135deg, var(--brand-primary) 0%, #7E6CFB 100%);
     color: var(--white);
-    padding: 8rem 0 10rem 0; /* More padding at bottom for shape */
+    padding: 8rem 0 10rem 0;
     text-align: center;
     display: flex;
     align-items: center;
@@ -134,7 +136,7 @@ a:hover {
     min-height: 75vh;
     position: relative;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); /* Elegant wave effect */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
 }
 
 .hero-content-v4 {
@@ -142,10 +144,10 @@ a:hover {
     z-index: 2;
     max-width: 950px;
     padding: 2.5rem 3rem;
-    background: rgba(255, 255, 255, 0.08); /* Very subtle transparent background */
+    background: rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius);
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px); /* Soft blur effect behind content */
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -153,46 +155,44 @@ a:hover {
     color: var(--white);
     text-shadow: 0 4px 15px rgba(0,0,0,0.3);
     line-height: 1.1;
-    margin-bottom: 1.5rem; /* Space below headline */
+    margin-bottom: 1.5rem;
 }
 
 .hero-v4 .subtitle-v4 {
     font-size: 2.4rem;
-    margin-bottom: 2.5rem; /* More space below subtitle */
+    margin-bottom: 2.5rem;
     opacity: 0.95;
     font-weight: 400;
     font-family: var(--font-body);
 }
 
-/* Adjusted hero description to match section-description-v4 style */
 .hero-description {
     color: var(--white);
     opacity: 0.9;
-    font-size: 1.25rem; /* Keep consistent with section-description-v4 */
-    max-width: 700px; /* Adjust max width for hero text */
+    font-size: 1.25rem;
+    max-width: 700px;
     margin-bottom: 2.5rem;
 }
-
 
 /* CTA Group for Hero Section */
 .hero-cta-group {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Space between buttons */
+    gap: 1.5rem;
     align-items: center;
     margin-top: 3rem;
 }
 
 .cta-button-v4 {
     display: inline-block;
-    background-color: var(--brand-primary); /* Directly use primary for main CTA */
+    background-color: var(--brand-primary);
     color: var(--white);
     padding: 1.4rem 3.8rem;
     border-radius: 50px;
     font-size: 1.45rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em; /* Slightly tighter letter spacing */
+    letter-spacing: 0.05em;
     transition: var(--transition-slow);
     box-shadow: 0 10px 30px rgba(90, 64, 245, 0.4);
     border: none;
@@ -200,7 +200,7 @@ a:hover {
 }
 
 .cta-button-v4:hover {
-    background-color: var(--highlight-dark); /* Slightly darker primary on hover */
+    background-color: var(--highlight-dark);
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 18px 45px rgba(90, 64, 245, 0.6);
     text-decoration: none;
@@ -208,10 +208,10 @@ a:hover {
 
 .cta-secondary-button-v4 {
     display: inline-block;
-    background-color: transparent; /* Transparent background */
+    background-color: transparent;
     color: var(--white);
     padding: 1.4rem 3.8rem;
-    border: 2px solid rgba(255, 255, 255, 0.6); /* Subtle white border */
+    border: 2px solid rgba(255, 255, 255, 0.6);
     border-radius: 50px;
     font-size: 1.45rem;
     font-weight: 700;
@@ -219,12 +219,12 @@ a:hover {
     letter-spacing: 0.05em;
     transition: var(--transition-slow);
     font-family: var(--font-heading);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Lighter shadow */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .cta-secondary-button-v4:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle white background on hover */
-    border-color: var(--white); /* Stronger white border on hover */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
     text-decoration: none;
@@ -232,19 +232,19 @@ a:hover {
 
 
 /* --- Revamped What's Included Section --- */
-/* Outer container padding is fine */
 #whats-included-v4 {
-    background-color: var(--bg-light); /* Ensure consistent light background */
+    background-color: var(--bg-light);
+    padding-bottom: 5rem; /* Slightly less padding at bottom to bring next section closer */
 }
 
 .package-intro-header {
-    background-color: var(--highlight-light); /* Light primary background */
+    background-color: var(--highlight-light);
     padding: 2.5rem 3.5rem;
     border-radius: var(--border-radius);
-    text-align: center; /* Center content within this header block */
-    max-width: 900px; /* Constrain width */
-    margin: 0 auto 3.5rem auto; /* Center and add space below */
-    box-shadow: var(--shadow-light);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 3.5rem auto;
+    box-shadow: var(--shadow-medium); /* Slightly stronger shadow */
     border: 1px solid rgba(0, 0, 0, 0.03);
     position: relative;
     overflow: hidden;
@@ -277,9 +277,9 @@ a:hover {
 }
 
 .package-title {
-    font-size: 3.5rem; /* Larger and more prominent */
+    font-size: 3.5rem;
     font-weight: 800;
-    color: var(--brand-primary); /* Use brand color for impact */
+    color: var(--brand-primary);
     margin-bottom: 0.8rem;
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -294,17 +294,17 @@ a:hover {
     line-height: 1.5;
 }
 
-/* Feature Grid for offer details (cards remain similar, but styling might be adjusted slightly to fit the new header) */
+/* --- ENHANCED FEATURE CARDS (The 5 Steps) --- */
 .feature-grid-v4 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
-    max-width: 1000px; /* Constrain width for cleaner look */
-    margin: 2rem auto 3.5rem auto; /* Space around the grid */
+    max-width: 1000px;
+    margin: 2rem auto 3.5rem auto;
 }
 
 .feature-grid-v4.offer-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -312,52 +312,78 @@ a:hover {
     background-color: var(--white);
     padding: 2.5rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-light);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* Lighter initial shadow */
     display: flex;
     align-items: flex-start;
-    text-align: left; /* Align text left within card */
+    text-align: left;
     transition: var(--transition-slow);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 2px solid transparent; /* Start with transparent border */
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Ensure shadow/border appears correctly */
+
+    /* New: subtle background pattern for energy */
+    background-image: radial-gradient(circle at 100% 0%, rgba(90, 64, 245, 0.03) 0%, transparent 20%);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 150px 150px;
 }
 
 .feature-card-v4:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-    border-color: var(--brand-primary);
+    transform: translateY(-12px) scale(1.02); /* More pronounced lift */
+    /* New: stronger shadow and a primary color "ring" effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 4px var(--brand-primary);
+    border-color: transparent; /* Keep transparent, the box-shadow creates the border effect */
+    background-image: radial-gradient(circle at 100% 0%, rgba(90, 64, 245, 0.06) 0%, transparent 25%); /* More visible on hover */
 }
 
+/* New: Make the icon container more prominent and dynamic */
 .feature-icon-v4 {
-    font-size: 2.8rem; /* Larger icons */
+    font-size: 2.8rem;
     margin-right: 1.5rem;
-    flex-shrink: 0; /* Prevent icon from shrinking */
+    flex-shrink: 0;
     line-height: 1;
-    color: var(--brand-primary); /* Ensure icon color */
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for icon */
+    color: var(--brand-primary); /* Icon color */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
+    /* New styling for icon container */
+    background-color: var(--highlight-light); /* Light purple background circle */
+    border-radius: 50%; /* Make it a circle */
+    width: 60px; /* Fixed size for consistency */
+    height: 60px;
+    display: flex; /* Use flexbox to center content */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Subtle shadow for the icon circle */
+    transition: var(--transition-fast); /* Smooth transition for icon itself */
+}
+
+.feature-card-v4:hover .feature-icon-v4 {
+    transform: rotate(5deg) scale(1.1); /* Subtle rotation and scale on card hover */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    background-color: var(--brand-primary); /* Change icon background to brand color on hover */
+    color: var(--white); /* Change icon color to white on hover */
 }
 
 .feature-card-v4 h3 {
-    margin-bottom: 0.5rem; /* Adjust spacing for h3 inside card */
+    font-size: 1.9rem; /* Slightly larger heading for more impact */
+    font-weight: 700;
+    margin-bottom: 0.8rem; /* More space below heading */
+    color: var(--text-dark); /* Ensure it's dark */
 }
 
 .feature-card-v4 p {
-    margin: 0;
-    font-size: 1.1rem; /* Slightly smaller than section description */
+    margin-bottom: 0.6rem; /* Increase space between paragraphs */
+    font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 0.5rem; /* space between paragraphs inside card */
-}
-.feature-card-v4 p:last-child {
-    margin-bottom: 0; /* No margin on the last paragraph */
-}
-
-.feature-card-v4 p strong {
-    color: var(--text-dark); /* Keep strong text dark */
-    font-weight: 700;
+    color: var(--text-dark);
+    opacity: 0.9;
 }
 
 
 /* --- Revamped Personal Media Machine Section --- */
 #personal-media-machine-v4 {
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--highlight-dark) 100%); /* Dark gradient */
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--highlight-dark) 100%);
     color: var(--white);
     padding: 8rem 0;
     position: relative;
@@ -400,12 +426,12 @@ a:hover {
 }
 
 .benefit-item {
-    background-color: rgba(255, 255, 255, 0.08); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.08);
     padding: 2.5rem;
     border-radius: var(--border-radius);
     text-align: center;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px); /* Subtle blur */
+    backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: var(--transition-slow);
 }
@@ -417,11 +443,11 @@ a:hover {
 }
 
 .benefit-icon {
-    font-size: 4rem; /* Large icon */
+    font-size: 4rem;
     margin-bottom: 1rem;
     display: block;
     line-height: 1;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2)); /* Subtle shadow on icon */
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
 }
 
 .benefit-item p {
@@ -433,10 +459,14 @@ a:hover {
 }
 
 
-/* Pricing Section Specific Styles (keep original, it works well) */
+/* Pricing Section Specific Styles */
+#pricing-value-v4 {
+    background-color: var(--bg-dark); /* Ensure it uses the dark background */
+}
+
 #pricing-value-v4 h2 {
     color: var(--white);
-    font-size: 3.8rem; /* Make pricing headline stand out */
+    font-size: 3.8rem;
     line-height: 1.1;
     margin-bottom: 2rem;
 }
@@ -448,7 +478,7 @@ a:hover {
     max-width: 400px;
     text-align: center;
     font-family: var(--font-body);
-    font-size: 1.8rem; /* Larger for impact */
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--white);
     opacity: 0.9;
@@ -456,7 +486,7 @@ a:hover {
 }
 
 .pricing-highlight {
-    font-size: 3.2rem; /* Very large for the main price point */
+    font-size: 3.2rem;
     font-weight: 800;
     color: var(--white);
     margin: 3rem auto 1.5rem auto;
@@ -464,7 +494,7 @@ a:hover {
 }
 
 .strong-impact {
-    font-size: 1.8rem; /* Make "You're not buying content" stand out */
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--white);
     margin-top: 3rem;
@@ -477,20 +507,20 @@ a:hover {
     max-width: 400px;
     text-align: center;
     font-family: var(--font-body);
-    font-size: 1.4rem; /* Impactful list */
+    font-size: 1.4rem;
     color: var(--white);
     opacity: 0.9;
     line-height: 1.8;
 }
 
 .buying-list li::before {
-    content: '✅ '; /* Checkmark for positive framing */
-    color: var(--brand-primary); /* Use brand primary for checkmark */
+    content: '✅ ';
+    color: var(--brand-primary);
     font-weight: bold;
 }
 
 .final-value-statement {
-    font-size: 1.35rem; /* Emphasize the payoff */
+    font-size: 1.35rem;
     font-weight: 600;
     font-style: italic;
     color: var(--white);
@@ -500,7 +530,7 @@ a:hover {
 }
 
 
-/* Urgency Section (keep original, it works well) */
+/* Urgency Section */
 #urgency-section-v4 {
     background-color: var(--bg-light);
     color: var(--text-dark);
@@ -531,39 +561,7 @@ a:hover {
     margin-bottom: 3.5rem;
 }
 
-/* Call to Action Section (bottom) - Reusing existing cta-bottom-v4 */
-#cta-bottom-v4 {
-    background-color: var(--brand-primary);
-    color: var(--white);
-    padding: 5rem 0;
-}
-
-#cta-bottom-v4 h2 {
-    color: var(--white);
-    font-size: 3.2rem;
-    margin-bottom: 2rem;
-}
-
-#cta-bottom-v4 .section-description-v4 {
-    color: var(--white);
-    opacity: 0.9;
-    margin-bottom: 3rem;
-}
-
-#cta-bottom-v4 .cta-button-v4 {
-    background-color: var(--white);
-    color: var(--brand-primary);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-#cta-bottom-v4 .cta-button-v4:hover {
-    background-color: var(--bg-light);
-    color: var(--brand-primary);
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
-}
-
-/* Footer V4 (keep original) */
+/* Footer V4 */
 .footer-v4 {
     background-color: var(--bg-dark);
     color: var(--subtle-accent);
@@ -636,19 +634,19 @@ a:hover {
     opacity: 0;
 }
 
-/* Staggered delays - Adjusted for new structure */
+/* Staggered delays */
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.6s; }
 .delay-4 { animation-delay: 0.8s; }
 .delay-5 { animation-delay: 1.0s; }
 .delay-6 { animation-delay: 1.2s; }
-.delay-7 { animation-delay: 1.4s; } /* Used for the new "This is not a content package" section's H2 */
-.delay-8 { animation-delay: 1.6s; } /* For the tagline within PMM section */
-.delay-9 { animation-delay: 1.8s; } /* For the intro text within PMM section */
-.delay-10 { animation-delay: 2.0s; } /* For the first benefit item in PMM grid */
-.delay-11 { animation-delay: 2.2s; } /* For the second benefit item */
-.delay-12 { animation-delay: 2.4s; } /* For the third benefit item */
+.delay-7 { animation-delay: 1.4s; }
+.delay-8 { animation-delay: 1.6s; }
+.delay-9 { animation-delay: 1.8s; }
+.delay-10 { animation-delay: 2.0s; }
+.delay-11 { animation-delay: 2.2s; }
+.delay-12 { animation-delay: 2.4s; }
 
 
 /* Responsive Design V4 */
@@ -669,7 +667,7 @@ a:hover {
     .package-subtitle { font-size: 1.4rem; }
     .feature-grid-v4 { gap: 2rem; }
     .feature-card-v4 { padding: 2rem; }
-    .feature-icon-v4 { font-size: 2.5rem; margin-right: 1.2rem;}
+    .feature-icon-v4 { font-size: 2.5rem; margin-right: 1.2rem; width: 55px; height: 55px;} /* Adjusted icon size */
     .feature-card-v4 p { font-size: 1.05rem; }
 
     /* Revamped Personal Media Machine */
@@ -727,7 +725,7 @@ a:hover {
     .package-subtitle { font-size: 1.2rem; }
     .feature-grid-v4 { grid-template-columns: 1fr; gap: 1.8rem; margin: 1.5rem auto 2rem auto; }
     .feature-card-v4 { padding: 2rem; }
-    .feature-icon-v4 { font-size: 2.2rem; margin-right: 1rem; }
+    .feature-icon-v4 { font-size: 2.2rem; margin-right: 1rem; width: 50px; height: 50px; } /* Adjusted icon size */
     .feature-card-v4 p { font-size: 1rem; }
     .feature-card-v4 h3 { font-size: 1.7rem; }
 
@@ -786,7 +784,7 @@ a:hover {
     .pricing-highlight { font-size: 2rem; }
     .strong-impact { font-size: 1.2rem; }
     .buying-list { font-size: 1.1rem; }
-    .final-value-statement { font-size: 1rem; }
+    .final-value-statement { font-size: 1.05rem; }
 
     #urgency-section-v4 h2 { font-size: 2.2rem; }
     #urgency-section-v4 .section-description-v4 { font-size: 1rem; }
