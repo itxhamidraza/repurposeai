@@ -386,9 +386,9 @@ a:hover {
     margin: 0 auto 5rem auto;
 
     /* NEW REDESIGN FOR DEPTH AND PREMIUM FEEL WITH NEW COLORS */
-    background: radial-gradient(circle at center, #2C4056 0%, var(--primary-dark-bg) 70%); /* Radial gradient for depth, slightly lighter blue */
-    border: 2px solid rgba(0, 168, 150, 0.2); /* Thicker, subtle teal border */
-    box-shadow: 0 25px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(0, 168, 150, 0.08); /* Deeper outer shadow, subtle teal inner glow */
+    background: radial-gradient(circle at center, #38526E 0%, var(--primary-dark-bg) 70%); /* Slightly lighter start */
+    border: 3px solid rgba(0, 168, 150, 0.3); /* Slightly thicker, more vibrant border */
+    box-shadow: 0 30px 70px rgba(0,0,0,0.7), inset 0 0 50px rgba(0, 168, 150, 0.1); /* More pronounced shadows */
     padding: 4rem 3rem;
     border-radius: var(--border-radius);
     color: var(--pure-white);
@@ -397,17 +397,29 @@ a:hover {
     z-index: 1;
 }
 
-.package-intro::before {
+.package-intro::before,
+.package-intro::after {
     content: '';
     position: absolute;
-    top: -50px;
-    left: -50px;
-    right: -50px;
-    bottom: -50px;
-    background: radial-gradient(circle at 50% 0%, rgba(0, 168, 150, 0.05) 0%, transparent 70%); /* Top subtle light glow using new accent */
-    pointer-events: none;
-    z-index: -1;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    opacity: 0.7;
 }
+
+.package-intro::before {
+    top: 1.5rem;
+    left: 1.5rem;
+    transform: rotate(-45deg);
+}
+
+.package-intro::after {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    transform: rotate(45deg);
+}
+
 
 .package-intro .intro-heading {
     color: var(--pure-white);
@@ -568,9 +580,11 @@ a:hover {
 /* --- Personal Media Machine Section --- */
 .personal-media-machine .section-title {
     color: var(--pure-white);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Added text shadow for readability */
 }
 .personal-media-machine .section-description {
     color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Added text shadow for readability */
 }
 .personal-media-machine .section-description .emphasis-white {
     color: var(--pure-white);
@@ -591,6 +605,7 @@ a:hover {
     padding-left: 2.8rem;
     line-height: 1.6;
     font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Added text shadow for readability */
 }
 .benefit-list li::before {
     content: '✓';
@@ -750,6 +765,7 @@ a:hover {
     color: var(--pure-white);
     margin-bottom: 2.5rem;
     text-align: center;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Added text shadow for readability */
 }
 
 .action-prompt .green-dot {
@@ -773,6 +789,7 @@ a:hover {
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.85);
     text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Added text shadow for readability */
 }
 
 /* --- Footer --- */
