@@ -1,6 +1,6 @@
 /* --- Core Variables & Global Styles --- */
 :root {
-    --deep-charcoal: #1A1A1A;       /* Primary for backgrounds/text - Dark, premium */
+    --deep-charcoal: #2C2C2C;       /* Primary for backgrounds/text - Softer, richer dark gray */
     --light-cool-gray: #F8F9FA;     /* Secondary background - Light, clean */
     --vibrant-emerald: #00C853;     /* Accent for CTAs/highlights - Bold, modern, growth */
     --soft-gold: #FFC107;           /* Secondary accent - subtle luxury/warmth */
@@ -143,7 +143,7 @@ a:hover {
 }
 
 .deep-charcoal-bg {
-    background-color: var(--deep-charcoal);
+    background-color: var(--deep-charcoal); /* Updated to softer charcoal */
     color: var(--pure-white); /* All text on this background is white */
 }
 .deep-charcoal-bg h2, .deep-charcoal-bg h3, .deep-charcoal-bg h4 {
@@ -191,7 +191,7 @@ a:hover {
 
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(135deg, var(--deep-charcoal) 0%, #333333 100%); /* Adjusted gradient with new charcoal */
+    background: linear-gradient(135deg, var(--deep-charcoal) 0%, #3a3a3a 100%); /* Adjusted gradient with new charcoal */
     color: var(--pure-white);
     padding: 10rem 0 8rem 0;
     text-align: center;
@@ -385,39 +385,68 @@ a:hover {
     text-align: center;
     max-width: 850px;
     margin: 0 auto 5rem auto;
-    /* REDESIGNED FOR CLARITY & PREMIUM SOLID LOOK */
-    background: linear-gradient(145deg, #2A2A2A 0%, #101010 100%); /* Dark charcoal gradient */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-    box-shadow: 0 20px 50px var(--shadow-dark); /* Deeper shadow */
-    padding: 3.5rem 2.5rem;
+    
+    /* NEW REDESIGN FOR DEPTH AND PREMIUM FEEL */
+    background: radial-gradient(circle at center, #3A3A3A 0%, var(--deep-charcoal) 70%); /* Radial gradient for depth */
+    border: 2px solid rgba(0, 200, 83, 0.2); /* Thicker, subtle emerald border */
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(0, 200, 83, 0.08); /* Deeper outer shadow, subtle emerald inner glow */
+    padding: 4rem 3rem; /* Increased padding */
     border-radius: var(--border-radius);
-    color: var(--pure-white); /* ALL TEXT IS PURE WHITE FOR VISIBILITY */
+    color: var(--pure-white);
     position: relative;
     overflow: hidden;
     z-index: 1;
 }
 
+.package-intro::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 200, 83, 0.05) 0%, transparent 70%); /* Top subtle light glow */
+    pointer-events: none;
+    z-index: -1;
+}
+
 .package-intro .intro-heading {
     color: var(--pure-white);
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-size: clamp(2.2rem, 4vw, 3rem); /* Slightly larger heading */
     margin-bottom: 1rem;
     font-weight: 800;
 }
 
+.package-intro .intro-heading .check-icon { /* Style for the checkmark emoji */
+    font-size: 1.2em; /* Make it slightly larger than text */
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    text-shadow: 0 0 10px rgba(0, 200, 83, 0.7); /* A subtle glow for the checkmark */
+}
+
+
 .package-intro .intro-subtext {
     font-size: clamp(1.15rem, 1.9vw, 1.4rem);
     opacity: 0.95;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem; /* Increased margin */
     color: var(--pure-white);
 }
 
+.divider-line { /* New divider line styling */
+    width: 120px; /* Thicker line */
+    height: 4px; /* More prominent */
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 200, 83, 0.7) 50%, transparent 100%); /* Gradient for glow effect */
+    margin: 3.5rem auto 3.5rem auto; /* Centered with ample space */
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(0, 200, 83, 0.5); /* Glow for the line */
+}
+
 .package-intro .delivery-time {
-    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+    font-size: clamp(1.35rem, 2.2vw, 1.7rem); /* Slightly larger text */
     font-weight: 700;
     color: var(--pure-white);
-    border-top: 1px solid rgba(255,255,255,0.2);
-    padding-top: 1.8rem;
-    margin-top: 1.8rem;
+    padding-top: 0; /* Remove top padding as divider is separate element */
+    margin-top: 0;
     display: inline-block;
 }
 .package-intro .delivery-time .emphasis-white {
@@ -851,8 +880,8 @@ a:hover {
         font-size: clamp(1.2rem, 2.3vw, 1.4rem);
     }
 
-    .package-intro { padding: 3rem 2rem; margin-bottom: 4rem; }
-    .package-intro .intro-heading { font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+    .package-intro { padding: 3.5rem 2.5rem; margin-bottom: 4rem; } /* Adjusted padding */
+    .package-intro .intro-heading { font-size: clamp(2rem, 3.5vw, 2.8rem); } /* Adjusted font size */
     .features-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
     .feature-card { padding: 2.5rem; }
     .icon-wrapper { width: 70px; height: 70px; margin-bottom: 1.5rem; }
@@ -898,8 +927,8 @@ a:hover {
     .urgency-section:not(.shrunk) .spots-left { font-size: clamp(0.95rem, 1.6vw, 1.15rem); margin-top: 0.5rem; }
     .urgency-section:not(.shrunk) .spots-left .spot-count { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
 
-    .package-intro { padding: 2.5rem 1.8rem; margin-bottom: 3.5rem; }
-    .package-intro .intro-heading { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
+    .package-intro { padding: 3rem 2rem; margin-bottom: 3.5rem; } /* Adjusted padding */
+    .package-intro .intro-heading { font-size: clamp(1.8rem, 3.2vw, 2.5rem); } /* Adjusted font size */
     .features-grid { grid-template-columns: 1fr; gap: 2rem; }
     .feature-card { padding: 2rem; }
     .icon-wrapper { width: 65px; height: 65px; margin-bottom: 1.2rem; }
@@ -937,7 +966,7 @@ a:hover {
         padding: 0.6rem 0;
     }
     .urgency-section:not(.shrunk) .urgency-message { font-size: clamp(0.8rem, 1.3vw, 0.95rem); }
-    .urgency-section:not(.shrunk) .countdown-timer { gap: 0.6rem; }
+    .urgency-section:not(.shrunk) .countdown-timer { flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
     .urgency-section:not(.shrunk) .time-block { min-width: 60px; padding: 0.5rem 0.7rem; }
     .urgency-section:not(.shrunk) .time-block span { font-size: clamp(1.5rem, 3vw, 2rem); }
     .urgency-section:not(.shrunk) .time-block small { font-size: 0.6rem; }
@@ -949,8 +978,8 @@ a:hover {
     .btn-larger { padding: 1.2rem 2.5rem; font-size: clamp(1rem, 1.9vw, 1.2rem); }
     .btn-large { padding: 1.2rem 2.5rem; font-size: clamp(1rem, 1.9vw, 1.2rem); }
 
-    .package-intro { padding: 2rem 1.5rem; }
-    .package-intro .intro-heading { font-size: clamp(1.4rem, 2.8vw, 1.8rem); }
+    .package-intro { padding: 2.5rem 1.5rem; } /* Adjusted padding */
+    .package-intro .intro-heading { font-size: clamp(1.6rem, 2.8vw, 2.2rem); } /* Adjusted font size */
     .features-grid { gap: 1.5rem; }
     .feature-card { padding: 1.8rem; }
     .icon-wrapper { width: 55px; height: 55px; margin-bottom: 1rem; }
