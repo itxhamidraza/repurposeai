@@ -1,19 +1,17 @@
 /* --- Core Variables & Global Styles --- */
 :root {
-    --deep-midnight-blue: #0C102E;   /* Primary for backgrounds/text - Dark, premium */
-    --light-cool-gray: #F0F2F5;     /* Secondary background - Light, clean */
-    --vibrant-orange: #FF6B00;      /* Accent for CTAs/highlights - Bold, urgent */
-    --soft-gold: #FDD835;           /* Secondary accent - subtle luxury */
-    --clean-white: #FFFFFF;         /* Text on dark backgrounds */
-
-    --text-dark: #2A2A2A;           /* General text on light backgrounds - refined dark gray */
-    --text-light: var(--clean-white);    /* General text on dark backgrounds */
+    --deep-charcoal: #1A1A1A;       /* Primary for backgrounds/text - Dark, premium */
+    --light-cool-gray: #F8F9FA;     /* Secondary background - Light, clean */
+    --vibrant-emerald: #00C853;     /* Accent for CTAs/highlights - Bold, modern, growth */
+    --soft-gold: #FFC107;           /* Secondary accent - subtle luxury/warmth */
+    --pure-white: #FFFFFF;          /* Text on dark backgrounds */
+    --text-on-light-bg: #212121;    /* Text on light backgrounds - ensures density */
 
     --shadow-light: rgba(0, 0, 0, 0.08);
-    --shadow-medium: rgba(0, 0, 0, 0.2); /* Slightly stronger for more depth */
-    --shadow-dark: rgba(0, 0, 0, 0.45); /* Significantly stronger for premium feel */
+    --shadow-medium: rgba(0, 0, 0, 0.25); /* Stronger for depth */
+    --shadow-dark: rgba(0, 0, 0, 0.5); /* Significantly stronger for premium feel */
     --border-radius: 12px;
-    --transition-speed: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Faster transition */
+    --transition-speed: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Fast transition */
 
     --font-heading: 'Inter', sans-serif;
     --font-body: 'IBM Plex Sans', sans-serif;
@@ -33,7 +31,7 @@ html {
 body {
     font-family: var(--font-body);
     line-height: 1.7;
-    color: var(--text-dark);
+    color: var(--text-on-light-bg); /* Default text color */
     background-color: var(--light-cool-gray);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -42,7 +40,7 @@ body {
 
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
-    color: var(--deep-midnight-blue);
+    color: var(--text-on-light-bg); /* Headings use text-on-light-bg by default */
     margin-bottom: 1.2rem;
     line-height: 1.2;
     font-weight: 800;
@@ -79,35 +77,35 @@ p {
 }
 
 a {
-    color: var(--vibrant-orange);
+    color: var(--vibrant-emerald); /* Links use emerald */
     text-decoration: none;
     transition: color var(--transition-speed);
 }
 
 a:hover {
-    color: var(--deep-midnight-blue);
+    color: var(--text-on-light-bg);
 }
 
 .emphasis {
     font-weight: 700;
-    color: var(--vibrant-orange);
+    color: var(--vibrant-emerald);
 }
 .emphasis-white {
     font-weight: 700;
-    color: var(--clean-white);
+    color: var(--pure-white);
     text-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
 .highlight {
-    color: var(--vibrant-orange);
+    color: var(--vibrant-emerald); /* Highlight in emerald */
     font-style: italic;
 }
 
 .text-light {
-    color: var(--text-light) !important;
+    color: var(--pure-white) !important;
 }
 .text-dark {
-    color: var(--text-dark) !important;
+    color: var(--text-on-light-bg) !important;
 }
 
 /* --- Layout Helpers --- */
@@ -132,24 +130,24 @@ a:hover {
     margin: 0 auto 3.5rem auto;
     text-align: center;
     font-size: clamp(1.05rem, 1.7vw, 1.25rem);
-    color: var(--text-dark);
+    color: var(--text-on-light-bg); /* Default description color */
     line-height: 1.8;
     font-weight: 300;
 }
-.deep-midnight-blue-bg .section-description {
+.deep-charcoal-bg .section-description {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.light-cool-gray-bg {
+.cool-off-white-bg {
     background-color: var(--light-cool-gray);
 }
 
-.deep-midnight-blue-bg {
-    background-color: var(--deep-midnight-blue);
-    color: var(--text-light);
+.deep-charcoal-bg {
+    background-color: var(--deep-charcoal);
+    color: var(--pure-white); /* All text on this background is white */
 }
-.deep-midnight-blue-bg h2, .deep-midnight-blue-bg h3, .deep-midnight-blue-bg h4 {
-    color: var(--text-light);
+.deep-charcoal-bg h2, .deep-charcoal-bg h3, .deep-charcoal-bg h4 {
+    color: var(--pure-white); /* Headings on this background are white */
 }
 
 /* --- Buttons --- */
@@ -170,12 +168,12 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: var(--vibrant-orange);
-    color: var(--text-light);
+    background-color: var(--vibrant-emerald); /* Button uses emerald */
+    color: var(--pure-white);
 }
 
 .btn-primary:hover {
-    background-color: #E65A00; /* Darker orange */
+    background-color: #00A647; /* Slightly darker emerald */
     transform: translateY(-4px);
     box-shadow: 0 14px 30px var(--shadow-medium);
 }
@@ -193,8 +191,8 @@ a:hover {
 
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(135deg, var(--deep-midnight-blue) 0%, #30355A 100%); /* Adjusted gradient with new blue */
-    color: var(--text-light);
+    background: linear-gradient(135deg, var(--deep-charcoal) 0%, #333333 100%); /* Adjusted gradient with new charcoal */
+    color: var(--pure-white);
     padding: 10rem 0 8rem 0;
     text-align: center;
     min-height: 90vh;
@@ -214,8 +212,8 @@ a:hover {
 
 .tagline {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-light);
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly more opaque for visibility */
+    color: var(--pure-white);
     font-size: 0.95rem;
     font-weight: 600;
     padding: 0.7rem 2rem;
@@ -223,18 +221,19 @@ a:hover {
     margin-bottom: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Slightly more prominent border */
+    backdrop-filter: blur(5px); /* Gentle blur */
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .hero-section h1 {
-    color: var(--text-light);
-    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: var(--pure-white);
+    text-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .hero-subtitle {
     font-size: clamp(1.15rem, 1.9vw, 1.5rem);
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95); /* More opaque for better readability */
     max-width: 700px;
     margin: 0 auto 3.5rem auto;
     line-height: 1.8;
@@ -250,8 +249,8 @@ a:hover {
 
 /* --- Urgency Section (Sticky Banner & Shrink Effect) --- */
 .urgency-section {
-    background-color: var(--vibrant-orange); /* Timer uses accent color */
-    color: var(--text-light);
+    background-color: var(--vibrant-emerald); /* Timer uses emerald accent color */
+    color: var(--pure-white);
     padding: 1rem 0; /* Default padding */
     text-align: center;
     box-shadow: 0 6px 25px var(--shadow-dark);
@@ -293,7 +292,7 @@ a:hover {
 .time-block {
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2); /* Darker overlay for time blocks */
     padding: 0.9rem 1.1rem;
     border-radius: var(--border-radius);
     min-width: 85px;
@@ -337,7 +336,7 @@ a:hover {
     align-items: center;
 }
 .spots-left .spot-count {
-    color: var(--clean-white); /* Kept white for contrast */
+    color: var(--pure-white);
     font-size: clamp(1.25rem, 2.2vw, 1.6rem);
 }
 
@@ -378,7 +377,7 @@ a:hover {
 
 /* --- Problem/Solution Section --- */
 .problem-solution .section-title .highlight {
-    color: var(--vibrant-orange);
+    color: var(--vibrant-emerald);
 }
 
 /* --- Offer Details Section (Features) --- */
@@ -386,22 +385,20 @@ a:hover {
     text-align: center;
     max-width: 850px;
     margin: 0 auto 5rem auto;
-    /* NEW MIRROR/GLASS EFFECT */
-    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-    backdrop-filter: blur(25px); /* Stronger blur for glass effect */
-    -webkit-backdrop-filter: blur(25px); /* Safari support */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter, more prominent border */
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); /* Deeper shadow */
+    /* REDESIGNED FOR CLARITY & PREMIUM SOLID LOOK */
+    background: linear-gradient(145deg, #2A2A2A 0%, #101010 100%); /* Dark charcoal gradient */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    box-shadow: 0 20px 50px var(--shadow-dark); /* Deeper shadow */
     padding: 3.5rem 2.5rem;
     border-radius: var(--border-radius);
-    color: var(--clean-white); /* ALL TEXT IS PURE WHITE FOR VISIBILITY */
+    color: var(--pure-white); /* ALL TEXT IS PURE WHITE FOR VISIBILITY */
     position: relative;
     overflow: hidden;
     z-index: 1;
 }
 
 .package-intro .intro-heading {
-    color: var(--clean-white);
+    color: var(--pure-white);
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 1rem;
     font-weight: 800;
@@ -411,20 +408,20 @@ a:hover {
     font-size: clamp(1.15rem, 1.9vw, 1.4rem);
     opacity: 0.95;
     margin-bottom: 2rem;
-    color: var(--clean-white);
+    color: var(--pure-white);
 }
 
 .package-intro .delivery-time {
     font-size: clamp(1.25rem, 2.2vw, 1.6rem);
     font-weight: 700;
-    color: var(--clean-white);
+    color: var(--pure-white);
     border-top: 1px solid rgba(255,255,255,0.2);
     padding-top: 1.8rem;
     margin-top: 1.8rem;
     display: inline-block;
 }
 .package-intro .delivery-time .emphasis-white {
-    color: var(--clean-white);
+    color: var(--pure-white);
 }
 
 .features-grid {
@@ -434,8 +431,8 @@ a:hover {
 }
 
 .feature-card {
-    background-color: var(--clean-white);
-    color: var(--text-dark);
+    background-color: var(--pure-white);
+    color: var(--text-on-light-bg);
     padding: 2.8rem;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px var(--shadow-light);
@@ -452,7 +449,7 @@ a:hover {
 }
 
 .icon-wrapper {
-    background-color: var(--vibrant-orange); /* Icon color changed to orange */
+    background-color: var(--vibrant-emerald); /* Icon color changed to emerald */
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -466,23 +463,23 @@ a:hover {
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 .feature-card:hover .icon-wrapper {
-    background-color: var(--deep-midnight-blue); /* Icon background changes on hover to deep blue */
+    background-color: var(--deep-charcoal); /* Icon background changes on hover to deep charcoal */
     transform: scale(1.08);
 }
 
 .feature-icon {
     font-size: 2.8rem;
     line-height: 1;
-    color: var(--text-light);
+    color: var(--pure-white);
 }
 
 .feature-card h4 {
-    color: var(--deep-midnight-blue);
+    color: var(--text-on-light-bg);
     margin-bottom: 1rem;
 }
 
 .feature-card p {
-    color: var(--text-dark);
+    color: var(--text-on-light-bg);
     opacity: 0.9;
     font-size: 1.05rem;
     font-weight: 300;
@@ -499,7 +496,7 @@ a:hover {
 .progress-step {
     text-align: center;
     padding: 2.5rem 1.5rem;
-    background-color: var(--clean-white);
+    background-color: var(--pure-white);
     border-radius: var(--border-radius);
     box-shadow: 0 8px 25px rgba(0,0,0,0.06);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
@@ -513,7 +510,7 @@ a:hover {
 .step-icon {
     width: 80px;
     height: 80px;
-    background-color: var(--vibrant-orange); /* Step icons in orange */
+    background-color: var(--vibrant-emerald); /* Step icons in emerald */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -523,32 +520,32 @@ a:hover {
 }
 .step-icon .icon-text {
     font-size: 2.5rem;
-    color: var(--clean-white);
+    color: var(--pure-white);
     font-weight: 700;
 }
 
 .step-title {
-    color: var(--deep-midnight-blue);
+    color: var(--text-on-light-bg);
     font-size: clamp(1.3rem, 2.2vw, 1.6rem);
     margin-bottom: 0.8rem;
 }
 
 .step-description {
     font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-    color: var(--text-dark);
+    color: var(--text-on-light-bg);
     opacity: 0.85;
     margin-bottom: 0;
 }
 
 /* --- Personal Media Machine Section --- */
 .personal-media-machine .section-title {
-    color: var(--clean-white);
+    color: var(--pure-white);
 }
 .personal-media-machine .section-description {
     color: rgba(255, 255, 255, 0.9);
 }
 .personal-media-machine .section-description .emphasis-white {
-    color: var(--clean-white);
+    color: var(--pure-white);
 }
 
 .benefit-list {
@@ -560,7 +557,7 @@ a:hover {
 }
 .benefit-list li {
     font-size: clamp(1.15rem, 1.9vw, 1.35rem);
-    color: var(--clean-white);
+    color: var(--pure-white);
     margin-bottom: 1.5rem;
     position: relative;
     padding-left: 2.8rem;
@@ -569,7 +566,7 @@ a:hover {
 }
 .benefit-list li::before {
     content: '✓';
-    color: var(--vibrant-orange); /* Checkmark in orange */
+    color: var(--vibrant-emerald); /* Checkmark in emerald */
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -588,7 +585,7 @@ a:hover {
 }
 
 .price-card {
-    background-color: var(--clean-white);
+    background-color: var(--pure-white);
     padding: 3.5rem 3rem;
     border-radius: var(--border-radius);
     box-shadow: 0 12px 35px var(--shadow-medium);
@@ -597,7 +594,7 @@ a:hover {
     max-width: 500px;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     border: 1px solid rgba(0,0,0,0.1);
-    color: var(--text-dark);
+    color: var(--text-on-light-bg);
 }
 
 .price-card:hover {
@@ -606,7 +603,7 @@ a:hover {
 }
 
 .price-card h3 {
-    color: var(--deep-midnight-blue);
+    color: var(--text-on-light-bg);
     font-size: clamp(2rem, 3.5vw, 2.5rem);
     margin-bottom: 1.8rem;
 }
@@ -622,7 +619,7 @@ a:hover {
 .new-price {
     font-size: clamp(3.5rem, 5.5vw, 5rem);
     font-weight: 800;
-    color: var(--vibrant-orange); /* Price in orange */
+    color: var(--vibrant-emerald); /* Price in emerald */
     margin-bottom: 2rem;
     text-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -636,7 +633,7 @@ a:hover {
 
 .price-feature-list li {
     font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-    color: var(--text-dark);
+    color: var(--text-on-light-bg);
     margin-bottom: 1rem;
     position: relative;
     padding-left: 2rem;
@@ -646,7 +643,7 @@ a:hover {
 
 .price-feature-list li::before {
     content: '✓';
-    color: var(--vibrant-orange); /* Checkmark in orange */
+    color: var(--vibrant-emerald); /* Checkmark in emerald */
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -661,14 +658,14 @@ a:hover {
 }
 
 .highlight-card {
-    border: 3px solid var(--vibrant-orange); /* Orange border for emphasis */
-    background-color: var(--deep-midnight-blue);
+    border: 3px solid var(--vibrant-emerald); /* Emerald border for emphasis */
+    background-color: var(--deep-charcoal);
     position: relative;
     overflow: hidden;
-    color: var(--text-light);
+    color: var(--pure-white);
 }
 .highlight-card h3 {
-    color: var(--text-light);
+    color: var(--pure-white);
 }
 .highlight-card .old-price {
     color: rgba(255,255,255,0.7);
@@ -681,8 +678,8 @@ a:hover {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--vibrant-orange); /* Badge in orange */
-    color: var(--text-light);
+    background-color: var(--vibrant-emerald); /* Badge in emerald */
+    color: var(--pure-white);
     font-size: 0.95rem;
     font-weight: 700;
     padding: 0.7rem 1.8rem;
@@ -696,7 +693,7 @@ a:hover {
 .buy-back-text {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--pure-white);
     margin-bottom: 0.8rem;
     line-height: 1.5;
     text-align: center;
@@ -708,27 +705,27 @@ a:hover {
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-style: italic;
     font-weight: 400;
-    color: var(--text-dark);
+    color: var(--text-on-light-bg);
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
-.light-cool-gray-bg .final-value-statement {
-    color: var(--text-dark);
+.cool-off-white-bg .final-value-statement {
+    color: var(--text-on-light-bg);
 }
 
 /* --- Final CTA Section --- */
 .action-prompt {
     font-size: clamp(1.4rem, 2.4vw, 2rem);
     font-weight: 800;
-    color: var(--text-light);
+    color: var(--pure-white);
     margin-bottom: 2.5rem;
     text-align: center;
 }
 
 .action-prompt .green-dot {
-    color: #34D399; /* This is a safe green for a 'go' indicator */
+    color: #34D399; /* Standard green for 'go' */
     margin-right: 0.6rem;
 }
 
@@ -746,17 +743,18 @@ a:hover {
     font-weight: 500;
     margin-top: 0; /* Removed default margin from button-center-wrapper parent */
     letter-spacing: 0.03em;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85); /* Stronger opacity for visibility */
     text-align: center; /* Ensure it's centered */
 }
 
 /* --- Footer --- */
 .footer-section {
-    background-color: var(--deep-midnight-blue);
+    background-color: var(--deep-charcoal);
     color: rgba(255, 255, 255, 0.6);
     padding: 3rem 0;
     text-align: center;
     font-size: 0.95rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .footer-section .container {
@@ -775,7 +773,7 @@ a:hover {
 }
 
 .footer-links a:hover {
-    color: var(--text-light);
+    color: var(--pure-white);
 }
 
 /* --- Animations --- */
@@ -811,9 +809,9 @@ a:hover {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7); } /* Pulse color updated to orange */
-    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(255, 107, 0, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); } /* Pulse color updated to emerald */
+    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(0, 200, 83, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
 }
 
 /* Staggered delays using animation-delay on is-visible (even faster delays) */
@@ -861,6 +859,7 @@ a:hover {
     .feature-icon { font-size: 2.5rem; }
 
     .progress-steps-container { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; }
+    .progress-step { padding: 2.5rem 1.5rem; } /* Restore default padding */
     .step-icon { width: 70px; height: 70px; }
     .step-icon .icon-text { font-size: 2.2rem; }
 
