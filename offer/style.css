@@ -1,21 +1,20 @@
 /* --- Core Variables & Global Styles --- */
 :root {
-    --deep-blue: #0A0E2A;        /* Primary for backgrounds/text */
-    --electric-purple: #7F56D9;  /* Accent for CTAs/highlights */
-    --soft-gray: #F7F8FA;       /* Secondary background */
-    --white: #FFFFFF;
-    --off-white: #FAFAFA;
+    --deep-charcoal: #262626;        /* Primary for backgrounds/text - Dark, premium */
+    --platinum-gray: #EFEFF3;       /* Secondary background - Light, clean */
+    --vibrant-teal: #00B8D9;         /* Accent for CTAs/highlights - Bold, energetic */
+    --clean-white: #FFFFFF;         /* Text on dark backgrounds */
 
-    --text-dark: #333333;       /* General text on light backgrounds */
-    --text-light: var(--white); /* General text on dark backgrounds */
+    --text-dark: var(--deep-charcoal);   /* General text on light backgrounds */
+    --text-light: var(--clean-white);    /* General text on dark backgrounds */
 
     --shadow-light: rgba(0, 0, 0, 0.08);
     --shadow-medium: rgba(0, 0, 0, 0.15);
-    --shadow-dark: rgba(0, 0, 0, 0.3);
+    --shadow-dark: rgba(0, 0, 0, 0.35); /* Slightly darker for more depth */
     --border-radius: 12px;
-    --transition-speed: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); /* FASTER TRANSITION */
+    --transition-speed: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); /* Fast transition */
 
-    --font-heading: 'Inter', sans-serif; /* New premium heading font */
+    --font-heading: 'Inter', sans-serif;
     --font-body: 'IBM Plex Sans', sans-serif;
 }
 
@@ -32,33 +31,33 @@ html {
 
 body {
     font-family: var(--font-body);
-    line-height: 1.7; /* Increased for better readability */
-    color: var(--text-dark); /* Default text color */
-    background-color: var(--soft-gray); /* Default background */
+    line-height: 1.7;
+    color: var(--text-dark);
+    background-color: var(--platinum-gray);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
-    color: var(--deep-blue); /* Headings in deep blue */
-    margin-bottom: 1.2rem; /* Slightly increased margin */
+    color: var(--deep-charcoal);
+    margin-bottom: 1.2rem;
     line-height: 1.2;
-    font-weight: 800; /* Bolder headings */
+    font-weight: 800;
 }
 
 h1 {
-    font-size: clamp(2.8rem, 6.5vw, 5rem); /* Larger, more impactful */
+    font-size: clamp(2.8rem, 6.5vw, 5rem);
     letter-spacing: -0.04em;
     margin-bottom: 1.8rem;
-    font-weight: 900; /* Even bolder */
+    font-weight: 900;
 }
 
 h2 {
     font-size: clamp(2.2rem, 5vw, 4rem);
     text-align: center;
-    margin-bottom: 3.5rem; /* More space */
+    margin-bottom: 3.5rem;
     font-weight: 800;
 }
 
@@ -73,40 +72,38 @@ h4 {
 }
 
 p {
-    margin-bottom: 1.2rem; /* Consistent spacing */
+    margin-bottom: 1.2rem;
     font-size: clamp(1rem, 1.8vw, 1.15rem);
-    font-weight: 400; /* Lighter for scanning */
+    font-weight: 400;
 }
 
 a {
-    color: var(--electric-purple); /* Links in accent color */
+    color: var(--vibrant-teal);
     text-decoration: none;
     transition: color var(--transition-speed);
 }
 
 a:hover {
-    color: var(--deep-blue);
+    color: var(--deep-charcoal);
 }
 
-/* Specific styling for words that were **bolded** */
 .emphasis {
     font-weight: 700;
-    color: var(--electric-purple); /* Highlight emphasized text with purple */
+    color: var(--vibrant-teal);
 }
-.emphasis-white { /* For emphasized text on dark backgrounds */
+.emphasis-white {
     font-weight: 700;
-    color: var(--white);
-    text-shadow: 0 0 10px rgba(255,255,255,0.3); /* Subtle glow */
+    color: var(--clean-white);
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
-
 
 .highlight {
-    color: var(--electric-purple); /* Highlight uses accent color */
+    color: var(--vibrant-teal);
     font-style: italic;
 }
 
 .text-light {
-    color: var(--text-light) !important; /* Override other color rules */
+    color: var(--text-light) !important;
 }
 .text-dark {
     color: var(--text-dark) !important;
@@ -116,11 +113,11 @@ a:hover {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem; /* Consistent horizontal padding */
+    padding: 0 1.5rem;
 }
 
 .section-padding {
-    padding: 8rem 0; /* Increased vertical padding for more breathing room */
+    padding: 8rem 0;
 }
 
 .section-title {
@@ -130,91 +127,76 @@ a:hover {
 }
 
 .section-description {
-    max-width: 700px; /* Reduced max-width for better line length */
-    margin: 0 auto 3.5rem auto; /* More space */
+    max-width: 700px;
+    margin: 0 auto 3.5rem auto;
     text-align: center;
     font-size: clamp(1.05rem, 1.7vw, 1.25rem);
     color: var(--text-dark);
     line-height: 1.8;
-    font-weight: 300; /* Lighter for scanability */
+    font-weight: 300;
 }
-.deep-blue-bg .section-description { /* Text on dark backgrounds */
+.deep-charcoal-bg .section-description {
     color: rgba(255, 255, 255, 0.9);
 }
 
-
-.soft-gray-bg {
-    background-color: var(--soft-gray);
+.platinum-gray-bg {
+    background-color: var(--platinum-gray);
 }
 
-.deep-blue-bg {
-    background-color: var(--deep-blue);
-    color: var(--text-light); /* Default text color for dark sections */
+.deep-charcoal-bg {
+    background-color: var(--deep-charcoal);
+    color: var(--text-light);
 }
-.deep-blue-bg h2, .deep-blue-bg h3, .deep-blue-bg h4 {
-    color: var(--text-light); /* Headings white on dark sections */
+.deep-charcoal-bg h2, .deep-charcoal-bg h3, .deep-charcoal-bg h4 {
+    color: var(--text-light);
 }
 
 /* --- Buttons --- */
 .btn {
     display: inline-block;
-    padding: 1.4rem 3.2rem; /* Increased padding */
+    padding: 1.4rem 3.2rem;
     border-radius: 50px;
-    font-size: clamp(1rem, 1.8vw, 1.15rem); /* Slightly larger font */
-    font-weight: 700; /* Bolder text */
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     transition: all var(--transition-speed);
     border: none;
     cursor: pointer;
-    font-family: var(--font-heading); /* Buttons use heading font */
+    font-family: var(--font-heading);
     box-shadow: 0 8px 20px var(--shadow-light);
     transform: translateY(0);
 }
 
 .btn-primary {
-    background-color: var(--electric-purple); /* New accent color */
+    background-color: var(--vibrant-teal);
     color: var(--text-light);
 }
 
 .btn-primary:hover {
-    background-color: #6C42B3; /* Darker purple */
-    transform: translateY(-4px); /* More pronounced hover */
-    box-shadow: 0 14px 30px var(--shadow-medium); /* Stronger shadow */
-}
-
-.btn-secondary { /* Kept in case of future use, but not used in current HTML */
-    background-color: transparent;
-    color: var(--deep-blue);
-    border: 2px solid var(--deep-blue);
-    box-shadow: none;
-}
-
-.btn-secondary:hover {
-    background-color: var(--deep-blue);
-    color: var(--text-light);
+    background-color: #008AA3; /* Darker teal */
     transform: translateY(-4px);
+    box-shadow: 0 14px 30px var(--shadow-medium);
 }
 
-.btn-large { /* For final CTA button */
-    padding: 1.6rem 4rem; /* Even larger */
-    font-size: clamp(1.2rem, 2.2vw, 1.4rem); /* Larger font */
+.btn-large {
+    padding: 1.6rem 4rem;
+    font-size: clamp(1.2rem, 2.2vw, 1.4rem);
     border-radius: 60px;
 }
-.btn-larger { /* For hero button */
-    padding: 1.8rem 4.5rem; /* Even larger and more prominent */
+.btn-larger {
+    padding: 1.8rem 4.5rem;
     font-size: clamp(1.3rem, 2.5vw, 1.5rem);
     border-radius: 60px;
 }
 
-
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(135deg, var(--deep-blue) 0%, #3B82F6 100%); /* Deep blue gradient */
+    background: linear-gradient(135deg, var(--deep-charcoal) 0%, #3A3A3A 100%);
     color: var(--text-light);
-    padding: 10rem 0 8rem 0; /* Increased padding */
+    padding: 10rem 0 8rem 0;
     text-align: center;
-    min-height: 90vh; /* Make it taller */
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,29 +213,29 @@ a:hover {
 
 .tagline {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--text-light);
-    font-size: 0.95rem; /* Slightly larger */
+    font-size: 0.95rem;
     font-weight: 600;
-    padding: 0.7rem 2rem; /* Increased padding */
+    padding: 0.7rem 2rem;
     border-radius: 50px;
-    margin-bottom: 1.8rem; /* More space */
+    margin-bottom: 1.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em; /* Tighter letter spacing */
+    letter-spacing: 0.1em;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px); /* More blur for premium feel */
+    backdrop-filter: blur(8px);
 }
 
 .hero-section h1 {
     color: var(--text-light);
-    text-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Stronger shadow */
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .hero-subtitle {
-    font-size: clamp(1.15rem, 1.9vw, 1.5rem); /* Slightly larger */
+    font-size: clamp(1.15rem, 1.9vw, 1.5rem);
     color: rgba(255, 255, 255, 0.9);
-    max-width: 700px; /* Reduced max-width for better line length */
-    margin: 0 auto 3.5rem auto; /* More space */
+    max-width: 700px;
+    margin: 0 auto 3.5rem auto;
     line-height: 1.8;
     font-weight: 300;
 }
@@ -261,17 +243,17 @@ a:hover {
 .hero-cta-group {
     display: flex;
     justify-content: center;
-    gap: 2.5rem; /* Increased gap */
+    gap: 2.5rem;
     margin-top: 2.5rem;
 }
 
 /* --- Urgency Section (Sticky Banner) --- */
 .urgency-section {
-    background-color: var(--electric-purple); /* Timer uses accent color */
+    background-color: var(--vibrant-teal);
     color: var(--text-light);
     padding: 1rem 0;
     text-align: center;
-    box-shadow: 0 6px 25px var(--shadow-dark); /* Stronger shadow */
+    box-shadow: 0 6px 25px var(--shadow-dark);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -279,7 +261,7 @@ a:hover {
 }
 
 .urgency-message {
-    font-size: clamp(0.95rem, 1.6vw, 1.15rem); /* Slightly larger */
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
     font-weight: 600;
     margin-bottom: 0.6rem;
     letter-spacing: 0.04em;
@@ -287,24 +269,24 @@ a:hover {
 
 .countdown-timer {
     display: flex;
-    gap: 1.2rem; /* Slightly increased gap */
+    gap: 1.2rem;
     margin-bottom: 1rem;
 }
 
 .time-block {
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.2); /* Lighter transparent background */
-    padding: 0.9rem 1.1rem; /* Slightly increased padding */
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.9rem 1.1rem;
     border-radius: var(--border-radius);
-    min-width: 85px; /* Slightly larger min-width */
+    min-width: 85px;
     box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
     border: 1px solid rgba(255,255,255,0.1);
 }
 
 .time-block span {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3rem); /* Larger numbers */
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0.4rem;
@@ -312,14 +294,14 @@ a:hover {
 
 .time-block small {
     font-family: var(--font-body);
-    font-size: 0.75rem; /* Slightly larger small text */
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     opacity: 0.9;
 }
 
 .spots-left {
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem); /* Slightly larger */
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
     font-weight: 700;
     letter-spacing: 0.04em;
     text-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -327,279 +309,258 @@ a:hover {
 
 .spots-left .spot-count {
     color: var(--text-light);
-    font-size: clamp(1.25rem, 2.2vw, 1.6rem); /* Larger strong text */
+    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
 }
 
 /* --- Problem/Solution Section --- */
 .problem-solution .section-title .highlight {
-    color: var(--electric-purple); /* Highlight uses accent color */
+    color: var(--vibrant-teal);
 }
 
 /* --- Offer Details Section (Features) --- */
 .package-intro {
     text-align: center;
-    max-width: 850px; /* Slightly wider */
-    margin: 0 auto 5rem auto; /* More space below */
-    /* REVISED DESIGN FOR THIS BOX */
-    background: linear-gradient(135deg, #4A0E7A 0%, #7F56D9 100%); /* NEW: Darker purple to electric purple gradient */
-    padding: 3.5rem 2.5rem; /* Increased padding */
+    max-width: 850px;
+    margin: 0 auto 5rem auto;
+    /* NEW PREMIUM DESIGN FOR THIS BOX */
+    background: rgba(38, 38, 38, 0.85); /* Slightly transparent charcoal */
+    backdrop-filter: blur(15px); /* Stronger glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    padding: 3.5rem 2.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); /* Much stronger shadow */
-    color: var(--white); /* ALL TEXT IS NOW WHITE FOR VISIBILITY */
-    border: 2px solid rgba(255, 255, 255, 0.3); /* More visible border */
+    color: var(--clean-white); /* ALL TEXT IS NOW PURE WHITE */
     position: relative;
     overflow: hidden;
     z-index: 1;
+    /* Optional: Subtle gradient overlay for more depth */
+    background-image: linear-gradient(45deg, rgba(38, 38, 38, 0.9) 0%, rgba(50, 50, 50, 0.85) 100%);
 }
-
-.package-intro::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at top left, rgba(255,255,255,0.08) 0%, transparent 70%); /* Stronger subtle overlay */
-    z-index: -1;
-}
-
 
 .package-intro .intro-heading {
-    color: var(--white); /* White heading on purple background */
+    color: var(--clean-white);
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 1rem;
     font-weight: 800;
 }
 
 .package-intro .intro-subtext {
-    font-size: clamp(1.15rem, 1.9vw, 1.4rem); /* Slightly larger */
-    opacity: 0.95; /* Less transparent */
-    margin-bottom: 2rem; /* More space */
-    color: var(--white); /* Ensure subtitle is white */
+    font-size: clamp(1.15rem, 1.9vw, 1.4rem);
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    color: var(--clean-white);
 }
 
 .package-intro .delivery-time {
-    font-size: clamp(1.25rem, 2.2vw, 1.6rem); /* Larger */
+    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
     font-weight: 700;
-    color: var(--white); /* Ensure delivery time is white */
-    border-top: 1px solid rgba(255,255,255,0.2); /* More visible border */
-    padding-top: 1.8rem; /* More padding */
+    color: var(--clean-white);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 1.8rem;
     margin-top: 1.8rem;
     display: inline-block;
 }
 .package-intro .delivery-time .emphasis-white {
-    color: var(--white); /* White strong text */
+    color: var(--clean-white);
 }
-
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider min-width */
-    gap: 3rem; /* Increased gap */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
 }
 
 .feature-card {
-    background-color: var(--white); /* Clean white background */
+    background-color: var(--clean-white);
     color: var(--text-dark);
-    padding: 2.8rem; /* Increased padding */
+    padding: 2.8rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px var(--shadow-light); /* Stronger shadow */
+    box-shadow: 0 10px 30px var(--shadow-light);
     text-align: center;
     position: relative;
     overflow: hidden;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    border: 1px solid rgba(0,0,0,0.08); /* More visible border */
+    border: 1px solid rgba(0,0,0,0.08);
 }
 
 .feature-card:hover {
-    transform: translateY(-12px); /* More pronounced hover */
-    box-shadow: 0 20px 45px var(--shadow-medium); /* Stronger shadow */
+    transform: translateY(-12px);
+    box-shadow: 0 20px 45px var(--shadow-medium);
 }
 
 .icon-wrapper {
-    background-color: var(--electric-purple); /* Icons use accent color */
-    width: 75px; /* Larger icon circle */
+    background-color: var(--vibrant-teal);
+    width: 75px;
     height: 75px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.8rem auto; /* More space */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.25); /* Stronger shadow */
+    margin: 0 auto 1.8rem auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
     position: relative;
     z-index: 1;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 .feature-card:hover .icon-wrapper {
-    background-color: var(--deep-blue); /* Icon background changes on hover to deep blue */
-    transform: scale(1.08); /* More pronounced scale */
+    background-color: var(--deep-charcoal); /* Icon background changes on hover to deep charcoal */
+    transform: scale(1.08);
 }
 
 .feature-icon {
-    font-size: 2.8rem; /* Larger icon font */
+    font-size: 2.8rem;
     line-height: 1;
     color: var(--text-light);
 }
 
 .feature-card h4 {
-    color: var(--deep-blue);
+    color: var(--deep-charcoal);
     margin-bottom: 1rem;
 }
 
 .feature-card p {
     color: var(--text-dark);
     opacity: 0.9;
-    font-size: 1.05rem; /* Slightly larger paragraph */
+    font-size: 1.05rem;
     font-weight: 300;
 }
 
+/* --- How It Works / Progress Section --- */
+.progress-steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.progress-step {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background-color: var(--clean-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.progress-step:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--vibrant-teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.step-icon .icon-text {
+    font-size: 2.5rem;
+    color: var(--clean-white);
+    font-weight: 700;
+}
+
+.step-title {
+    color: var(--deep-charcoal);
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+    margin-bottom: 0.8rem;
+}
+
+.step-description {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-dark);
+    opacity: 0.85;
+    margin-bottom: 0;
+}
+
+
 /* --- Personal Media Machine Section --- */
 .personal-media-machine .section-title {
-    color: var(--deep-blue);
+    color: var(--clean-white);
 }
 .personal-media-machine .section-description {
-    color: var(--text-dark);
+    color: rgba(255, 255, 255, 0.9);
 }
-.personal-media-machine .section-description .emphasis {
-    color: var(--electric-purple); /* Strong text in accent color */
+.personal-media-machine .section-description .emphasis-white {
+    color: var(--clean-white);
 }
 
 .benefit-list {
     list-style: none;
     padding: 0;
-    max-width: 750px; /* Slightly wider */
-    margin: 3.5rem auto 0 auto; /* More space */
+    max-width: 750px;
+    margin: 3.5rem auto 0 auto;
     text-align: left;
 }
 .benefit-list li {
-    font-size: clamp(1.15rem, 1.9vw, 1.35rem); /* Slightly larger */
-    color: var(--text-dark);
-    margin-bottom: 1.5rem; /* More space */
+    font-size: clamp(1.15rem, 1.9vw, 1.35rem);
+    color: var(--clean-white);
+    margin-bottom: 1.5rem;
     position: relative;
-    padding-left: 2.8rem; /* More padding */
+    padding-left: 2.8rem;
     line-height: 1.6;
     font-weight: 400;
 }
 .benefit-list li::before {
-    content: '✓'; /* Checkmark icon */
-    color: var(--electric-purple); /* Checkmark in accent color */
+    content: '✓';
+    color: var(--vibrant-teal);
     font-weight: bold;
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 1.8rem; /* Larger checkmark */
+    font-size: 1.8rem;
     line-height: 1;
 }
-
-/* --- Testimonial Section --- */
-.testimonial-box {
-    background-color: var(--white);
-    padding: 3.5rem 3rem; /* Generous padding */
-    border-radius: var(--border-radius);
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: 0 15px 40px var(--shadow-medium); /* Prominent shadow */
-    text-align: center;
-    color: var(--text-dark);
-    position: relative;
-    z-index: 1;
-}
-.testimonial-box .quote {
-    font-size: clamp(1.3rem, 2.2vw, 1.6rem); /* Large, impactful quote */
-    font-style: italic;
-    font-weight: 500;
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-    color: var(--deep-blue); /* Quote in deep blue for emphasis */
-}
-.testimonial-box .quote::before {
-    content: "“";
-    font-size: 4rem;
-    line-height: 0;
-    color: var(--electric-purple);
-    position: relative;
-    top: 0.8em;
-    margin-right: 0.1em;
-    display: inline-block;
-}
-.testimonial-box .quote::after {
-    content: "”";
-    font-size: 4rem;
-    line-height: 0;
-    color: var(--electric-purple);
-    position: relative;
-    bottom: 0.8em;
-    margin-left: 0.1em;
-    display: inline-block;
-}
-
-.author-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-.author-avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--electric-purple); /* Purple border for avatar */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-.author-name {
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 0; /* Remove paragraph margin */
-}
-
 
 /* --- Value Comparison Section --- */
 .price-cards-wrapper {
     display: flex;
     justify-content: center;
-    gap: 3.5rem; /* Increased gap */
+    gap: 3.5rem;
     flex-wrap: wrap;
-    margin-top: 4rem; /* More space */
+    margin-top: 4rem;
 }
 
 .price-card {
-    background-color: var(--white); /* White cards on soft gray background */
-    padding: 3.5rem 3rem; /* Increased padding */
+    background-color: var(--clean-white);
+    padding: 3.5rem 3rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 12px 35px var(--shadow-medium); /* Stronger shadow */
+    box-shadow: 0 12px 35px var(--shadow-medium);
     flex: 1;
-    min-width: 340px; /* Slightly wider min-width */
+    min-width: 340px;
     max-width: 500px;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     border: 1px solid rgba(0,0,0,0.1);
-    color: var(--text-dark); /* Default text color for cards */
+    color: var(--text-dark);
 }
 
 .price-card:hover {
-    transform: translateY(-15px); /* More pronounced hover */
-    box-shadow: 0 20px 50px var(--shadow-dark); /* Stronger shadow */
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px var(--shadow-dark);
 }
 
 .price-card h3 {
-    color: var(--deep-blue); /* Headings in deep blue */
+    color: var(--deep-charcoal);
     font-size: clamp(2rem, 3.5vw, 2.5rem);
     margin-bottom: 1.8rem;
 }
 
 .old-price {
-    font-size: clamp(2rem, 3.5vw, 2.8rem); /* Larger */
-    color: #888888; /* Softer grey for line-through */
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: #888888;
     text-decoration: line-through;
     margin-bottom: 0.8rem;
     font-weight: 500;
 }
 
 .new-price {
-    font-size: clamp(3.5rem, 5.5vw, 5rem); /* Much larger, impactful price */
+    font-size: clamp(3.5rem, 5.5vw, 5rem);
     font-weight: 800;
-    color: var(--electric-purple); /* Price in accent purple */
+    color: var(--vibrant-teal);
     margin-bottom: 2rem;
     text-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -612,37 +573,37 @@ a:hover {
 }
 
 .price-feature-list li {
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem); /* Slightly larger */
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
     color: var(--text-dark);
     margin-bottom: 1rem;
     position: relative;
-    padding-left: 2rem; /* More padding */
+    padding-left: 2rem;
     opacity: 0.9;
     font-weight: 300;
 }
 
 .price-feature-list li::before {
-    content: '✓'; /* Checkmark icon */
-    color: var(--electric-purple); /* Checkmark in accent color */
+    content: '✓';
+    color: var(--vibrant-teal);
     font-weight: bold;
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 1.5rem; /* Larger checkmark */
+    font-size: 1.5rem;
 }
 
 .small-text {
-    font-size: 0.98rem; /* Slightly larger */
-    color: #666666; /* Darker grey */
+    font-size: 0.98rem;
+    color: #666666;
     margin-top: 1.8rem;
 }
 
 .highlight-card {
-    border: 3px solid var(--electric-purple); /* Thicker purple border for emphasis */
-    background-color: var(--deep-blue); /* Deep blue background for highlight card */
+    border: 3px solid var(--vibrant-teal);
+    background-color: var(--deep-charcoal);
     position: relative;
     overflow: hidden;
-    color: var(--text-light); /* Text color light on dark background */
+    color: var(--text-light);
 }
 .highlight-card h3 {
     color: var(--text-light);
@@ -654,114 +615,112 @@ a:hover {
     color: rgba(255,255,255,0.9);
 }
 
-
 .badge {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--electric-purple); /* Badge in accent color */
+    background-color: var(--vibrant-teal);
     color: var(--text-light);
-    font-size: 0.95rem; /* Slightly larger */
+    font-size: 0.95rem;
     font-weight: 700;
-    padding: 0.7rem 1.8rem; /* Increased padding */
+    padding: 0.7rem 1.8rem;
     border-bottom-left-radius: var(--border-radius);
     transform: translate(0, 0) rotate(0deg);
     transform-origin: 100% 0%;
     z-index: 1;
-    box-shadow: -4px 4px 15px rgba(0,0,0,0.4); /* Stronger shadow */
+    box-shadow: -4px 4px 15px rgba(0,0,0,0.4);
 }
 
 .buy-back-text {
-    font-size: clamp(1.2rem, 2vw, 1.5rem); /* Larger, more impactful */
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 700;
     color: var(--text-light);
     margin-bottom: 0.8rem;
     line-height: 1.5;
     text-align: center;
-    opacity: 1; /* Fully opaque */
+    opacity: 1;
 }
 
 .final-value-statement {
-    margin-top: 5rem; /* More space */
-    font-size: clamp(1.25rem, 2vw, 1.5rem); /* Larger, more impactful */
+    margin-top: 5rem;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-style: italic;
-    font-weight: 400; /* Medium weight */
-    color: var(--text-dark); /* Darker on light bg */
+    font-weight: 400;
+    color: var(--text-dark);
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
-.soft-gray-bg .final-value-statement {
+.platinum-gray-bg .final-value-statement {
     color: var(--text-dark);
 }
 
 /* --- Final CTA Section --- */
 .action-prompt {
-    font-size: clamp(1.4rem, 2.4vw, 2rem); /* Larger */
-    font-weight: 800; /* Bolder */
-    color: var(--text-light); /* White text on deep blue background */
-    margin-bottom: 2.5rem; /* More space */
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    font-weight: 800;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
     text-align: center;
 }
 
 .action-prompt .green-dot {
-    color: #34D399; /* Tailwind green-500 equivalent */
-    margin-right: 0.6rem; /* More space */
+    color: #34D399; /* This is a safe green for a 'go' indicator */
+    margin-right: 0.6rem;
 }
 
 .button-center-wrapper {
     text-align: center;
-    margin-top: 2.5rem; /* More space */
+    margin-top: 2.5rem;
 }
 
 .fine-print {
-    font-size: 1.05rem; /* Slightly larger */
+    font-size: 1.05rem;
     font-weight: 500;
-    margin-top: 3rem; /* More space */
+    margin-top: 3rem;
     letter-spacing: 0.03em;
-    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white on dark bg */
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* --- Footer --- */
 .footer-section {
-    background-color: var(--deep-blue);
-    color: rgba(255, 255, 255, 0.6); /* Slightly more transparent */
-    padding: 3rem 0; /* More padding */
+    background-color: var(--deep-charcoal);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 3rem 0;
     text-align: center;
-    font-size: 0.95rem; /* Slightly larger */
+    font-size: 0.95rem;
 }
 
 .footer-section .container {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem; /* Increased gap */
+    gap: 1.2rem;
 }
 
 .footer-links {
-    margin-top: 0.8rem; /* More space */
+    margin-top: 0.8rem;
 }
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.6);
-    margin: 0 1rem; /* More space */
+    margin: 0 1rem;
 }
 
 .footer-links a:hover {
     color: var(--text-light);
 }
 
-/* --- Animations (Modernized & FASTER) --- */
+/* --- Animations --- */
 /* Base for reveal animations */
 [class*="reveal-"] {
     opacity: 0;
-    transform: translateY(20px); /* Slightly less pronounced initial transform */
+    transform: translateY(20px);
     transition: opacity var(--transition-speed), transform var(--transition-speed);
 }
 .reveal-down { transform: translateY(-20px); }
 .reveal-left { transform: translateX(-30px); }
 .reveal-right { transform: translateX(30px); }
-
 
 /* When element is visible */
 [class*="reveal-"].is-visible {
@@ -771,13 +730,12 @@ a:hover {
 
 /* Specific button/tag animations */
 .animate-scale.is-visible {
-    animation: popIn 0.35s var(--transition-speed) forwards; /* FASTER ANIMATION */
+    animation: popIn 0.35s var(--transition-speed) forwards;
 }
 
 .pulse-animation.is-visible {
-    animation: pulse 1.5s infinite cubic-bezier(0.66, 0, 0, 1); /* FASTER PULSE */
+    animation: pulse 1.5s infinite cubic-bezier(0.66, 0, 0, 1);
 }
-
 
 /* Keyframes */
 @keyframes popIn {
@@ -786,12 +744,12 @@ a:hover {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(127, 86, 217, 0.7); } /* Updated pulse color */
-    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(127, 86, 217, 0); } /* Slightly smaller pulse */
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(127, 86, 217, 0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 184, 217, 0.7); } /* Pulse color updated to teal */
+    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(0, 184, 217, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 184, 217, 0); }
 }
 
-/* Staggered delays using animation-delay on is-visible (SIGNIFICANTLY REDUCED) */
+/* Staggered delays using animation-delay on is-visible (minimal delays) */
 .is-visible.delay-1 { transition-delay: 0.025s; }
 .is-visible.delay-2 { transition-delay: 0.05s; }
 .is-visible.delay-3 { transition-delay: 0.075s; }
@@ -832,13 +790,12 @@ a:hover {
     .icon-wrapper { width: 70px; height: 70px; margin-bottom: 1.5rem; }
     .feature-icon { font-size: 2.5rem; }
 
+    .progress-steps-container { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; }
+    .step-icon { width: 70px; height: 70px; }
+    .step-icon .icon-text { font-size: 2.2rem; }
+
     .benefit-list li { font-size: clamp(1.1rem, 1.8vw, 1.25rem); padding-left: 2.5rem;}
     .benefit-list li::before { font-size: 1.8rem; }
-
-    .testimonial-box { padding: 3rem 2.5rem; }
-    .testimonial-box .quote { font-size: clamp(1.2rem, 2vw, 1.5rem); }
-    .author-avatar { width: 65px; height: 65px; }
-    .author-name { font-size: clamp(1rem, 1.7vw, 1.2rem); }
 
     .price-card { padding: 3rem 2.5rem; }
     .old-price { font-size: clamp(1.8rem, 3vw, 2.5rem); }
@@ -877,13 +834,13 @@ a:hover {
     .icon-wrapper { width: 65px; height: 65px; margin-bottom: 1.2rem; }
     .feature-icon { font-size: 2.2rem; }
 
+    .progress-steps-container { grid-template-columns: 1fr; gap: 2rem; }
+    .progress-step { padding: 2rem 1.2rem; }
+    .step-icon { width: 65px; height: 65px; }
+    .step-icon .icon-text { font-size: 2rem; }
+
     .benefit-list li { font-size: clamp(1.1rem, 1.8vw, 1.25rem); padding-left: 2.5rem;}
     .benefit-list li::before { font-size: 1.8rem; }
-
-    .testimonial-box { padding: 2.5rem 2rem; }
-    .testimonial-box .quote { font-size: clamp(1.1rem, 1.9vw, 1.4rem); }
-    .author-avatar { width: 60px; height: 60px; }
-    .author-name { font-size: clamp(0.95rem, 1.6vw, 1.15rem); }
 
     .price-cards-wrapper { flex-direction: column; gap: 2.5rem; }
     .price-card { max-width: 100%; padding: 2.8rem; }
@@ -924,14 +881,13 @@ a:hover {
     .icon-wrapper { width: 55px; height: 55px; margin-bottom: 1rem; }
     .feature-icon { font-size: 2rem; }
 
+    .step-icon { width: 55px; height: 55px; }
+    .step-icon .icon-text { font-size: 1.8rem; }
+    .step-title { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+    .step-description { font-size: clamp(0.9rem, 1.5vw, 1.05rem); }
+
     .benefit-list li { font-size: clamp(1rem, 1.6vw, 1.15rem); padding-left: 2rem;}
     .benefit-list li::before { font-size: 1.5rem; }
-
-    .testimonial-box { padding: 2rem 1.5rem; }
-    .testimonial-box .quote { font-size: clamp(1rem, 1.8vw, 1.25rem); }
-    .testimonial-box .quote::before, .testimonial-box .quote::after { font-size: 3rem; }
-    .author-avatar { width: 50px; height: 50px; }
-    .author-name { font-size: clamp(0.9rem, 1.5vw, 1.05rem); }
 
     .price-card { padding: 2.2rem; }
     .old-price { font-size: clamp(1.5rem, 2.5vw, 2rem); }
