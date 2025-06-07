@@ -156,7 +156,6 @@ a:hover {
 
 .hero-v4 .subtitle-v4 {
     font-size: 2.4rem;
-    /* font-style: italic; Removing italic as per new copy */
     margin-bottom: 2.5rem; /* More space below subtitle */
     opacity: 0.95;
     font-weight: 400;
@@ -231,6 +230,25 @@ a:hover {
 
 
 /* What's Included Section (Feature Grid for offer details) */
+
+/* Adjusted H2 for this section */
+#whats-included-v4 h2 {
+    font-size: 2.8rem; /* Reduced font size */
+    font-weight: 700; /* Maintain weight for emphasis */
+    margin-bottom: 1.5rem; /* Closer spacing to the next paragraph */
+    text-align: left; /* Align left for better flow */
+}
+
+/* Specific styling for the intro paragraph after the h2 in this section */
+#whats-included-v4 .intro-paragraph {
+    text-align: left; /* Align left */
+    margin-bottom: 2rem; /* Add some space before the grid */
+    max-width: 100%; /* Ensure it doesn't get constrained by the general section-description-v4 max-width */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
 .feature-grid-v4 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -398,7 +416,6 @@ a:hover {
 
 /* Urgency Section */
 #urgency-section-v4 {
-    /* Keeping original styling as it fits the new copy well */
     background-color: var(--bg-light); /* Changed to light background as per copy flow */
     color: var(--text-dark);
     text-align: center;
@@ -544,12 +561,14 @@ a:hover {
 .delay-6 { animation-delay: 1.2s; }
 .delay-7 { animation-delay: 1.4s; }
 .delay-8 { animation-delay: 1.6s; }
+.delay-9 { animation-delay: 1.8s; }
+.delay-10 { animation-delay: 2.0s; }
 
 
 /* Responsive Design V4 */
 @media (max-width: 1024px) {
     h1 { font-size: 4rem; }
-    h2 { font-size: 2.8rem; }
+    h2 { font-size: 2.8rem; } /* Global H2 default */
     h3 { font-size: 1.8rem; }
     p { font-size: 1.05rem; }
     .hero-v4 .subtitle-v4 { font-size: 2rem; }
@@ -557,6 +576,9 @@ a:hover {
     .cta-button-v4, .cta-secondary-button-v4 { padding: 1.2rem 3.2rem; font-size: 1.3rem; }
 
     .section-description-v4 { font-size: 1.15rem; }
+
+    /* Specific H2 for What's Included */
+    #whats-included-v4 h2 { font-size: 2.5rem; }
     .feature-grid-v4 { gap: 2rem; }
     .feature-card-v4 { padding: 2rem; }
     .feature-icon-v4 { font-size: 2.5rem; margin-right: 1.2rem;}
@@ -596,10 +618,14 @@ a:hover {
         margin: 0 auto; /* Center them */
     }
 
-    h2 { font-size: 2.5rem; margin-bottom: calc(1.8 * var(--spacing-unit)); }
+    h2 { font-size: 2.5rem; margin-bottom: calc(1.8 * var(--spacing-unit)); } /* Global H2 default */
     .section-v4 { padding: 4.5rem 0; }
     
     .section-description-v4 { font-size: 1.05rem; }
+
+    /* Specific H2 for What's Included */
+    #whats-included-v4 h2 { font-size: 2.2rem; text-align: center; } /* Center on mobile */
+    .intro-paragraph { text-align: center; } /* Center on mobile */
     .feature-grid-v4 { grid-template-columns: 1fr; gap: 1.8rem; margin: 1.5rem auto 2rem auto; }
     .feature-card-v4 { padding: 2rem; }
     .feature-icon-v4 { font-size: 2.2rem; margin-right: 1rem; }
@@ -632,10 +658,13 @@ a:hover {
     .hero-v4 .subtitle-v4 { font-size: 1.4rem; }
     .hero-description { font-size: 0.95rem; }
     .cta-button-v4, .cta-secondary-button-v4 { padding: 0.9rem 2.2rem; font-size: 1rem; }
-    h2 { font-size: 2rem; }
+    h2 { font-size: 2rem; } /* Global H2 default */
     h3 { font-size: 1.6rem; }
     .feature-card-v4 { padding: 1.5rem; } /* Slightly reduce padding for smaller screens */
     .feature-card-v4 h3 { font-size: 1.5rem; }
+
+    /* Specific H2 for What's Included */
+    #whats-included-v4 h2 { font-size: 1.8rem; } /* Even smaller on tiny screens */
 
     .benefit-list { font-size: 1rem; }
     .value-breakdown-list { font-size: 1.1rem; }
