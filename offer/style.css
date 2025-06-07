@@ -9,6 +9,8 @@
     --bg-dark: #1E1E22;       /* Rich, deep dark grey/black for contrast sections */
     --white: #ffffff;         /* Pure white for elements on dark backgrounds */
     --secondary-cta-color: #8C7BFC; /* Lighter shade of primary for secondary button */
+    --highlight-light: #ECE8FF; /* New: very light primary for backgrounds */
+    --highlight-dark: #4532C0; /* New: darker primary for accents */
 
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Lato', sans-serif;
@@ -198,7 +200,7 @@ a:hover {
 }
 
 .cta-button-v4:hover {
-    background-color: #4A35D4; /* Slightly darker primary on hover */
+    background-color: var(--highlight-dark); /* Slightly darker primary on hover */
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 18px 45px rgba(90, 64, 245, 0.6);
     text-decoration: none;
@@ -229,26 +231,70 @@ a:hover {
 }
 
 
-/* What's Included Section (Feature Grid for offer details) */
-
-/* Adjusted H2 for this section */
-#whats-included-v4 h2 {
-    font-size: 2.8rem; /* Reduced font size */
-    font-weight: 700; /* Maintain weight for emphasis */
-    margin-bottom: 1.5rem; /* Closer spacing to the next paragraph */
-    text-align: left; /* Align left for better flow */
+/* --- Revamped What's Included Section --- */
+/* Outer container padding is fine */
+#whats-included-v4 {
+    background-color: var(--bg-light); /* Ensure consistent light background */
 }
 
-/* Specific styling for the intro paragraph after the h2 in this section */
-#whats-included-v4 .intro-paragraph {
-    text-align: left; /* Align left */
-    margin-bottom: 2rem; /* Add some space before the grid */
-    max-width: 100%; /* Ensure it doesn't get constrained by the general section-description-v4 max-width */
-    margin-left: 0;
-    margin-right: 0;
+.package-intro-header {
+    background-color: var(--highlight-light); /* Light primary background */
+    padding: 2.5rem 3.5rem;
+    border-radius: var(--border-radius);
+    text-align: center; /* Center content within this header block */
+    max-width: 900px; /* Constrain width */
+    margin: 0 auto 3.5rem auto; /* Center and add space below */
+    box-shadow: var(--shadow-light);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
+.package-intro-header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+.package-intro-header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    transform: rotate(45deg);
+}
 
+.package-title {
+    font-size: 3.5rem; /* Larger and more prominent */
+    font-weight: 800;
+    color: var(--brand-primary); /* Use brand color for impact */
+    margin-bottom: 0.8rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.package-subtitle {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    opacity: 0.85;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* Feature Grid for offer details (cards remain similar, but styling might be adjusted slightly to fit the new header) */
 .feature-grid-v4 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -257,7 +303,6 @@ a:hover {
     margin: 2rem auto 3.5rem auto; /* Space around the grid */
 }
 
-/* Specific adjustments for the offer grid to stack better on mobile */
 .feature-grid-v4.offer-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width */
     gap: 2rem;
@@ -310,44 +355,85 @@ a:hover {
 }
 
 
-/* New styles for "This Is Not a Content Package" section */
-.center-text-section {
-    max-width: 900px;
+/* --- Revamped Personal Media Machine Section --- */
+#personal-media-machine-v4 {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--highlight-dark) 100%); /* Dark gradient */
+    color: var(--white);
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+#personal-media-machine-v4 h2 {
+    color: var(--white);
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.machine-tagline {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--white);
+    opacity: 0.95;
+    margin-bottom: 2rem;
+}
+
+.machine-intro {
+    font-size: 1.5rem;
+    color: var(--white);
+    opacity: 0.8;
+    margin-bottom: 3rem;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.machine-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.benefit-item {
+    background-color: rgba(255, 255, 255, 0.08); /* Semi-transparent white background */
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
     text-align: center;
-    padding-top: 3rem; /* Add some space above this section if needed */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px); /* Subtle blur */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: var(--transition-slow);
 }
 
-.benefit-list {
-    list-style: none; /* Remove default list bullet */
-    padding: 0;
-    margin: 2rem auto 0 auto;
-    max-width: 600px;
-    text-align: left; /* Align list items left */
-    font-family: var(--font-body);
-    font-size: 1.25rem;
-    line-height: 1.8;
-    color: var(--text-dark);
+.benefit-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.benefit-list li {
-    position: relative;
-    padding-left: 2.2rem; /* Space for custom checkmark */
-    margin-bottom: 0.8rem;
-}
-
-.benefit-list li::before {
-    content: '⭐'; /* Custom star bullet */
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 1.5rem;
-    color: var(--brand-primary); /* Brand primary color for bullets */
+.benefit-icon {
+    font-size: 4rem; /* Large icon */
+    margin-bottom: 1rem;
+    display: block;
     line-height: 1;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2)); /* Subtle shadow on icon */
 }
 
-/* Pricing Section Specific Styles */
+.benefit-item p {
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+/* Pricing Section Specific Styles (keep original, it works well) */
 #pricing-value-v4 h2 {
     color: var(--white);
     font-size: 3.8rem; /* Make pricing headline stand out */
@@ -414,20 +500,19 @@ a:hover {
 }
 
 
-/* Urgency Section */
+/* Urgency Section (keep original, it works well) */
 #urgency-section-v4 {
-    background-color: var(--bg-light); /* Changed to light background as per copy flow */
+    background-color: var(--bg-light);
     color: var(--text-dark);
     text-align: center;
     padding: 6rem 0;
     position: relative;
     overflow: hidden;
-    /* Removed clip-path if changing background to light to avoid odd edges */
 }
 
 #urgency-section-v4 h2 {
     color: var(--text-dark);
-    font-size: 3.8rem; /* Larger, more impactful */
+    font-size: 3.8rem;
     margin-bottom: 2rem;
     line-height: 1.1;
 }
@@ -435,20 +520,20 @@ a:hover {
 #urgency-section-v4 .section-description-v4 {
     color: var(--text-dark);
     opacity: 0.9;
-    font-size: 1.4rem; /* Prominent description */
+    font-size: 1.4rem;
     margin-bottom: 3rem;
 }
 
 .urgency-cta-text {
-    font-size: 1.8rem; /* Make this text stand out */
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--brand-primary); /* Use brand color for emphasis */
+    color: var(--brand-primary);
     margin-bottom: 3.5rem;
 }
 
-/* Call to Action Section (bottom) - Reusing existing cta-bottom-v4 but with new content */
+/* Call to Action Section (bottom) - Reusing existing cta-bottom-v4 */
 #cta-bottom-v4 {
-    background-color: var(--brand-primary); /* Use primary for final CTA section */
+    background-color: var(--brand-primary);
     color: var(--white);
     padding: 5rem 0;
 }
@@ -465,7 +550,6 @@ a:hover {
     margin-bottom: 3rem;
 }
 
-/* Ensure CTA button on this section is white on brand primary */
 #cta-bottom-v4 .cta-button-v4 {
     background-color: var(--white);
     color: var(--brand-primary);
@@ -473,13 +557,13 @@ a:hover {
 }
 
 #cta-bottom-v4 .cta-button-v4:hover {
-    background-color: var(--bg-light); /* Lighter hover for white button */
+    background-color: var(--bg-light);
     color: var(--brand-primary);
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer V4 */
+/* Footer V4 (keep original) */
 .footer-v4 {
     background-color: var(--bg-dark);
     color: var(--subtle-accent);
@@ -552,42 +636,56 @@ a:hover {
     opacity: 0;
 }
 
-/* Staggered delays */
+/* Staggered delays - Adjusted for new structure */
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.6s; }
 .delay-4 { animation-delay: 0.8s; }
 .delay-5 { animation-delay: 1.0s; }
 .delay-6 { animation-delay: 1.2s; }
-.delay-7 { animation-delay: 1.4s; }
-.delay-8 { animation-delay: 1.6s; }
-.delay-9 { animation-delay: 1.8s; }
-.delay-10 { animation-delay: 2.0s; }
+.delay-7 { animation-delay: 1.4s; } /* Used for the new "This is not a content package" section's H2 */
+.delay-8 { animation-delay: 1.6s; } /* For the tagline within PMM section */
+.delay-9 { animation-delay: 1.8s; } /* For the intro text within PMM section */
+.delay-10 { animation-delay: 2.0s; } /* For the first benefit item in PMM grid */
+.delay-11 { animation-delay: 2.2s; } /* For the second benefit item */
+.delay-12 { animation-delay: 2.4s; } /* For the third benefit item */
 
 
 /* Responsive Design V4 */
 @media (max-width: 1024px) {
     h1 { font-size: 4rem; }
-    h2 { font-size: 2.8rem; } /* Global H2 default */
+    h2 { font-size: 2.8rem; }
     h3 { font-size: 1.8rem; }
     p { font-size: 1.05rem; }
     .hero-v4 .subtitle-v4 { font-size: 2rem; }
-    .hero-description { font-size: 1.15rem; } /* Match section-description for consistency */
+    .hero-description { font-size: 1.15rem; }
     .cta-button-v4, .cta-secondary-button-v4 { padding: 1.2rem 3.2rem; font-size: 1.3rem; }
 
     .section-description-v4 { font-size: 1.15rem; }
 
-    /* Specific H2 for What's Included */
-    #whats-included-v4 h2 { font-size: 2.5rem; }
+    /* Revamped What's Included */
+    .package-intro-header { padding: 2rem 2.5rem; margin-bottom: 3rem; }
+    .package-title { font-size: 3rem; }
+    .package-subtitle { font-size: 1.4rem; }
     .feature-grid-v4 { gap: 2rem; }
     .feature-card-v4 { padding: 2rem; }
     .feature-icon-v4 { font-size: 2.5rem; margin-right: 1.2rem;}
     .feature-card-v4 p { font-size: 1.05rem; }
 
-    .benefit-list, .buying-list { font-size: 1.15rem; }
+    /* Revamped Personal Media Machine */
+    #personal-media-machine-v4 h2 { font-size: 3.2rem; }
+    .machine-tagline { font-size: 1.8rem; }
+    .machine-intro { font-size: 1.3rem; margin-bottom: 2.5rem; }
+    .machine-benefits-grid { gap: 2rem; }
+    .benefit-item { padding: 2rem; }
+    .benefit-icon { font-size: 3.5rem; }
+    .benefit-item p { font-size: 1.15rem; }
+
+
     .value-breakdown-list { font-size: 1.5rem; }
     .pricing-highlight { font-size: 2.8rem; }
     .strong-impact { font-size: 1.6rem; }
+    .buying-list { font-size: 1.15rem; }
     .final-value-statement { font-size: 1.2rem; }
 
 
@@ -607,36 +705,43 @@ a:hover {
     .hero-v4 .subtitle-v4 { font-size: 1.6rem; margin-bottom: 1.5rem;}
     .hero-description { font-size: 1rem; margin-bottom: 1.5rem; }
     .hero-cta-group {
-        flex-direction: column; /* Stack buttons on smaller screens */
+        flex-direction: column;
         gap: 1rem;
     }
     .cta-button-v4, .cta-secondary-button-v4 {
         padding: 1rem 2.5rem;
         font-size: 1.1rem;
-        width: 80%; /* Make buttons wider */
-        max-width: 320px; /* Limit max width */
-        margin: 0 auto; /* Center them */
+        width: 80%;
+        max-width: 320px;
+        margin: 0 auto;
     }
 
-    h2 { font-size: 2.5rem; margin-bottom: calc(1.8 * var(--spacing-unit)); } /* Global H2 default */
+    h2 { font-size: 2.5rem; margin-bottom: calc(1.8 * var(--spacing-unit)); }
     .section-v4 { padding: 4.5rem 0; }
     
     .section-description-v4 { font-size: 1.05rem; }
 
-    /* Specific H2 for What's Included */
-    #whats-included-v4 h2 { font-size: 2.2rem; text-align: center; } /* Center on mobile */
-    .intro-paragraph { text-align: center; } /* Center on mobile */
+    /* Revamped What's Included */
+    .package-intro-header { padding: 1.8rem 2rem; margin-bottom: 2.5rem; }
+    .package-title { font-size: 2.5rem; }
+    .package-subtitle { font-size: 1.2rem; }
     .feature-grid-v4 { grid-template-columns: 1fr; gap: 1.8rem; margin: 1.5rem auto 2rem auto; }
     .feature-card-v4 { padding: 2rem; }
     .feature-icon-v4 { font-size: 2.2rem; margin-right: 1rem; }
     .feature-card-v4 p { font-size: 1rem; }
-    .feature-card-v4 h3 { font-size: 1.7rem; } /* Adjust h3 size in cards */
+    .feature-card-v4 h3 { font-size: 1.7rem; }
 
 
-    .benefit-list { font-size: 1.05rem; margin-top: 1.5rem; }
-    .benefit-list li::before { font-size: 1.3rem; } /* Adjust checkmark size */
-    
-    #pricing-value-v4 h2 { font-size: 2.8rem; }
+    /* Revamped Personal Media Machine */
+    #personal-media-machine-v4 h2 { font-size: 2.8rem; }
+    .machine-tagline { font-size: 1.6rem; }
+    .machine-intro { font-size: 1.2rem; margin-bottom: 2rem; }
+    .machine-benefits-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+    .benefit-item { padding: 1.8rem; }
+    .benefit-icon { font-size: 3rem; }
+    .benefit-item p { font-size: 1.05rem; }
+
+
     .value-breakdown-list { font-size: 1.3rem; }
     .pricing-highlight { font-size: 2.5rem; }
     .strong-impact { font-size: 1.4rem; }
@@ -658,15 +763,25 @@ a:hover {
     .hero-v4 .subtitle-v4 { font-size: 1.4rem; }
     .hero-description { font-size: 0.95rem; }
     .cta-button-v4, .cta-secondary-button-v4 { padding: 0.9rem 2.2rem; font-size: 1rem; }
-    h2 { font-size: 2rem; } /* Global H2 default */
+    h2 { font-size: 2rem; }
     h3 { font-size: 1.6rem; }
-    .feature-card-v4 { padding: 1.5rem; } /* Slightly reduce padding for smaller screens */
+    .feature-card-v4 { padding: 1.5rem; }
     .feature-card-v4 h3 { font-size: 1.5rem; }
 
-    /* Specific H2 for What's Included */
-    #whats-included-v4 h2 { font-size: 1.8rem; } /* Even smaller on tiny screens */
+    /* Revamped What's Included */
+    .package-intro-header { padding: 1.5rem; margin-bottom: 2rem; }
+    .package-title { font-size: 2rem; }
+    .package-subtitle { font-size: 1rem; }
 
-    .benefit-list { font-size: 1rem; }
+    /* Revamped Personal Media Machine */
+    #personal-media-machine-v4 h2 { font-size: 2.2rem; }
+    .machine-tagline { font-size: 1.4rem; }
+    .machine-intro { font-size: 1.1rem; }
+    .benefit-item { padding: 1.5rem; }
+    .benefit-icon { font-size: 2.5rem; }
+    .benefit-item p { font-size: 1rem; }
+
+
     .value-breakdown-list { font-size: 1.1rem; }
     .pricing-highlight { font-size: 2rem; }
     .strong-impact { font-size: 1.2rem; }
