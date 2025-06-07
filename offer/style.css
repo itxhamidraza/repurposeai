@@ -1,17 +1,16 @@
 /* --- Core Variables & Global Styles --- */
 :root {
-    --deep-charcoal: #2C2C2C;       /* Primary for backgrounds/text - Softer, richer dark gray */
+    --primary-dark-bg: #1A2B3C;       /* Replacing deep-charcoal: Deep Slate Blue/Navy */
+    --accent-color: #00A896;         /* Replacing vibrant-emerald: Rich, muted Teal */
     --light-cool-gray: #F8F9FA;     /* Secondary background - Light, clean */
-    --vibrant-emerald: #00C853;     /* Accent for CTAs/highlights - Bold, modern, growth */
-    --soft-gold: #FFC107;           /* Secondary accent - subtle luxury/warmth */
     --pure-white: #FFFFFF;          /* Text on dark backgrounds */
     --text-on-light-bg: #212121;    /* Text on light backgrounds - ensures density */
 
     --shadow-light: rgba(0, 0, 0, 0.08);
-    --shadow-medium: rgba(0, 0, 0, 0.25); /* Stronger for depth */
-    --shadow-dark: rgba(0, 0, 0, 0.5); /* Significantly stronger for premium feel */
+    --shadow-medium: rgba(0, 0, 0, 0.25);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
     --border-radius: 12px;
-    --transition-speed: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Fast transition */
+    --transition-speed: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
     --font-heading: 'Inter', sans-serif;
     --font-body: 'IBM Plex Sans', sans-serif;
@@ -31,7 +30,7 @@ html {
 body {
     font-family: var(--font-body);
     line-height: 1.7;
-    color: var(--text-on-light-bg); /* Default text color */
+    color: var(--text-on-light-bg);
     background-color: var(--light-cool-gray);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -40,7 +39,7 @@ body {
 
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
-    color: var(--text-on-light-bg); /* Headings use text-on-light-bg by default */
+    color: var(--text-on-light-bg);
     margin-bottom: 1.2rem;
     line-height: 1.2;
     font-weight: 800;
@@ -77,7 +76,7 @@ p {
 }
 
 a {
-    color: var(--vibrant-emerald); /* Links use emerald */
+    color: var(--accent-color); /* Links use new accent color */
     text-decoration: none;
     transition: color var(--transition-speed);
 }
@@ -88,7 +87,7 @@ a:hover {
 
 .emphasis {
     font-weight: 700;
-    color: var(--vibrant-emerald);
+    color: var(--accent-color);
 }
 .emphasis-white {
     font-weight: 700;
@@ -97,7 +96,7 @@ a:hover {
 }
 
 .highlight {
-    color: var(--vibrant-emerald); /* Highlight in emerald */
+    color: var(--accent-color); /* Highlight in new accent color */
     font-style: italic;
 }
 
@@ -130,11 +129,11 @@ a:hover {
     margin: 0 auto 3.5rem auto;
     text-align: center;
     font-size: clamp(1.05rem, 1.7vw, 1.25rem);
-    color: var(--text-on-light-bg); /* Default description color */
+    color: var(--text-on-light-bg);
     line-height: 1.8;
     font-weight: 300;
 }
-.deep-charcoal-bg .section-description {
+.primary-dark-bg .section-description { /* Adjusted selector */
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -142,12 +141,12 @@ a:hover {
     background-color: var(--light-cool-gray);
 }
 
-.deep-charcoal-bg {
-    background-color: var(--deep-charcoal); /* Updated to softer charcoal */
-    color: var(--pure-white); /* All text on this background is white */
+.primary-dark-bg { /* Renamed from deep-charcoal-bg */
+    background-color: var(--primary-dark-bg);
+    color: var(--pure-white);
 }
-.deep-charcoal-bg h2, .deep-charcoal-bg h3, .deep-charcoal-bg h4 {
-    color: var(--pure-white); /* Headings on this background are white */
+.primary-dark-bg h2, .primary-dark-bg h3, .primary-dark-bg h4 { /* Adjusted selector */
+    color: var(--pure-white);
 }
 
 /* --- Buttons --- */
@@ -168,12 +167,12 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: var(--vibrant-emerald); /* Button uses emerald */
+    background-color: var(--accent-color); /* Button uses new accent color */
     color: var(--pure-white);
 }
 
 .btn-primary:hover {
-    background-color: #00A647; /* Slightly darker emerald */
+    background-color: #008F7E; /* Slightly darker shade of accent */
     transform: translateY(-4px);
     box-shadow: 0 14px 30px var(--shadow-medium);
 }
@@ -191,7 +190,7 @@ a:hover {
 
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(135deg, var(--deep-charcoal) 0%, #3a3a3a 100%); /* Adjusted gradient with new charcoal */
+    background: linear-gradient(135deg, var(--primary-dark-bg) 0%, #2A4056 100%); /* Gradient with new dark color */
     color: var(--pure-white);
     padding: 10rem 0 8rem 0;
     text-align: center;
@@ -212,7 +211,7 @@ a:hover {
 
 .tagline {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.15); /* Slightly more opaque for visibility */
+    background-color: rgba(255, 255, 255, 0.15);
     color: var(--pure-white);
     font-size: 0.95rem;
     font-weight: 600;
@@ -221,8 +220,8 @@ a:hover {
     margin-bottom: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Slightly more prominent border */
-    backdrop-filter: blur(5px); /* Gentle blur */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
 
@@ -233,7 +232,7 @@ a:hover {
 
 .hero-subtitle {
     font-size: clamp(1.15rem, 1.9vw, 1.5rem);
-    color: rgba(255, 255, 255, 0.95); /* More opaque for better readability */
+    color: rgba(255, 255, 255, 0.95);
     max-width: 700px;
     margin: 0 auto 3.5rem auto;
     line-height: 1.8;
@@ -249,50 +248,50 @@ a:hover {
 
 /* --- Urgency Section (Sticky Banner & Shrink Effect) --- */
 .urgency-section {
-    background-color: var(--vibrant-emerald); /* Timer uses emerald accent color */
+    background-color: var(--accent-color); /* Timer uses new accent color */
     color: var(--pure-white);
-    padding: 1rem 0; /* Default padding */
+    padding: 1rem 0;
     text-align: center;
     box-shadow: 0 6px 25px var(--shadow-dark);
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid rgba(0,0,0,0.15);
-    transition: all var(--transition-speed); /* Smooth transition for shrinking */
+    transition: all var(--transition-speed);
 
-    display: flex; /* Flexbox for centering countdown */
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 .urgency-content {
     display: flex;
     align-items: center;
-    gap: 1.5rem; /* Space between message and timer */
+    gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%; /* Ensure content respects container width */
+    width: 100%;
 }
 .urgency-message {
     font-size: clamp(0.95rem, 1.6vw, 1.15rem);
     font-weight: 600;
-    margin-bottom: 0; /* Remove default paragraph margin */
+    margin-bottom: 0;
     letter-spacing: 0.04em;
-    transition: font-size var(--transition-speed); /* Smooth font size transition */
+    transition: font-size var(--transition-speed);
 }
 
 .countdown-timer {
     display: flex;
     gap: 1.2rem;
-    margin-bottom: 0; /* Remove default margin */
-    transition: gap var(--transition-speed); /* Smooth gap transition */
+    margin-bottom: 0;
+    transition: gap var(--transition-speed);
 }
 
 .time-block {
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.2); /* Darker overlay for time blocks */
+    background-color: rgba(0, 0, 0, 0.2);
     padding: 0.9rem 1.1rem;
     border-radius: var(--border-radius);
     min-width: 85px;
@@ -324,10 +323,10 @@ a:hover {
     font-weight: 700;
     letter-spacing: 0.04em;
     text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    margin-bottom: 0; /* Remove default margin */
+    margin-bottom: 0;
     transition: font-size var(--transition-speed);
-    width: 100%; /* Ensure it centers on its own line on small screens */
-    margin-top: 0.6rem; /* Space from timer */
+    width: 100%;
+    margin-top: 0.6rem;
 }
 .urgency-section .container {
     display: flex;
@@ -342,7 +341,7 @@ a:hover {
 
 /* --- Urgency Section SHRINKING state --- */
 .urgency-section.shrunk {
-    padding: 0.5rem 0; /* Smaller padding */
+    padding: 0.5rem 0;
 }
 
 .urgency-section.shrunk .urgency-message {
@@ -350,25 +349,25 @@ a:hover {
 }
 
 .urgency-section.shrunk .countdown-timer {
-    gap: 0.8rem; /* Smaller gap */
+    gap: 0.8rem;
 }
 
 .urgency-section.shrunk .time-block {
-    padding: 0.6rem 0.8rem; /* Smaller padding */
-    min-width: 65px; /* Smaller width */
+    padding: 0.6rem 0.8rem;
+    min-width: 65px;
 }
 
 .urgency-section.shrunk .time-block span {
-    font-size: clamp(1.5rem, 2.5vw, 2rem); /* Smaller numbers */
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 .urgency-section.shrunk .time-block small {
-    font-size: 0.6rem; /* Smaller text */
+    font-size: 0.6rem;
 }
 
 .urgency-section.shrunk .spots-left {
-    font-size: 0.95rem; /* Smaller text */
-    margin-top: 0.3rem; /* Less space */
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
 }
 .urgency-section.shrunk .spots-left .spot-count {
     font-size: clamp(1.1rem, 1.8vw, 1.35rem);
@@ -377,7 +376,7 @@ a:hover {
 
 /* --- Problem/Solution Section --- */
 .problem-solution .section-title .highlight {
-    color: var(--vibrant-emerald);
+    color: var(--accent-color);
 }
 
 /* --- Offer Details Section (Features) --- */
@@ -385,12 +384,12 @@ a:hover {
     text-align: center;
     max-width: 850px;
     margin: 0 auto 5rem auto;
-    
-    /* NEW REDESIGN FOR DEPTH AND PREMIUM FEEL */
-    background: radial-gradient(circle at center, #3A3A3A 0%, var(--deep-charcoal) 70%); /* Radial gradient for depth */
-    border: 2px solid rgba(0, 200, 83, 0.2); /* Thicker, subtle emerald border */
-    box-shadow: 0 25px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(0, 200, 83, 0.08); /* Deeper outer shadow, subtle emerald inner glow */
-    padding: 4rem 3rem; /* Increased padding */
+
+    /* NEW REDESIGN FOR DEPTH AND PREMIUM FEEL WITH NEW COLORS */
+    background: radial-gradient(circle at center, #2C4056 0%, var(--primary-dark-bg) 70%); /* Radial gradient for depth, slightly lighter blue */
+    border: 2px solid rgba(0, 168, 150, 0.2); /* Thicker, subtle teal border */
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(0, 168, 150, 0.08); /* Deeper outer shadow, subtle teal inner glow */
+    padding: 4rem 3rem;
     border-radius: var(--border-radius);
     color: var(--pure-white);
     position: relative;
@@ -405,47 +404,47 @@ a:hover {
     left: -50px;
     right: -50px;
     bottom: -50px;
-    background: radial-gradient(circle at 50% 0%, rgba(0, 200, 83, 0.05) 0%, transparent 70%); /* Top subtle light glow */
+    background: radial-gradient(circle at 50% 0%, rgba(0, 168, 150, 0.05) 0%, transparent 70%); /* Top subtle light glow using new accent */
     pointer-events: none;
     z-index: -1;
 }
 
 .package-intro .intro-heading {
     color: var(--pure-white);
-    font-size: clamp(2.2rem, 4vw, 3rem); /* Slightly larger heading */
+    font-size: clamp(2.2rem, 4vw, 3rem);
     margin-bottom: 1rem;
     font-weight: 800;
 }
 
-.package-intro .intro-heading .check-icon { /* Style for the checkmark emoji */
-    font-size: 1.2em; /* Make it slightly larger than text */
+.package-intro .intro-heading .check-icon {
+    font-size: 1.2em;
     vertical-align: middle;
     margin-right: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 200, 83, 0.7); /* A subtle glow for the checkmark */
+    text-shadow: 0 0 10px rgba(0, 168, 150, 0.7); /* A subtle glow for the checkmark with new accent */
 }
 
 
 .package-intro .intro-subtext {
     font-size: clamp(1.15rem, 1.9vw, 1.4rem);
     opacity: 0.95;
-    margin-bottom: 2.5rem; /* Increased margin */
+    margin-bottom: 2.5rem;
     color: var(--pure-white);
 }
 
-.divider-line { /* New divider line styling */
-    width: 120px; /* Thicker line */
-    height: 4px; /* More prominent */
-    background: linear-gradient(90deg, transparent 0%, rgba(0, 200, 83, 0.7) 50%, transparent 100%); /* Gradient for glow effect */
-    margin: 3.5rem auto 3.5rem auto; /* Centered with ample space */
+.divider-line {
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 168, 150, 0.7) 50%, transparent 100%); /* Gradient for glow effect with new accent */
+    margin: 3.5rem auto 3.5rem auto;
     border-radius: 2px;
-    box-shadow: 0 0 15px rgba(0, 200, 83, 0.5); /* Glow for the line */
+    box-shadow: 0 0 15px rgba(0, 168, 150, 0.5); /* Glow for the line with new accent */
 }
 
 .package-intro .delivery-time {
-    font-size: clamp(1.35rem, 2.2vw, 1.7rem); /* Slightly larger text */
+    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
     font-weight: 700;
     color: var(--pure-white);
-    padding-top: 0; /* Remove top padding as divider is separate element */
+    padding-top: 0;
     margin-top: 0;
     display: inline-block;
 }
@@ -478,7 +477,7 @@ a:hover {
 }
 
 .icon-wrapper {
-    background-color: var(--vibrant-emerald); /* Icon color changed to emerald */
+    background-color: var(--accent-color); /* Icon color changed to new accent */
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -492,7 +491,7 @@ a:hover {
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 .feature-card:hover .icon-wrapper {
-    background-color: var(--deep-charcoal); /* Icon background changes on hover to deep charcoal */
+    background-color: var(--primary-dark-bg); /* Icon background changes on hover to new dark color */
     transform: scale(1.08);
 }
 
@@ -539,7 +538,7 @@ a:hover {
 .step-icon {
     width: 80px;
     height: 80px;
-    background-color: var(--vibrant-emerald); /* Step icons in emerald */
+    background-color: var(--accent-color); /* Step icons in new accent */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -595,7 +594,7 @@ a:hover {
 }
 .benefit-list li::before {
     content: '✓';
-    color: var(--vibrant-emerald); /* Checkmark in emerald */
+    color: var(--accent-color); /* Checkmark in new accent */
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -648,7 +647,7 @@ a:hover {
 .new-price {
     font-size: clamp(3.5rem, 5.5vw, 5rem);
     font-weight: 800;
-    color: var(--vibrant-emerald); /* Price in emerald */
+    color: var(--accent-color); /* Price in new accent */
     margin-bottom: 2rem;
     text-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -672,7 +671,7 @@ a:hover {
 
 .price-feature-list li::before {
     content: '✓';
-    color: var(--vibrant-emerald); /* Checkmark in emerald */
+    color: var(--accent-color); /* Checkmark in new accent */
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -687,8 +686,8 @@ a:hover {
 }
 
 .highlight-card {
-    border: 3px solid var(--vibrant-emerald); /* Emerald border for emphasis */
-    background-color: var(--deep-charcoal);
+    border: 3px solid var(--accent-color); /* New accent border for emphasis */
+    background-color: var(--primary-dark-bg); /* New dark background */
     position: relative;
     overflow: hidden;
     color: var(--pure-white);
@@ -707,7 +706,7 @@ a:hover {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--vibrant-emerald); /* Badge in emerald */
+    background-color: var(--accent-color); /* Badge in new accent */
     color: var(--pure-white);
     font-size: 0.95rem;
     font-weight: 700;
@@ -754,31 +753,31 @@ a:hover {
 }
 
 .action-prompt .green-dot {
-    color: #34D399; /* Standard green for 'go' */
+    color: var(--accent-color); /* Green dot using new accent */
     margin-right: 0.6rem;
 }
 
 .button-center-wrapper {
     text-align: center;
     margin-top: 2.5rem;
-    display: flex; /* Use flex to center button and text */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem; /* Space between button and fine print */
+    gap: 1.5rem;
 }
 
 .fine-print {
     font-size: 1.05rem;
     font-weight: 500;
-    margin-top: 0; /* Removed default margin from button-center-wrapper parent */
+    margin-top: 0;
     letter-spacing: 0.03em;
-    color: rgba(255, 255, 255, 0.85); /* Stronger opacity for visibility */
-    text-align: center; /* Ensure it's centered */
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
 }
 
 /* --- Footer --- */
 .footer-section {
-    background-color: var(--deep-charcoal);
+    background-color: var(--primary-dark-bg); /* Footer uses new dark background */
     color: rgba(255, 255, 255, 0.6);
     padding: 3rem 0;
     text-align: center;
@@ -838,9 +837,9 @@ a:hover {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); } /* Pulse color updated to emerald */
-    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(0, 200, 83, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.7); } /* Pulse color updated to new accent */
+    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(0, 168, 150, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0); }
 }
 
 /* Staggered delays using animation-delay on is-visible (even faster delays) */
@@ -880,15 +879,15 @@ a:hover {
         font-size: clamp(1.2rem, 2.3vw, 1.4rem);
     }
 
-    .package-intro { padding: 3.5rem 2.5rem; margin-bottom: 4rem; } /* Adjusted padding */
-    .package-intro .intro-heading { font-size: clamp(2rem, 3.5vw, 2.8rem); } /* Adjusted font size */
+    .package-intro { padding: 3.5rem 2.5rem; margin-bottom: 4rem; }
+    .package-intro .intro-heading { font-size: clamp(2rem, 3.5vw, 2.8rem); }
     .features-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
     .feature-card { padding: 2.5rem; }
     .icon-wrapper { width: 70px; height: 70px; margin-bottom: 1.5rem; }
     .feature-icon { font-size: 2.5rem; }
 
     .progress-steps-container { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; }
-    .progress-step { padding: 2.5rem 1.5rem; } /* Restore default padding */
+    .progress-step { padding: 2.5rem 1.5rem; }
     .step-icon { width: 70px; height: 70px; }
     .step-icon .icon-text { font-size: 2.2rem; }
 
@@ -927,8 +926,8 @@ a:hover {
     .urgency-section:not(.shrunk) .spots-left { font-size: clamp(0.95rem, 1.6vw, 1.15rem); margin-top: 0.5rem; }
     .urgency-section:not(.shrunk) .spots-left .spot-count { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
 
-    .package-intro { padding: 3rem 2rem; margin-bottom: 3.5rem; } /* Adjusted padding */
-    .package-intro .intro-heading { font-size: clamp(1.8rem, 3.2vw, 2.5rem); } /* Adjusted font size */
+    .package-intro { padding: 3rem 2rem; margin-bottom: 3.5rem; }
+    .package-intro .intro-heading { font-size: clamp(1.8rem, 3.2vw, 2.5rem); }
     .features-grid { grid-template-columns: 1fr; gap: 2rem; }
     .feature-card { padding: 2rem; }
     .icon-wrapper { width: 65px; height: 65px; margin-bottom: 1.2rem; }
@@ -946,7 +945,7 @@ a:hover {
     .price-card { max-width: 100%; padding: 2.8rem; }
     .old-price { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
     .new-price { font-size: clamp(2.8rem, 4.8vw, 4rem); }
-    .buy-back-text { font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
+    .buy-back-text { font-size: clamp(1.1rem, 1.9vw, 1.4rem); }
 
     .action-prompt { font-size: clamp(1.25rem, 2.2vw, 1.8rem); }
     .fine-print { font-size: 0.95rem; }
@@ -978,8 +977,8 @@ a:hover {
     .btn-larger { padding: 1.2rem 2.5rem; font-size: clamp(1rem, 1.9vw, 1.2rem); }
     .btn-large { padding: 1.2rem 2.5rem; font-size: clamp(1rem, 1.9vw, 1.2rem); }
 
-    .package-intro { padding: 2.5rem 1.5rem; } /* Adjusted padding */
-    .package-intro .intro-heading { font-size: clamp(1.6rem, 2.8vw, 2.2rem); } /* Adjusted font size */
+    .package-intro { padding: 2.5rem 1.5rem; }
+    .package-intro .intro-heading { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
     .features-grid { gap: 1.5rem; }
     .feature-card { padding: 1.8rem; }
     .icon-wrapper { width: 55px; height: 55px; margin-bottom: 1rem; }
