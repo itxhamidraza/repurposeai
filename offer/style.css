@@ -13,7 +13,7 @@
     --shadow-medium: rgba(0, 0, 0, 0.15);
     --shadow-dark: rgba(0, 0, 0, 0.3);
     --border-radius: 12px;
-    --transition-speed: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother, faster transition */
+    --transition-speed: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); /* FASTER TRANSITION */
 
     --font-heading: 'Inter', sans-serif; /* New premium heading font */
     --font-body: 'IBM Plex Sans', sans-serif;
@@ -88,9 +88,17 @@ a:hover {
     color: var(--deep-blue);
 }
 
-strong {
+/* Specific styling for words that were **bolded** */
+.emphasis {
     font-weight: 700;
+    color: var(--electric-purple); /* Highlight emphasized text with purple */
 }
+.emphasis-white { /* For emphasized text on dark backgrounds */
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 0 0 10px rgba(255,255,255,0.3); /* Subtle glow */
+}
+
 
 .highlight {
     color: var(--electric-purple); /* Highlight uses accent color */
@@ -317,7 +325,7 @@ strong {
     text-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.spots-left strong {
+.spots-left .spot-count {
     color: var(--text-light);
     font-size: clamp(1.25rem, 2.2vw, 1.6rem); /* Larger strong text */
 }
@@ -332,12 +340,12 @@ strong {
     text-align: center;
     max-width: 850px; /* Slightly wider */
     margin: 0 auto 5rem auto; /* More space below */
-    /* Updated design for the package intro box */
-    background: linear-gradient(135deg, var(--electric-purple) 0%, #9B70EC 100%); /* Gradient of accent purple */
+    /* REVISED DESIGN FOR THIS BOX */
+    background: linear-gradient(135deg, #4A0E7A 0%, #7F56D9 100%); /* NEW: Darker purple to electric purple gradient */
     padding: 3.5rem 2.5rem; /* Increased padding */
     border-radius: var(--border-radius);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); /* Much stronger shadow */
-    color: var(--text-light);
+    color: var(--white); /* ALL TEXT IS NOW WHITE FOR VISIBILITY */
     border: 2px solid rgba(255, 255, 255, 0.3); /* More visible border */
     position: relative;
     overflow: hidden;
@@ -367,18 +375,19 @@ strong {
     font-size: clamp(1.15rem, 1.9vw, 1.4rem); /* Slightly larger */
     opacity: 0.95; /* Less transparent */
     margin-bottom: 2rem; /* More space */
+    color: var(--white); /* Ensure subtitle is white */
 }
 
 .package-intro .delivery-time {
     font-size: clamp(1.25rem, 2.2vw, 1.6rem); /* Larger */
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--white); /* Ensure delivery time is white */
     border-top: 1px solid rgba(255,255,255,0.2); /* More visible border */
     padding-top: 1.8rem; /* More padding */
     margin-top: 1.8rem;
     display: inline-block;
 }
-.package-intro .delivery-time strong {
+.package-intro .delivery-time .emphasis-white {
     color: var(--white); /* White strong text */
 }
 
@@ -451,7 +460,7 @@ strong {
 .personal-media-machine .section-description {
     color: var(--text-dark);
 }
-.personal-media-machine .section-description strong {
+.personal-media-machine .section-description .emphasis {
     color: var(--electric-purple); /* Strong text in accent color */
 }
 
@@ -742,16 +751,16 @@ strong {
     color: var(--text-light);
 }
 
-/* --- Animations (Modernized & Faster) --- */
+/* --- Animations (Modernized & FASTER) --- */
 /* Base for reveal animations */
 [class*="reveal-"] {
     opacity: 0;
-    transform: translateY(25px); /* Slightly more pronounced initial transform */
+    transform: translateY(20px); /* Slightly less pronounced initial transform */
     transition: opacity var(--transition-speed), transform var(--transition-speed);
 }
-.reveal-down { transform: translateY(-25px); }
-.reveal-left { transform: translateX(-40px); }
-.reveal-right { transform: translateX(40px); }
+.reveal-down { transform: translateY(-20px); }
+.reveal-left { transform: translateX(-30px); }
+.reveal-right { transform: translateX(30px); }
 
 
 /* When element is visible */
@@ -762,11 +771,11 @@ strong {
 
 /* Specific button/tag animations */
 .animate-scale.is-visible {
-    animation: popIn 0.5s var(--transition-speed) forwards;
+    animation: popIn 0.35s var(--transition-speed) forwards; /* FASTER ANIMATION */
 }
 
 .pulse-animation.is-visible {
-    animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+    animation: pulse 1.5s infinite cubic-bezier(0.66, 0, 0, 1); /* FASTER PULSE */
 }
 
 
@@ -778,16 +787,16 @@ strong {
 
 @keyframes pulse {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(127, 86, 217, 0.7); } /* Updated pulse color */
-    70% { transform: scale(1.05); box-shadow: 0 0 0 18px rgba(127, 86, 217, 0); } /* Larger pulse */
+    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(127, 86, 217, 0); } /* Slightly smaller pulse */
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(127, 86, 217, 0); }
 }
 
-/* Staggered delays using animation-delay on is-visible (Significantly reduced) */
-.is-visible.delay-1 { transition-delay: 0.05s; }
-.is-visible.delay-2 { transition-delay: 0.1s; }
-.is-visible.delay-3 { transition-delay: 0.15s; }
-.is-visible.delay-4 { transition-delay: 0.2s; }
-.is-visible.delay-5 { transition-delay: 0.25s; }
+/* Staggered delays using animation-delay on is-visible (SIGNIFICANTLY REDUCED) */
+.is-visible.delay-1 { transition-delay: 0.025s; }
+.is-visible.delay-2 { transition-delay: 0.05s; }
+.is-visible.delay-3 { transition-delay: 0.075s; }
+.is-visible.delay-4 { transition-delay: 0.1s; }
+.is-visible.delay-5 { transition-delay: 0.125s; }
 
 
 /* --- Responsive Design --- */
@@ -809,7 +818,7 @@ strong {
     .time-block span { font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
     .time-block small { font-size: 0.7rem; }
     .urgency-message, .spots-left { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
-    .spots-left strong { font-size: clamp(1.15rem, 1.9vw, 1.4rem); }
+    .spots-left .spot-count { font-size: clamp(1.15rem, 1.9vw, 1.4rem); }
 
     .btn-larger {
         padding: 1.5rem 4rem;
@@ -858,7 +867,7 @@ strong {
     .time-block span { font-size: clamp(1.6rem, 3vw, 2.2rem); }
     .time-block small { font-size: 0.65rem; }
     .urgency-message, .spots-left { font-size: clamp(0.85rem, 1.4vw, 1.05rem); }
-    .spots-left strong { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
+    .spots-left .spot-count { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
 
 
     .package-intro { padding: 2.5rem 1.8rem; margin-bottom: 3.5rem; }
@@ -868,8 +877,8 @@ strong {
     .icon-wrapper { width: 65px; height: 65px; margin-bottom: 1.2rem; }
     .feature-icon { font-size: 2.2rem; }
 
-    .benefit-list li { font-size: clamp(1.05rem, 1.7vw, 1.2rem); padding-left: 2.2rem;}
-    .benefit-list li::before { font-size: 1.6rem; }
+    .benefit-list li { font-size: clamp(1.1rem, 1.8vw, 1.25rem); padding-left: 2.5rem;}
+    .benefit-list li::before { font-size: 1.8rem; }
 
     .testimonial-box { padding: 2.5rem 2rem; }
     .testimonial-box .quote { font-size: clamp(1.1rem, 1.9vw, 1.4rem); }
@@ -902,7 +911,7 @@ strong {
     .time-block span { font-size: clamp(1.5rem, 3vw, 2rem); }
     .time-block small { font-size: 0.6rem; }
     .urgency-message, .spots-left { font-size: clamp(0.8rem, 1.3vw, 0.95rem); }
-    .spots-left strong { font-size: clamp(0.95rem, 1.5vw, 1.2rem); }
+    .spots-left .spot-count { font-size: clamp(0.95rem, 1.5vw, 1.2rem); }
 
     .btn { max-width: 300px; }
     .btn-larger { padding: 1.2rem 2.5rem; font-size: clamp(1rem, 1.9vw, 1.2rem); }
