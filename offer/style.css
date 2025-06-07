@@ -1,18 +1,19 @@
 /* --- Core Variables & Global Styles --- */
 :root {
-    --deep-charcoal: #262626;        /* Primary for backgrounds/text - Dark, premium */
-    --platinum-gray: #EFEFF3;       /* Secondary background - Light, clean */
-    --vibrant-teal: #00B8D9;         /* Accent for CTAs/highlights - Bold, energetic */
+    --deep-midnight-blue: #0C102E;   /* Primary for backgrounds/text - Dark, premium */
+    --light-cool-gray: #F0F2F5;     /* Secondary background - Light, clean */
+    --vibrant-orange: #FF6B00;      /* Accent for CTAs/highlights - Bold, urgent */
+    --soft-gold: #FDD835;           /* Secondary accent - subtle luxury */
     --clean-white: #FFFFFF;         /* Text on dark backgrounds */
 
-    --text-dark: var(--deep-charcoal);   /* General text on light backgrounds */
+    --text-dark: #2A2A2A;           /* General text on light backgrounds - refined dark gray */
     --text-light: var(--clean-white);    /* General text on dark backgrounds */
 
     --shadow-light: rgba(0, 0, 0, 0.08);
-    --shadow-medium: rgba(0, 0, 0, 0.15);
-    --shadow-dark: rgba(0, 0, 0, 0.35); /* Slightly darker for more depth */
+    --shadow-medium: rgba(0, 0, 0, 0.2); /* Slightly stronger for more depth */
+    --shadow-dark: rgba(0, 0, 0, 0.45); /* Significantly stronger for premium feel */
     --border-radius: 12px;
-    --transition-speed: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); /* Fast transition */
+    --transition-speed: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Faster transition */
 
     --font-heading: 'Inter', sans-serif;
     --font-body: 'IBM Plex Sans', sans-serif;
@@ -33,7 +34,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.7;
     color: var(--text-dark);
-    background-color: var(--platinum-gray);
+    background-color: var(--light-cool-gray);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -41,7 +42,7 @@ body {
 
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
-    color: var(--deep-charcoal);
+    color: var(--deep-midnight-blue);
     margin-bottom: 1.2rem;
     line-height: 1.2;
     font-weight: 800;
@@ -78,18 +79,18 @@ p {
 }
 
 a {
-    color: var(--vibrant-teal);
+    color: var(--vibrant-orange);
     text-decoration: none;
     transition: color var(--transition-speed);
 }
 
 a:hover {
-    color: var(--deep-charcoal);
+    color: var(--deep-midnight-blue);
 }
 
 .emphasis {
     font-weight: 700;
-    color: var(--vibrant-teal);
+    color: var(--vibrant-orange);
 }
 .emphasis-white {
     font-weight: 700;
@@ -98,7 +99,7 @@ a:hover {
 }
 
 .highlight {
-    color: var(--vibrant-teal);
+    color: var(--vibrant-orange);
     font-style: italic;
 }
 
@@ -135,19 +136,19 @@ a:hover {
     line-height: 1.8;
     font-weight: 300;
 }
-.deep-charcoal-bg .section-description {
+.deep-midnight-blue-bg .section-description {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.platinum-gray-bg {
-    background-color: var(--platinum-gray);
+.light-cool-gray-bg {
+    background-color: var(--light-cool-gray);
 }
 
-.deep-charcoal-bg {
-    background-color: var(--deep-charcoal);
+.deep-midnight-blue-bg {
+    background-color: var(--deep-midnight-blue);
     color: var(--text-light);
 }
-.deep-charcoal-bg h2, .deep-charcoal-bg h3, .deep-charcoal-bg h4 {
+.deep-midnight-blue-bg h2, .deep-midnight-blue-bg h3, .deep-midnight-blue-bg h4 {
     color: var(--text-light);
 }
 
@@ -169,12 +170,12 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: var(--vibrant-teal);
+    background-color: var(--vibrant-orange);
     color: var(--text-light);
 }
 
 .btn-primary:hover {
-    background-color: #008AA3; /* Darker teal */
+    background-color: #E65A00; /* Darker orange */
     transform: translateY(-4px);
     box-shadow: 0 14px 30px var(--shadow-medium);
 }
@@ -192,7 +193,7 @@ a:hover {
 
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(135deg, var(--deep-charcoal) 0%, #3A3A3A 100%);
+    background: linear-gradient(135deg, var(--deep-midnight-blue) 0%, #30355A 100%); /* Adjusted gradient with new blue */
     color: var(--text-light);
     padding: 10rem 0 8rem 0;
     text-align: center;
@@ -247,30 +248,46 @@ a:hover {
     margin-top: 2.5rem;
 }
 
-/* --- Urgency Section (Sticky Banner) --- */
+/* --- Urgency Section (Sticky Banner & Shrink Effect) --- */
 .urgency-section {
-    background-color: var(--vibrant-teal);
+    background-color: var(--vibrant-orange); /* Timer uses accent color */
     color: var(--text-light);
-    padding: 1rem 0;
+    padding: 1rem 0; /* Default padding */
     text-align: center;
     box-shadow: 0 6px 25px var(--shadow-dark);
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid rgba(0,0,0,0.15);
+    transition: all var(--transition-speed); /* Smooth transition for shrinking */
+
+    display: flex; /* Flexbox for centering countdown */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
+.urgency-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Space between message and timer */
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%; /* Ensure content respects container width */
+}
 .urgency-message {
     font-size: clamp(0.95rem, 1.6vw, 1.15rem);
     font-weight: 600;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0; /* Remove default paragraph margin */
     letter-spacing: 0.04em;
+    transition: font-size var(--transition-speed); /* Smooth font size transition */
 }
 
 .countdown-timer {
     display: flex;
     gap: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0; /* Remove default margin */
+    transition: gap var(--transition-speed); /* Smooth gap transition */
 }
 
 .time-block {
@@ -282,6 +299,7 @@ a:hover {
     min-width: 85px;
     box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
     border: 1px solid rgba(255,255,255,0.1);
+    transition: padding var(--transition-speed), min-width var(--transition-speed);
 }
 
 .time-block span {
@@ -290,6 +308,7 @@ a:hover {
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0.4rem;
+    transition: font-size var(--transition-speed);
 }
 
 .time-block small {
@@ -298,6 +317,7 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     opacity: 0.9;
+    transition: font-size var(--transition-speed);
 }
 
 .spots-left {
@@ -305,16 +325,60 @@ a:hover {
     font-weight: 700;
     letter-spacing: 0.04em;
     text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 0; /* Remove default margin */
+    transition: font-size var(--transition-speed);
+    width: 100%; /* Ensure it centers on its own line on small screens */
+    margin-top: 0.6rem; /* Space from timer */
 }
-
+.urgency-section .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 .spots-left .spot-count {
-    color: var(--text-light);
+    color: var(--clean-white); /* Kept white for contrast */
     font-size: clamp(1.25rem, 2.2vw, 1.6rem);
 }
 
+/* --- Urgency Section SHRINKING state --- */
+.urgency-section.shrunk {
+    padding: 0.5rem 0; /* Smaller padding */
+}
+
+.urgency-section.shrunk .urgency-message {
+    font-size: 0.85rem;
+}
+
+.urgency-section.shrunk .countdown-timer {
+    gap: 0.8rem; /* Smaller gap */
+}
+
+.urgency-section.shrunk .time-block {
+    padding: 0.6rem 0.8rem; /* Smaller padding */
+    min-width: 65px; /* Smaller width */
+}
+
+.urgency-section.shrunk .time-block span {
+    font-size: clamp(1.5rem, 2.5vw, 2rem); /* Smaller numbers */
+}
+
+.urgency-section.shrunk .time-block small {
+    font-size: 0.6rem; /* Smaller text */
+}
+
+.urgency-section.shrunk .spots-left {
+    font-size: 0.95rem; /* Smaller text */
+    margin-top: 0.3rem; /* Less space */
+}
+.urgency-section.shrunk .spots-left .spot-count {
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+}
+
+
 /* --- Problem/Solution Section --- */
 .problem-solution .section-title .highlight {
-    color: var(--vibrant-teal);
+    color: var(--vibrant-orange);
 }
 
 /* --- Offer Details Section (Features) --- */
@@ -322,19 +386,18 @@ a:hover {
     text-align: center;
     max-width: 850px;
     margin: 0 auto 5rem auto;
-    /* NEW PREMIUM DESIGN FOR THIS BOX */
-    background: rgba(38, 38, 38, 0.85); /* Slightly transparent charcoal */
-    backdrop-filter: blur(15px); /* Stronger glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    /* NEW MIRROR/GLASS EFFECT */
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(25px); /* Stronger blur for glass effect */
+    -webkit-backdrop-filter: blur(25px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter, more prominent border */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); /* Deeper shadow */
     padding: 3.5rem 2.5rem;
     border-radius: var(--border-radius);
-    color: var(--clean-white); /* ALL TEXT IS NOW PURE WHITE */
+    color: var(--clean-white); /* ALL TEXT IS PURE WHITE FOR VISIBILITY */
     position: relative;
     overflow: hidden;
     z-index: 1;
-    /* Optional: Subtle gradient overlay for more depth */
-    background-image: linear-gradient(45deg, rgba(38, 38, 38, 0.9) 0%, rgba(50, 50, 50, 0.85) 100%);
 }
 
 .package-intro .intro-heading {
@@ -389,7 +452,7 @@ a:hover {
 }
 
 .icon-wrapper {
-    background-color: var(--vibrant-teal);
+    background-color: var(--vibrant-orange); /* Icon color changed to orange */
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -403,7 +466,7 @@ a:hover {
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 .feature-card:hover .icon-wrapper {
-    background-color: var(--deep-charcoal); /* Icon background changes on hover to deep charcoal */
+    background-color: var(--deep-midnight-blue); /* Icon background changes on hover to deep blue */
     transform: scale(1.08);
 }
 
@@ -414,7 +477,7 @@ a:hover {
 }
 
 .feature-card h4 {
-    color: var(--deep-charcoal);
+    color: var(--deep-midnight-blue);
     margin-bottom: 1rem;
 }
 
@@ -450,7 +513,7 @@ a:hover {
 .step-icon {
     width: 80px;
     height: 80px;
-    background-color: var(--vibrant-teal);
+    background-color: var(--vibrant-orange); /* Step icons in orange */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -465,7 +528,7 @@ a:hover {
 }
 
 .step-title {
-    color: var(--deep-charcoal);
+    color: var(--deep-midnight-blue);
     font-size: clamp(1.3rem, 2.2vw, 1.6rem);
     margin-bottom: 0.8rem;
 }
@@ -476,7 +539,6 @@ a:hover {
     opacity: 0.85;
     margin-bottom: 0;
 }
-
 
 /* --- Personal Media Machine Section --- */
 .personal-media-machine .section-title {
@@ -507,7 +569,7 @@ a:hover {
 }
 .benefit-list li::before {
     content: '✓';
-    color: var(--vibrant-teal);
+    color: var(--vibrant-orange); /* Checkmark in orange */
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -544,7 +606,7 @@ a:hover {
 }
 
 .price-card h3 {
-    color: var(--deep-charcoal);
+    color: var(--deep-midnight-blue);
     font-size: clamp(2rem, 3.5vw, 2.5rem);
     margin-bottom: 1.8rem;
 }
@@ -560,7 +622,7 @@ a:hover {
 .new-price {
     font-size: clamp(3.5rem, 5.5vw, 5rem);
     font-weight: 800;
-    color: var(--vibrant-teal);
+    color: var(--vibrant-orange); /* Price in orange */
     margin-bottom: 2rem;
     text-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -584,7 +646,7 @@ a:hover {
 
 .price-feature-list li::before {
     content: '✓';
-    color: var(--vibrant-teal);
+    color: var(--vibrant-orange); /* Checkmark in orange */
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -599,8 +661,8 @@ a:hover {
 }
 
 .highlight-card {
-    border: 3px solid var(--vibrant-teal);
-    background-color: var(--deep-charcoal);
+    border: 3px solid var(--vibrant-orange); /* Orange border for emphasis */
+    background-color: var(--deep-midnight-blue);
     position: relative;
     overflow: hidden;
     color: var(--text-light);
@@ -619,7 +681,7 @@ a:hover {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--vibrant-teal);
+    background-color: var(--vibrant-orange); /* Badge in orange */
     color: var(--text-light);
     font-size: 0.95rem;
     font-weight: 700;
@@ -652,7 +714,7 @@ a:hover {
     margin-right: auto;
     text-align: center;
 }
-.platinum-gray-bg .final-value-statement {
+.light-cool-gray-bg .final-value-statement {
     color: var(--text-dark);
 }
 
@@ -673,19 +735,24 @@ a:hover {
 .button-center-wrapper {
     text-align: center;
     margin-top: 2.5rem;
+    display: flex; /* Use flex to center button and text */
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Space between button and fine print */
 }
 
 .fine-print {
     font-size: 1.05rem;
     font-weight: 500;
-    margin-top: 3rem;
+    margin-top: 0; /* Removed default margin from button-center-wrapper parent */
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.8);
+    text-align: center; /* Ensure it's centered */
 }
 
 /* --- Footer --- */
 .footer-section {
-    background-color: var(--deep-charcoal);
+    background-color: var(--deep-midnight-blue);
     color: rgba(255, 255, 255, 0.6);
     padding: 3rem 0;
     text-align: center;
@@ -730,7 +797,7 @@ a:hover {
 
 /* Specific button/tag animations */
 .animate-scale.is-visible {
-    animation: popIn 0.35s var(--transition-speed) forwards;
+    animation: popIn var(--transition-speed) var(--transition-speed) forwards;
 }
 
 .pulse-animation.is-visible {
@@ -744,17 +811,17 @@ a:hover {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 184, 217, 0.7); } /* Pulse color updated to teal */
-    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(0, 184, 217, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 184, 217, 0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7); } /* Pulse color updated to orange */
+    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(255, 107, 0, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
 }
 
-/* Staggered delays using animation-delay on is-visible (minimal delays) */
-.is-visible.delay-1 { transition-delay: 0.025s; }
-.is-visible.delay-2 { transition-delay: 0.05s; }
-.is-visible.delay-3 { transition-delay: 0.075s; }
-.is-visible.delay-4 { transition-delay: 0.1s; }
-.is-visible.delay-5 { transition-delay: 0.125s; }
+/* Staggered delays using animation-delay on is-visible (even faster delays) */
+.is-visible.delay-1 { transition-delay: 0.02s; }
+.is-visible.delay-2 { transition-delay: 0.04s; }
+.is-visible.delay-3 { transition-delay: 0.06s; }
+.is-visible.delay-4 { transition-delay: 0.08s; }
+.is-visible.delay-5 { transition-delay: 0.1s; }
 
 
 /* --- Responsive Design --- */
@@ -769,14 +836,17 @@ a:hover {
 
     .tagline { font-size: 0.85rem; padding: 0.6rem 1.5rem; }
 
-    /* Adjusted for smaller sticky timer */
-    .urgency-section { padding: 0.9rem 0; }
-    .countdown-timer { gap: 1rem; }
-    .time-block { min-width: 80px; padding: 0.7rem 0.9rem; }
-    .time-block span { font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
-    .time-block small { font-size: 0.7rem; }
-    .urgency-message, .spots-left { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
-    .spots-left .spot-count { font-size: clamp(1.15rem, 1.9vw, 1.4rem); }
+    /* Urgency section on tablets */
+    .urgency-section:not(.shrunk) { /* Apply only when not shrunk */
+        padding: 0.8rem 0;
+    }
+    .urgency-section:not(.shrunk) .urgency-message { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
+    .urgency-section:not(.shrunk) .countdown-timer { gap: 1rem; }
+    .urgency-section:not(.shrunk) .time-block { min-width: 75px; padding: 0.7rem 0.9rem; }
+    .urgency-section:not(.shrunk) .time-block span { font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+    .urgency-section:not(.shrunk) .time-block small { font-size: 0.7rem; }
+    .urgency-section:not(.shrunk) .spots-left { font-size: clamp(1.0rem, 1.7vw, 1.2rem); }
+    .urgency-section:not(.shrunk) .spots-left .spot-count { font-size: clamp(1.15rem, 1.9vw, 1.4rem); }
 
     .btn-larger {
         padding: 1.5rem 4rem;
@@ -817,15 +887,17 @@ a:hover {
     .btn-large { max-width: 380px; }
     .btn-larger { max-width: 400px; padding: 1.5rem 3.5rem; font-size: clamp(1.15rem, 2.2vw, 1.35rem); }
 
-    /* Adjusted for smaller sticky timer on smaller screens */
-    .urgency-section { padding: 0.8rem 0; }
-    .countdown-timer { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
-    .time-block { min-width: 70px; padding: 0.6rem 0.8rem; }
-    .time-block span { font-size: clamp(1.6rem, 3vw, 2.2rem); }
-    .time-block small { font-size: 0.65rem; }
-    .urgency-message, .spots-left { font-size: clamp(0.85rem, 1.4vw, 1.05rem); }
-    .spots-left .spot-count { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
-
+    /* Urgency section on mobile */
+    .urgency-section:not(.shrunk) {
+        padding: 0.7rem 0;
+    }
+    .urgency-section:not(.shrunk) .urgency-message { font-size: clamp(0.85rem, 1.4vw, 1.05rem); }
+    .urgency-section:not(.shrunk) .countdown-timer { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+    .urgency-section:not(.shrunk) .time-block { min-width: 70px; padding: 0.6rem 0.8rem; }
+    .urgency-section:not(.shrunk) .time-block span { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .urgency-section:not(.shrunk) .time-block small { font-size: 0.65rem; }
+    .urgency-section:not(.shrunk) .spots-left { font-size: clamp(0.95rem, 1.6vw, 1.15rem); margin-top: 0.5rem; }
+    .urgency-section:not(.shrunk) .spots-left .spot-count { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
 
     .package-intro { padding: 2.5rem 1.8rem; margin-bottom: 3.5rem; }
     .package-intro .intro-heading { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
@@ -862,13 +934,17 @@ a:hover {
     .tagline { font-size: 0.78rem; padding: 0.5rem 1.2rem; }
 
     /* Further adjustments for tiny screens */
-    .urgency-section { padding: 0.7rem 0; }
-    .countdown-timer { gap: 0.6rem; }
-    .time-block { min-width: 60px; padding: 0.5rem 0.7rem; }
-    .time-block span { font-size: clamp(1.5rem, 3vw, 2rem); }
-    .time-block small { font-size: 0.6rem; }
-    .urgency-message, .spots-left { font-size: clamp(0.8rem, 1.3vw, 0.95rem); }
-    .spots-left .spot-count { font-size: clamp(0.95rem, 1.5vw, 1.2rem); }
+    .urgency-section:not(.shrunk) {
+        padding: 0.6rem 0;
+    }
+    .urgency-section:not(.shrunk) .urgency-message { font-size: clamp(0.8rem, 1.3vw, 0.95rem); }
+    .urgency-section:not(.shrunk) .countdown-timer { gap: 0.6rem; }
+    .urgency-section:not(.shrunk) .time-block { min-width: 60px; padding: 0.5rem 0.7rem; }
+    .urgency-section:not(.shrunk) .time-block span { font-size: clamp(1.5rem, 3vw, 2rem); }
+    .urgency-section:not(.shrunk) .time-block small { font-size: 0.6rem; }
+    .urgency-section:not(.shrunk) .spots-left { font-size: clamp(0.85rem, 1.5vw, 1.05rem); margin-top: 0.4rem; }
+    .urgency-section:not(.shrunk) .spots-left .spot-count { font-size: clamp(0.95rem, 1.5vw, 1.2rem); }
+
 
     .btn { max-width: 300px; }
     .btn-larger { padding: 1.2rem 2.5rem; font-size: clamp(1rem, 1.9vw, 1.2rem); }
