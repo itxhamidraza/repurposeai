@@ -6,218 +6,501 @@
     <title>EXCLUSIVE: RepurposeAI Momentum Accelerator Offer</title>
     <meta name="description" content="Limited-time offer: Get $5,000+ worth of content growth for just $2,000. For busy creators & industry leaders.">
 
+    <!-- Google Fonts: Inter for headings, IBM Plex Sans for body text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <!-- Font Awesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Tailwind Configuration (to extend default theme) */
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        :root {
+            --color-primary-dark: #1A1A2E; /* Deep Charcoal / Navy */
+            --color-primary-light: #F8F9FA; /* Cool Off-White */
+            --color-accent: #E94560; /* Ruby Red */
+            --color-highlight: #FFD700; /* Gold/Yellow for highlights */
+            --color-text-dark: #333333;
+            --color-text-light: #FFFFFF;
+        }
+
+        /* Custom fonts for Tailwind */
+        .font-heading { font-family: 'Inter', sans-serif; }
+        .font-body { font-family: 'IBM Plex Sans', sans-serif; }
+
+        /* Custom Animations */
+        @keyframes pulse-strong {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.7); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 20px rgba(233, 69, 96, 0); }
+        }
+
+        .animate-pulse-strong {
+            animation: pulse-strong 2s infinite;
+        }
+
+        @keyframes subtle-pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+            100% { transform: scale(1); }
+        }
+
+        .group:hover .group-hover-subtle-pop {
+            animation: subtle-pop 0.3s ease-in-out forwards;
+        }
+
+        /* Reveal Animations (kept from original for easy JS integration) */
+        .reveal-up, .reveal-down, .reveal-left, .reveal-right {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal-down {
+            transform: translateY(-20px);
+        }
+
+        .reveal-left {
+            transform: translateX(-20px);
+        }
+
+        .reveal-right {
+            transform: translateX(20px);
+        }
+
+        .reveal-up.is-visible, .reveal-down.is-visible, .reveal-left.is-visible, .reveal-right.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* Animation delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+        .delay-7 { transition-delay: 0.7s; }
+        .delay-8 { transition-delay: 0.8s; }
+        .delay-9 { transition-delay: 0.9s; }
+    </style>
 </head>
-<body>
+<body class="font-body bg-primary-light text-text-dark antialiased">
 
-    <header class="hero-section">
-        <div class="container">
-            <div class="hero-content reveal-up">
-                <span class="tagline pulse-animation">Limited-Time Exclusive Offer</span>
-                <h1>EXCLUSIVE: Get <span class="highlight">$5,000+ Worth of Premium Content Growth</span> — For JUST $2,000 — <span class="highlight">This Week Only!</span></h1>
-                <p class="hero-subtitle">For busy creators and industry leaders ready to dominate social feeds with zero hassle — only <span class="emphasis-white">2 spots left</span> before this offer closes forever.</p>
-
-                <div id="hero-countdown" class="countdown-timer hero-countdown-large reveal-up delay-1">
-                    <div class="time-block"><span class="days">00</span><small>Days</small></div>
-                    <div class="time-block"><span class="hours">00</span><small>Hours</small></div>
-                    <div class="time-block"><span class="minutes">00</span><small>Minutes</small></div>
-                    <div class="time-block"><span class="seconds">00</span><small>Seconds</small></div>
+    <!-- Sticky Urgency Banner -->
+    <section id="urgency-banner" class="bg-accent text-text-light py-2 text-center sticky top-0 z-[1000] shadow-lg transition-all duration-300">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-4 font-semibold">
+            <p class="urgency-message text-lg md:text-xl xl:text-2xl whitespace-nowrap">
+                🚨 Offer ends in:
+            </p>
+            <div id="countdown" class="flex gap-2 text-xl md:text-2xl xl:text-3xl">
+                <div class="time-block flex flex-col items-center bg-white bg-opacity-10 py-1 px-2 rounded-md leading-none">
+                    <span class="days text-2xl font-bold">00</span><small class="text-xs uppercase opacity-80">Days</small>
                 </div>
-                <p class="fine-print text-light hero-countdown-note reveal-up delay-2">Hurry — offer expires in <span id="hero-final-countdown-short">X hours</span>. Strictly limited capacity.</p>
-
-                <div class="hero-cta-group reveal-up delay-3">
-                    <a href="https://calendly.com/hamid-repurposeai/strategy-call" target="_blank" class="btn btn-primary btn-larger animate-scale pulse-animation">Claim Your $3,000+ Savings Now!</a>
+                <div class="time-block flex flex-col items-center bg-white bg-opacity-10 py-1 px-2 rounded-md leading-none">
+                    <span class="hours text-2xl font-bold">00</span><small class="text-xs uppercase opacity-80">Hours</small>
                 </div>
+                <div class="time-block flex flex-col items-center bg-white bg-opacity-10 py-1 px-2 rounded-md leading-none">
+                    <span class="minutes text-2xl font-bold">00</span><small class="text-xs uppercase opacity-80">Minutes</small>
+                </div>
+                <div class="time-block flex flex-col items-center bg-white bg-opacity-10 py-1 px-2 rounded-md leading-none">
+                    <span class="seconds text-2xl font-bold">00</span><small class="text-xs uppercase opacity-80">Seconds</small>
+                </div>
+            </div>
+            <p class="spots-left text-lg md:text-xl xl:text-2xl text-highlight whitespace-nowrap">
+                <span class="spot-count text-2xl font-extrabold shadow-lg">2</span> Spots Left This Week!
+            </p>
+            <a href="https://calendly.com/hamid-repurposeai/strategy-call" target="_blank" class="ml-4 bg-highlight text-primary-dark py-2 px-6 rounded-lg font-bold hover:bg-yellow-400 transition duration-300 shadow-md transform hover:scale-105">
+                Claim Now <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Hero Section: The Unmissable Proposition -->
+    <header class="hero-section bg-primary-dark text-text-light py-24 md:py-32 lg:py-40 text-center relative overflow-hidden flex items-center justify-center min-h-[80vh]
+                   bg-gradient-to-br from-gray-900 to-primary-dark">
+        <div class="container mx-auto px-4 relative z-10 reveal-up">
+            <span class="inline-block bg-accent text-text-light px-5 py-2 rounded-full text-sm font-semibold uppercase tracking-wider mb-8 shadow-md animate-pulse-strong">
+                Limited-Time Exclusive Offer
+            </span>
+            <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold text-text-light leading-tight mb-8 shadow-md">
+                EXCLUSIVE: Unlock <span class="text-highlight">$5,000+ Worth of Premium Growth</span>
+                <br class="hidden md:block"> For <span class="text-accent">JUST $2,000</span> — <span class="text-highlight">This Week Only!</span>
+            </h1>
+            <p class="hero-subtitle text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto text-gray-200 mb-10 reveal-up delay-1">
+                For busy creators and industry leaders ready to dominate social feeds with zero hassle — only
+                <span class="font-bold text-text-light text-2xl">2 spots left</span> before this offer closes forever.
+            </p>
+
+            <div id="hero-countdown" class="flex justify-center gap-4 md:gap-6 lg:gap-8 mb-12 reveal-up delay-2">
+                <div class="flex flex-col items-center bg-black bg-opacity-30 p-4 rounded-xl min-w-[90px] md:min-w-[120px] shadow-lg border border-gray-700">
+                    <span class="days font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold text-highlight">00</span>
+                    <small class="text-sm md:text-base uppercase font-medium text-gray-300">Days</small>
+                </div>
+                <div class="flex flex-col items-center bg-black bg-opacity-30 p-4 rounded-xl min-w-[90px] md:min-w-[120px] shadow-lg border border-gray-700">
+                    <span class="hours font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold text-highlight">00</span>
+                    <small class="text-sm md:text-base uppercase font-medium text-gray-300">Hours</small>
+                </div>
+                <div class="flex flex-col items-center bg-black bg-opacity-30 p-4 rounded-xl min-w-[90px] md:min-w-[120px] shadow-lg border border-gray-700">
+                    <span class="minutes font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold text-highlight">00</span>
+                    <small class="text-sm md:text-base uppercase font-medium text-gray-300">Minutes</small>
+                </div>
+                <div class="flex flex-col items-center bg-black bg-opacity-30 p-4 rounded-xl min-w-[90px] md:min-w-[120px] shadow-lg border border-gray-700">
+                    <span class="seconds font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold text-highlight">00</span>
+                    <small class="text-sm md:text-base uppercase font-medium text-gray-300">Seconds</small>
+                </div>
+            </div>
+            <p class="fine-print text-gray-300 text-lg md:text-xl font-medium mb-12 reveal-up delay-3">
+                Hurry — offer expires in <span id="hero-final-countdown-short" class="font-bold text-highlight">X hours</span>. Strictly limited capacity.
+            </p>
+
+            <div class="hero-cta-group reveal-up delay-4">
+                <a href="https://calendly.com/hamid-repurposeai/strategy-call" target="_blank"
+                   class="inline-flex items-center justify-center py-4 px-10 bg-accent text-text-light font-heading text-2xl font-bold rounded-xl shadow-lg
+                          hover:bg-red-600 transition duration-300 transform hover:scale-105 animate-pulse-strong">
+                    Claim Your $3,000+ Savings Now! <i class="fas fa-arrow-right ml-3"></i>
+                </a>
             </div>
         </div>
     </header>
 
-    <section id="urgency-banner" class="urgency-section">
-        <div class="container">
-            <div class="urgency-content reveal-down">
-                <p class="urgency-message">Offer ends in:</p>
-                <div id="countdown" class="countdown-timer">
-                    <div class="time-block"><span class="days">00</span><small>Days</small></div>
-                    <div class="time-block"><span class="hours">00</span><small>Hours</small></div>
-                    <div class="time-block"><span class="minutes">00</span><small>Minutes</small></div>
-                    <div class="time-block"><span class="seconds">00</span><small>Seconds</small></div>
-                </div>
-                <p class="spots-left">Only <span class="spot-count">2</span> Spots Left This Week!</p>
-            </div>
+    <!-- Problem & Solution -->
+    <section id="problem-solution" class="bg-primary-light py-20 md:py-24 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-text-dark leading-tight mb-8 reveal-up">
+                RepurposeAI is for creators who don’t just want to post more. They want to
+                <span class="text-accent">own the feed</span> without wasting hours in editing hell.
+            </h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-700 mb-12 reveal-up delay-1">
+                You’re not just buying content repurposing. You’re reclaiming hours of your life, boosting your brand authority, and building unstoppable momentum in your niche — all without lifting a finger.
+            </p>
         </div>
     </section>
 
-    <section id="problem-solution" class="section-padding content-section cool-off-white-bg">
-        <div class="container">
-            <h2 class="section-title reveal-up">RepurposeAI is for creators who don’t just want to post more. They want to <span class="highlight">own the feed</span> without wasting hours in editing hell.</h2>
-            <p class="section-description text-dark reveal-up delay-1">You’re not just buying content repurposing. You’re reclaiming hours of your life, boosting your brand authority, and building unstoppable momentum in your niche — all without lifting a finger.</p>
-        </div>
-    </section>
-
-    <section id="offer-details" class="section-padding content-section deep-charcoal-bg">
-        <div class="container">
-            <div class="package-intro reveal-up">
-                <h3 class="intro-heading">✅ The RepurposeAI Momentum Accelerator: Your Fast Track to Authority</h3>
-                <p class="intro-subtext">Built exclusively for industry leaders who value time over anything else.</p>
-                <p class="delivery-time">What you get in <span class="emphasis-white">just 5 days</span>:</p>
+    <!-- Offer Details: The Unbeatable Offer Breakdown -->
+    <section id="offer-details" class="bg-primary-dark py-20 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal-up">
+                <h3 class="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-light mb-4">
+                    ✅ The RepurposeAI Momentum Accelerator: Your Fast Track to Authority
+                </h3>
+                <p class="text-xl text-gray-300 mb-4">
+                    Built exclusively for industry leaders who value time over anything else.
+                </p>
+                <p class="text-2xl font-bold text-text-light">
+                    What you get in <span class="text-highlight">just 5 days</span>:
+                </p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card reveal-left delay-1">
-                    <div class="icon-wrapper"><span class="feature-icon">🎬</span></div>
-                    <h4>3-5 Viral Short-Form Clips <span class="feature-value-tag">($1,500 Value)</span></h4>
-                    <p>Transform your long-form content into highly engaging, retention-focused clips optimized for Reels, TikTok, and Shorts. Cut for maximum attention.</p>
-                </div>
-                <div class="feature-card reveal-left delay-2">
-                    <div class="icon-wrapper"><span class="feature-icon">🧠</span></div>
-                    <h4>AI-Driven Editing & Polishing <span class="feature-value-tag">($1,000 Value)</span></h4>
-                    <p>Leverage cutting-edge AI for seamless edits, dynamic text, and enhanced visuals that make your content pop. Maximize impact with minimal effort.</p>
-                </div>
-                <div class="feature-card reveal-left delay-3">
-                    <div class="icon-wrapper"><span class="feature-icon">📅</span></div>
-                    <h4>Weekly Content Scheduling & Optimization Plan <span class="feature-value-tag">($750 Value)</span></h4>
-                    <p>Receive a strategic roadmap for consistent posting, ensuring your content reaches the right audience at the right time for sustained growth.</p>
-                </div>
-                <div class="feature-card reveal-right delay-4">
-                    <div class="icon-wrapper"><span class="feature-icon">⚡</span></div>
-                    <h4>Rapid 5-Day Delivery Guarantee <span class="feature-value-tag">(Priceless)</span></h4>
-                    <p>You upload your content, we deliver your ready-to-post assets in just 5 business days. No more waiting, just consistent momentum.</p>
-                </div>
-                <div class="feature-card reveal-right delay-5">
-                    <div class="icon-wrapper"><span class="feature-icon">✍️</span></div>
-                    <h4>Captions + Hashtag Strategy <span class="feature-value-tag">(Included)</span></h4>
-                    <p>Done-for-you, engaging captions and a data-driven hashtag strategy to maximize reach and engagement. Just post and grow.</p>
-                </div>
-            </div>
-
-            <div class="bonus-section reveal-up delay-6">
-                <h3 class="text-light">🎁 Limited-Time Exclusive Bonuses!</h3>
-                <p class="section-description text-light">These powerful additions are only available with the Momentum Accelerator and vanish when the offer ends:</p>
-                <div class="bonus-grid">
-                    <div class="bonus-card reveal-left delay-7">
-                        <span class="bonus-icon">📞</span>
-                        <h4>1-Hour Personalized Strategy Session with Our CEO</h4>
-                        <p>Get direct, actionable insights tailored to your content strategy from our founder. ($500 Value)</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Feature Card 1 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-left delay-1 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
+                        <i class="fas fa-video"></i>
                     </div>
-                    <div class="bonus-card reveal-right delay-8">
-                        <span class="bonus-icon">✅</span>
-                        <h4>Exclusive Content Growth Checklist & Workflow</h4>
-                        <p>A step-by-step guide to maximizing the impact of your repurposed content, designed for busy leaders. ($200 Value)</p>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">
+                        3-5 Viral Short-Form Clips
+                    </h4>
+                    <span class="block text-sm text-gray-300 mb-4 font-semibold">($1,500 Value)</span>
+                    <p class="text-base text-gray-200">
+                        Transform your long-form content into highly engaging, retention-focused clips optimized for Reels, TikTok, and Shorts. Cut for maximum attention.
+                    </p>
+                </div>
+                <!-- Feature Card 2 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-left delay-2 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
+                        <i class="fas fa-brain"></i>
                     </div>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">
+                        AI-Driven Editing & Polishing
+                    </h4>
+                    <span class="block text-sm text-gray-300 mb-4 font-semibold">($1,000 Value)</span>
+                    <p class="text-base text-gray-200">
+                        Leverage cutting-edge AI for seamless edits, dynamic text, and enhanced visuals that make your content pop. Maximize impact with minimal effort.
+                    </p>
                 </div>
-                <p class="total-value-statement text-light reveal-up delay-9">Total Combined Value: <span class="emphasis-white">$5,950+</span></p>
+                <!-- Feature Card 3 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-left delay-3 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">
+                        Weekly Content Scheduling & Optimization Plan
+                    </h4>
+                    <span class="block text-sm text-gray-300 mb-4 font-semibold">($750 Value)</span>
+                    <p class="text-base text-gray-200">
+                        Receive a strategic roadmap for consistent posting, ensuring your content reaches the right audience at the right time for sustained growth.
+                    </p>
+                </div>
+                <!-- Feature Card 4 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-right delay-4 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">
+                        Rapid 5-Day Delivery Guarantee
+                    </h4>
+                    <span class="block text-sm text-gray-300 mb-4 font-semibold">(Priceless)</span>
+                    <p class="text-base text-gray-200">
+                        You upload your content, we deliver your ready-to-post assets in just 5 business days. No more waiting, just consistent momentum.
+                    </p>
+                </div>
+                <!-- Feature Card 5 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-right delay-5 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">
+                        Captions + Hashtag Strategy
+                    </h4>
+                    <span class="block text-sm text-gray-300 mb-4 font-semibold">(Included)</span>
+                    <p class="text-base text-gray-200">
+                        Done-for-you, engaging captions and a data-driven hashtag strategy to maximize reach and engagement. Just post and grow.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bonus Section: Highly Visual -->
+            <div class="bg-white bg-opacity-10 rounded-xl p-8 md:p-12 mt-16 shadow-2xl border border-accent relative overflow-hidden reveal-up delay-6">
+                <div class="absolute inset-0 bg-gradient-to-br from-accent to-red-900 opacity-10 blur-xl z-0"></div>
+                <div class="relative z-10 text-center">
+                    <h3 class="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-highlight mb-8 flex items-center justify-center gap-4">
+                        <i class="fas fa-gift text-5xl"></i> Limited-Time Exclusive Bonuses! <i class="fas fa-gift text-5xl"></i>
+                    </h3>
+                    <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-10">
+                        These powerful additions are only available with the Momentum Accelerator and vanish when the offer ends:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                        <!-- Bonus Card 1 -->
+                        <div class="bg-black bg-opacity-20 rounded-lg p-6 text-text-light shadow-xl border border-gray-600 reveal-left delay-7">
+                            <div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-highlight rounded-full text-primary-dark text-4xl shadow-md">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4 class="font-heading text-2xl font-bold mb-2">
+                                1-Hour Personalized Strategy Session with Our CEO
+                            </h4>
+                            <p class="text-base text-gray-300">
+                                Get direct, actionable insights tailored to your content strategy from our founder. ($500 Value)
+                            </p>
+                        </div>
+                        <!-- Bonus Card 2 -->
+                        <div class="bg-black bg-opacity-20 rounded-lg p-6 text-text-light shadow-xl border border-gray-600 reveal-right delay-8">
+                            <div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-highlight rounded-full text-primary-dark text-4xl shadow-md">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h4 class="font-heading text-2xl font-bold mb-2">
+                                Exclusive Content Growth Checklist & Workflow
+                            </h4>
+                            <p class="text-base text-gray-300">
+                                A step-by-step guide to maximizing the impact of your repurposed content, designed for busy leaders. ($200 Value)
+                            </p>
+                        </div>
+                    </div>
+                    <p class="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-highlight mt-12 text-shadow-lg reveal-up delay-9">
+                        Total Combined Value: <span class="text-text-light line-through mr-4">$5,950+</span> <span class="text-accent">YOUR PRICE: JUST $2,000!</span>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="scarcity-exclusivity" class="section-padding content-section cool-off-white-bg">
-        <div class="container">
-            <h2 class="section-title text-dark reveal-up">Urgent: Only 2 Spots Left This Week!</h2>
-            <p class="section-description text-dark reveal-up delay-1">When these exclusive spots are gone, this limited-time deal vanishes permanently.</p>
-            <p class="section-description text-dark reveal-up delay-2">We strictly limit new clients to ensure we provide premium, personalized service that guarantees your success. Your momentum is our priority, and we refuse to compromise quality.</p>
-            <p class="action-prompt text-dark reveal-up delay-3">This is your one-time chance to lock in huge savings and get premium content growth at less than half the cost of building it yourself.</p>
-            <div class="button-center-wrapper reveal-up delay-4">
-                <a href="https://calendly.com/hamid-repurposeai/strategy-call" target="_blank" class="btn btn-primary btn-large animate-scale">Secure Your Spot Before It's Gone! →</a>
-            </div>
-        </div>
-    </section>
+    <!-- Value Comparison: The "Why It's Foolish to Say No" -->
+    <section id="value-comparison" class="bg-primary-light py-20 md:py-24 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-text-dark leading-tight mb-8 reveal-up">
+                The Real Investment: Over <span class="text-red-700">$5,000+ Value</span> vs. Your Exclusive Price of <span class="text-accent">JUST $2,000!</span>
+            </h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-700 mb-12 reveal-up delay-1">
+                Without RepurposeAI, you'd sacrifice time, money, and momentum:
+            </p>
 
-
-    <section id="how-it-works" class="section-padding content-section deep-charcoal-bg">
-        <div class="container">
-            <h2 class="section-title text-light reveal-up">Your Path to Content Domination in Just 4 Simple Steps:</h2>
-            <div class="progress-steps-container">
-                <div class="progress-step reveal-up delay-1">
-                    <div class="step-icon"><span class="icon-text">1️⃣</span></div>
-                    <h4 class="step-title">Book Your Spot</h4>
-                    <p class="step-description">Secure a quick 15-minute strategy session to confirm fit and answer any questions. No obligations, just clarity.</p>
-                </div>
-                <div class="progress-step reveal-up delay-2">
-                    <div class="step-icon"><span class="icon-text">2️⃣</span></div>
-                    <h4 class="step-title">Send Your Content</h4>
-                    <p class="step-description">Securely upload your chosen long-form audio or video content (podcast, YouTube, masterclass) via our simple portal.</p>
-                </div>
-                <div class="progress-step reveal-up delay-3">
-                    <div class="step-icon"><span class="icon-text">3️⃣</span></div>
-                    <h4 class="step-title">Watch Momentum Build</h4>
-                    <p class="step-description">Our RepurposeAI team gets to work, transforming your content into viral clips, carousels, and graphics. No oversight needed.</p>
-                </div>
-                <div class="progress-step reveal-up delay-4">
-                    <div class="step-icon"><span class="icon-text">4️⃣</span></div>
-                    <h4 class="step-title">Grow Your Brand</h4>
-                    <p class="step-description">In 5 business days, receive your ready-to-post assets. Publish, engage, and watch your brand authority and leads soar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="value-comparison" class="section-padding content-section cool-off-white-bg">
-        <div class="container">
-            <h2 class="section-title text-dark reveal-up">The Real Investment: Over $5,000+ Value vs. Your Exclusive Price of JUST $2,000!</h2>
-            <p class="section-description reveal-up delay-1">Without RepurposeAI, you'd sacrifice time, money, and momentum:</p>
-
-            <div class="price-cards-wrapper">
-                <div class="price-card reveal-left delay-2">
-                    <h3>The Cost of Doing It Yourself</h3>
-                    <p class="old-price">$5,000+ <span class="small-text">(and countless hours)</span></p>
-                    <ul class="price-feature-list">
-                        <li>Endless Strategy Meetings: Time-consuming & costly.</li>
-                        <li>Hiring & Managing Editors: Expensive salaries & complex workflows.</li>
-                        <li>Manual Scripting & Copywriting: Hours of painstaking effort.</li>
-                        <li>Inconsistent Distribution: Missed opportunities & slow growth.</li>
+            <div class="flex flex-wrap justify-center items-stretch gap-8 mb-16">
+                <!-- "Cost of Doing It Yourself" Card -->
+                <div class="flex flex-col bg-gray-100 rounded-xl p-8 shadow-xl text-center flex-1 min-w-[300px] max-w-md border-2 border-red-300
+                            transform hover:scale-[1.01] transition duration-300 reveal-left delay-2">
+                    <h3 class="font-heading text-2xl font-bold text-red-700 mb-4">
+                        The Painful Reality of Doing It Yourself
+                    </h3>
+                    <p class="text-5xl font-extrabold text-gray-600 line-through mb-4">
+                        $5,000+ <span class="block text-base font-normal no-underline text-gray-500">(and countless hours lost)</span>
+                    </p>
+                    <ul class="list-none p-0 mt-6 text-left flex-grow">
+                        <li class="mb-3 text-lg flex items-start text-gray-700"><i class="fas fa-times-circle text-red-500 mr-3 mt-1 text-xl"></i> Endless Strategy Meetings: Time-consuming & costly.</li>
+                        <li class="mb-3 text-lg flex items-start text-gray-700"><i class="fas fa-times-circle text-red-500 mr-3 mt-1 text-xl"></i> Hiring & Managing Editors: Expensive salaries & complex workflows.</li>
+                        <li class="mb-3 text-lg flex items-start text-gray-700"><i class="fas fa-times-circle text-red-500 mr-3 mt-1 text-xl"></i> Manual Scripting & Copywriting: Hours of painstaking effort.</li>
+                        <li class="mb-3 text-lg flex items-start text-gray-700"><i class="fas fa-times-circle text-red-500 mr-3 mt-1 text-xl"></i> Inconsistent Distribution: Missed opportunities & slow growth.</li>
                     </ul>
-                    <p class="small-text">You'd easily spend $5,000+ *plus* your invaluable time, pushing your launch months away.</p>
+                    <p class="text-base text-gray-500 mt-auto pt-4">
+                        You'd easily spend $5,000+ *plus* your invaluable time, pushing your launch months away.
+                    </p>
                 </div>
-                <div class="price-card highlight-card reveal-right delay-3">
-                    <span class="badge">🔥 Limited-Time Offer!</span>
-                    <h3>Your Exclusive RepurposeAI Price</h3>
-                    <p class="new-price">$2,000</p>
-                    <p class="buy-back-text">You're not buying content. You're buying UNLOCKED POTENTIAL.</p>
-                    <ul class="price-feature-list">
-                        <li>Reclaim Your Time: Focus on what you do best.</li>
-                        <li>Amplify Brand Authority: Consistent, high-quality presence.</li>
-                        <li>Build Unstoppable Momentum: Growth on autopilot.</li>
-                        <li>Zero Guesswork: Proven strategy & execution.</li>
+
+                <!-- "Your Exclusive Price" Highlight Card -->
+                <div class="flex flex-col bg-primary-dark text-text-light rounded-xl p-8 shadow-2xl flex-1 min-w-[300px] max-w-md border-4 border-accent relative overflow-hidden
+                            transform hover:scale-[1.02] transition duration-300 reveal-right delay-3">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-800 to-primary-dark opacity-10 z-0"></div>
+                    <span class="absolute -top-4 -right-4 bg-highlight text-primary-dark font-extrabold px-6 py-2 rounded-full text-sm transform rotate-12 shadow-lg">
+                        🔥 LIMITED-TIME OFFER!
+                    </span>
+                    <h3 class="font-heading text-2xl font-bold text-text-light mb-4 relative z-10">
+                        Your Smartest Investment: RepurposeAI Price
+                    </h3>
+                    <p class="text-6xl font-extrabold text-accent mb-4 relative z-10 shadow-lg">
+                        $2,000
+                    </p>
+                    <p class="text-xl font-bold text-highlight mb-6 relative z-10">
+                        You're not buying content. You're buying <span class="block text-2xl font-extrabold">UNLOCKED POTENTIAL.</span>
+                    </p>
+                    <ul class="list-none p-0 mt-auto text-left flex-grow relative z-10">
+                        <li class="mb-3 text-lg flex items-start text-gray-200"><i class="fas fa-check-circle text-highlight mr-3 mt-1 text-xl"></i> Reclaim Your Time: Focus on what you do best.</li>
+                        <li class="mb-3 text-lg flex items-start text-gray-200"><i class="fas fa-check-circle text-highlight mr-3 mt-1 text-xl"></i> Amplify Brand Authority: Consistent, high-quality presence.</li>
+                        <li class="mb-3 text-lg flex items-start text-gray-200"><i class="fas fa-check-circle text-highlight mr-3 mt-1 text-xl"></i> Build Unstoppable Momentum: Growth on autopilot.</li>
+                        <li class="mb-3 text-lg flex items-start text-gray-200"><i class="fas fa-check-circle text-highlight mr-3 mt-1 text-xl"></i> Zero Guesswork: Proven strategy & execution.</li>
                     </ul>
-                    <p class="small-text">This is a $3,000+ instant saving on your path to digital dominance.</p>
+                    <p class="text-base text-gray-300 mt-auto pt-4 relative z-10">
+                        This is a <span class="font-bold text-highlight">$3,000+ instant saving</span> on your path to digital dominance.
+                    </p>
                 </div>
             </div>
-            <p class="final-value-statement reveal-up delay-4">Think of it this way: If the RepurposeAI Momentum Accelerator helps you land just one new client, secure a single high-profile interview, or achieve one viral moment, it pays for itself many times over. This isn't a cost; it's an investment in your exponential growth.</p>
+            <p class="text-xl font-semibold max-w-4xl mx-auto text-gray-700 reveal-up delay-4">
+                Think of it this way: If the RepurposeAI Momentum Accelerator helps you land just one new client, secure a single high-profile interview, or achieve one viral moment, it pays for itself many times over. This isn't a cost; it's an <span class="text-accent">investment in your exponential growth.</span>
+            </p>
         </div>
     </section>
 
-    <section id="call-to-action" class="section-padding content-section deep-charcoal-bg">
-        <div class="container">
-            <h2 class="section-title text-light reveal-up">🚨 Last Call: Only 2 Exclusive Spots Remaining This Week!</h2>
-            <p class="section-description text-light reveal-up delay-1">This isn't for those who "might" be ready. This is for decisive industry leaders who recognize an unparalleled opportunity when it appears. There is no "maybe later."</p>
-            <p class="section-description text-light reveal-up delay-2">We strictly limit our capacity to ensure exceptional, personalized results for every client. When these spots are gone, they are G-O-N-E.</p>
-            <p class="action-prompt text-light reveal-up delay-3">🔥 Your Window of Opportunity is Closing FAST. 🔥</p>
-            <div class="button-center-wrapper reveal-up delay-4">
-                <a href="https://calendly.com/hamid-repurposeai/strategy-call" target="_blank" class="btn btn-primary btn-large animate-scale pulse-animation">Claim Your $3,000+ Savings Now! →</a>
-                <p class="fine-print text-light reveal-up delay-5">DEADLINE ALERT: This exclusive offer WILL expire in <span id="final-countdown-short">X hours</span>. Limited capacity means first-come, first-served.</p>
+    <!-- How It Works: Streamlined & Simple -->
+    <section id="how-it-works" class="bg-primary-dark py-20 md:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-text-light text-center mb-16 reveal-up">
+                Your Path to Content Domination in Just 4 Simple Steps:
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-up delay-1 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">Book Your Spot</h4>
+                    <p class="text-base text-gray-200">
+                        Secure a quick 15-minute strategy session to confirm fit and answer any questions. No obligations, just clarity.
+                    </p>
+                </div>
+                <!-- Step 2 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-up delay-2 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">Send Your Content</h4>
+                    <p class="text-base text-gray-200">
+                        Securely upload your chosen long-form audio or video content (podcast, YouTube, masterclass) via our simple portal.
+                    </p>
+                </div>
+                <!-- Step 3 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-up delay-3 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">Watch Momentum Build</h4>
+                    <p class="text-base text-gray-200">
+                        Our RepurposeAI team gets to work, transforming your content into viral clips, carousels, and graphics. No oversight needed.
+                    </p>
+                </div>
+                <!-- Step 4 -->
+                <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
+                            transform hover:scale-[1.02] transition duration-300 reveal-up delay-4 group-hover-subtle-pop">
+                    <div class="bg-accent rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="font-heading text-xl md:text-2xl font-bold text-highlight mb-2">Grow Your Brand</h4>
+                    <p class="text-base text-gray-200">
+                        In 5 business days, receive your ready-to-post assets. Publish, engage, and watch your brand authority and leads soar.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer-section">
-        <div class="container">
-            <p>&copy; 2025 RepurposeAI. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+    <!-- Final Call to Action -->
+    <section id="call-to-action" class="bg-primary-dark py-20 md:py-24 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-4xl md:text-6xl font-extrabold text-highlight leading-tight mb-8 shadow-lg reveal-up">
+                🚨 Last Call: Only <span class="text-accent">2 Exclusive Spots</span> Remaining This Week!
+            </h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6 reveal-up delay-1">
+                This isn't for those who "might" be ready. This is for decisive industry leaders who recognize an unparalleled opportunity when it appears. There is no "maybe later."
+            </p>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 reveal-up delay-2">
+                We strictly limit our capacity to ensure exceptional, personalized results for every client. When these spots are gone, they are <span class="font-extrabold text-accent">G-O-N-E.</span>
+            </p>
+            <p class="font-heading text-2xl md:text-3xl font-extrabold text-accent mb-12 shadow-lg reveal-up delay-3">
+                🔥 Your Window of Opportunity is Closing FAST. 🔥
+            </p>
+            <div class="reveal-up delay-4">
+                <a href="https://calendly.com/hamid-repurposeai/strategy-call" target="_blank"
+                   class="inline-flex items-center justify-center py-5 px-12 bg-accent text-text-light font-heading text-3xl font-bold rounded-xl shadow-lg
+                          hover:bg-red-600 transition duration-300 transform hover:scale-105 animate-pulse-strong">
+                    Secure Your Spot Before It's Gone! <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+                <p class="text-gray-400 text-lg md:text-xl font-medium mt-8 reveal-up delay-5">
+                    DEADLINE ALERT: This exclusive offer WILL expire in <span id="final-countdown-short" class="font-bold text-highlight">X hours</span>. Limited capacity means first-come, first-served.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-gray-400 py-8 text-center border-t border-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <p class="mb-2 md:mb-0">&copy; 2025 RepurposeAI. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-accent transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition-colors">Terms of Service</a>
+                </div>
+            </div>
+            <!-- Optional: Small, refined logo -->
+            <div class="mt-4">
+                <img src="https://placehold.co/100x30/1A1A2E/FFFFFF?text=RepurposeAI" alt="RepurposeAI Logo" class="mx-auto opacity-70">
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript for Countdown Timer and Scroll Animations -->
     <script>
+        // Customizing Tailwind colors for easy access in JS or for specific cases
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#1A1A2E',
+                        'primary-light': '#F8F9FA',
+                        'accent': '#E94560',
+                        'highlight': '#FFD700',
+                        'text-dark': '#333333',
+                        'text-light': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        heading: ['Inter', 'sans-serif'],
+                        body: ['IBM Plex Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+
         // Countdown Timer Logic
         function setupCountdown(endDate, countdownId, finalShortId) {
             const countdownContainer = document.getElementById(countdownId);
@@ -245,16 +528,25 @@
                     if (countdownElements.finalShort) {
                         countdownElements.finalShort.textContent = 'Expired';
                     }
-                    // Only update messages for the main urgency banner, not the hero one
-                    if (countdownId === 'countdown') {
-                        document.querySelector('.urgency-message').textContent = 'Offer Expired!';
-                        document.querySelector('.spots-left').textContent = 'This offer has ended.';
-                        document.querySelectorAll('.btn-primary').forEach(btn => {
+                    // Only update messages for the main urgency banner and CTA sections, not the hero one
+                    if (countdownId === 'countdown' || countdownId === 'final-countdown-short') {
+                        const urgencyMessage = document.querySelector('.urgency-message');
+                        if (urgencyMessage) urgencyMessage.textContent = 'Offer Expired!';
+                        const spotsLeft = document.querySelector('.spots-left');
+                        if (spotsLeft) spotsLeft.textContent = 'This offer has ended.';
+                        document.querySelectorAll('.animate-pulse-strong').forEach(btn => {
                             btn.textContent = 'Offer Expired';
-                            btn.style.opacity = '0.7';
-                            btn.style.pointerEvents = 'none';
-                            btn.href = '#'; // Prevent navigation
+                            btn.classList.add('opacity-70', 'pointer-events-none');
+                            btn.removeAttribute('href'); // Prevent navigation
+                            btn.classList.remove('animate-pulse-strong'); // Stop animation
                         });
+                        // Also update the button in the scarcity-exclusivity section
+                        const scarcityBtn = document.querySelector('#scarcity-exclusivity .btn');
+                        if (scarcityBtn) {
+                            scarcityBtn.textContent = 'Offer Expired';
+                            scarcityBtn.classList.add('opacity-70', 'pointer-events-none');
+                            scarcityBtn.removeAttribute('href');
+                        }
                     }
                     return;
                 }
@@ -290,10 +582,10 @@
             // Set the countdown to end at 23:59:59 on June 14, 2025 PKT
             const targetDate = new Date('June 14, 2025 23:59:59 GMT+0500'); // PKT is GMT+5
 
-            setupCountdown(targetDate.getTime(), 'countdown', 'final-countdown-short'); // For sticky banner
+            setupCountdown(targetDate.getTime(), 'countdown', 'final-countdown-short'); // For sticky banner and final CTA
             setupCountdown(targetDate.getTime(), 'hero-countdown', 'hero-final-countdown-short'); // For hero section
 
-            // Intersection Observer for scroll animations
+            // Intersection Observer for scroll animations (reveal animations)
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -306,21 +598,9 @@
                 rootMargin: '0px 0px -50px 0px' // Adjust when elements appear slightly sooner
             });
 
-            document.querySelectorAll('.reveal-up, .reveal-down, .reveal-left, .reveal-right, .animate-scale, .pulse-animation').forEach(element => {
+            document.querySelectorAll('.reveal-up, .reveal-down, .reveal-left, .reveal-right').forEach(element => {
                 observer.observe(element);
             });
-        });
-
-        // Sticky Header Shrink Logic
-        document.addEventListener('scroll', function() {
-            const urgencyBanner = document.getElementById('urgency-banner');
-            const scrollThreshold = 100; // Adjust as needed
-
-            if (window.scrollY > scrollThreshold) {
-                urgencyBanner.classList.add('shrunk');
-            } else {
-                urgencyBanner.classList.remove('shrunk');
-            }
         });
     </script>
 </body>
