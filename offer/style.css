@@ -70,3 +70,79 @@
 .delay-7 { transition-delay: 0.7s; }
 .delay-8 { transition-delay: 0.8s; }
 .delay-9 { transition-delay: 0.9s; }
+/* Added more delays for new features if needed */
+.delay-10 { transition-delay: 1.0s; }
+.delay-11 { transition-delay: 1.1s; }
+
+
+/* Specific adjustments for badge and timer on mobile */
+/* This ensures the badge is visible and timers are compressed gracefully */
+@media (max-width: 768px) {
+    .badge {
+        /* Adjust positioning to ensure it's not cut off */
+        top: -10px; /* Slightly less negative top */
+        right: -10px; /* Slightly less negative right */
+        transform: rotate(12deg) scale(0.9); /* Slightly smaller on mobile */
+        padding: 6px 12px; /* Smaller padding */
+        font-size: 0.75rem; /* Smaller font size */
+    }
+
+    #urgency-banner .time-block {
+        padding: 0.25rem 0.4rem; /* Reduced padding for smaller screens */
+    }
+
+    #urgency-banner .time-block span {
+        font-size: 1.1rem; /* Smaller font for numbers */
+    }
+
+    #urgency-banner .time-block small {
+        font-size: 0.6rem; /* Smaller font for labels */
+    }
+     #countdown .time-block {
+        min-width: 40px; /* Minimum width for mobile time blocks */
+    }
+}
+
+@media (max-width: 480px) {
+    #urgency-banner .flex { /* Target the flex container directly */
+        justify-content: space-between; /* Distribute items */
+        gap: 0.5rem; /* Smaller gap */
+    }
+
+    #urgency-banner .urgency-message,
+    #urgency-banner .spots-left {
+        font-size: 0.8rem; /* Even smaller font size */
+    }
+    #urgency-banner .spot-count {
+        font-size: 1rem;
+    }
+
+    #countdown .time-block {
+        padding: 0.1rem 0.2rem; /* Even smaller padding */
+        min-width: 35px; /* Even smaller minimum width */
+    }
+    #countdown .time-block span {
+        font-size: 1rem; /* Smallest font for numbers */
+    }
+    #countdown .time-block small {
+        font-size: 0.5rem; /* Smallest font for labels */
+    }
+    #urgency-banner .ml-2.md\:ml-4 {
+        margin-left: 0.25rem !important; /* Override larger margin */
+    }
+    #urgency-banner a {
+        padding: 0.3rem 0.6rem; /* Smaller button padding */
+        font-size: 0.75rem; /* Smaller button font */
+    }
+
+    #hero-countdown .time-block {
+        padding: 0.5rem; /* Adjust padding for hero countdown on tiny screens */
+        min-width: 60px;
+    }
+    #hero-countdown .time-block span {
+        font-size: 2rem; /* Adjust font size for hero countdown on tiny screens */
+    }
+    #hero-countdown .time-block small {
+        font-size: 0.6rem; /* Adjust font size for hero countdown on tiny screens */
+    }
+}
