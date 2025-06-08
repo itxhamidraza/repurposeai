@@ -256,45 +256,6 @@ p {
     color: rgba(255, 255, 255, 0.8);
 }
 
-
-/* Trust Bar */
-.trust-bar {
-    padding: var(--spacing-sm) 0;
-    text-align: center;
-    background-color: var(--color-primary-light);
-    border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.trust-bar .trust-text {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-text-dark);
-}
-
-.logo-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-}
-
-.logo-placeholder {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #666; /* Muted color for placeholder logos */
-    text-transform: uppercase;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-.logo-placeholder:hover {
-    opacity: 1;
-}
-
 /* Urgency Banner (Sticky) */
 #urgency-banner {
     background-color: var(--color-accent);
