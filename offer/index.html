@@ -6,94 +6,18 @@
     <title>EXCLUSIVE: RepurposeAI Momentum Accelerator Offer</title>
     <meta name="description" content="Limited-time offer: Get $5,000+ worth of content growth for just $2,000. For busy creators & industry leaders.">
 
-    <!-- Google Fonts: Inter for headings, IBM Plex Sans for body text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for professional icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom Tailwind Configuration (to extend default theme) */
-        @tailwind base;
-        @tailwind components;
-        @tailwind utilities;
-
-        :root {
-            --color-primary-dark: #1A1A2E; /* Deep Charcoal / Navy */
-            --color-primary-light: #F8F9FA; /* Cool Off-White */
-            --color-accent: #E94560; /* Ruby Red */
-            --color-highlight: #FFD700; /* Gold/Yellow for highlights */
-            --color-text-dark: #333333;
-            --color-text-light: #FFFFFF;
-        }
-
-        /* Custom fonts for Tailwind */
-        .font-heading { font-family: 'Inter', sans-serif; }
-        .font-body { font-family: 'IBM Plex Sans', sans-serif; }
-
-        /* Custom Animations */
-        @keyframes pulse-strong {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.7); }
-            70% { transform: scale(1.03); box-shadow: 0 0 0 20px rgba(233, 69, 96, 0); }
-        }
-
-        .animate-pulse-strong {
-            animation: pulse-strong 2s infinite;
-        }
-
-        @keyframes subtle-pop {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.01); }
-            100% { transform: scale(1); }
-        }
-
-        .group:hover .group-hover-subtle-pop {
-            animation: subtle-pop 0.3s ease-in-out forwards;
-        }
-
-        /* Reveal Animations (kept from original for easy JS integration) */
-        .reveal-up, .reveal-down, .reveal-left, .reveal-right {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .reveal-down {
-            transform: translateY(-20px);
-        }
-
-        .reveal-left {
-            transform: translateX(-20px);
-        }
-
-        .reveal-right {
-            transform: translateX(20px);
-        }
-
-        .reveal-up.is-visible, .reveal-down.is-visible, .reveal-left.is-visible, .reveal-right.is-visible {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-
-        /* Animation delays */
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
-        .delay-5 { transition-delay: 0.5s; }
-        .delay-6 { transition-delay: 0.6s; }
-        .delay-7 { transition-delay: 0.7s; }
-        .delay-8 { transition-delay: 0.8s; }
-        .delay-9 { transition-delay: 0.9s; }
-    </style>
+    
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body class="font-body bg-primary-light text-text-dark antialiased">
 
-    <!-- Sticky Urgency Banner -->
     <section id="urgency-banner" class="bg-accent text-text-light py-2 text-center sticky top-0 z-[1000] shadow-lg transition-all duration-300">
         <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-4 font-semibold">
             <p class="urgency-message text-lg md:text-xl xl:text-2xl whitespace-nowrap">
@@ -122,7 +46,6 @@
         </div>
     </section>
 
-    <!-- Hero Section: The Unmissable Proposition -->
     <header class="hero-section bg-primary-dark text-text-light py-24 md:py-32 lg:py-40 text-center relative overflow-hidden flex items-center justify-center min-h-[80vh]
                    bg-gradient-to-br from-gray-900 to-primary-dark">
         <div class="container mx-auto px-4 relative z-10 reveal-up">
@@ -170,7 +93,6 @@
         </div>
     </header>
 
-    <!-- Problem & Solution -->
     <section id="problem-solution" class="bg-primary-light py-20 md:py-24 text-center">
         <div class="container mx-auto px-4">
             <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-text-dark leading-tight mb-8 reveal-up">
@@ -183,7 +105,6 @@
         </div>
     </section>
 
-    <!-- Offer Details: The Unbeatable Offer Breakdown -->
     <section id="offer-details" class="bg-primary-dark py-20 md:py-24">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 reveal-up">
@@ -199,7 +120,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Feature Card 1 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-left delay-1 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
@@ -213,7 +133,6 @@
                         Transform your long-form content into highly engaging, retention-focused clips optimized for Reels, TikTok, and Shorts. Cut for maximum attention.
                     </p>
                 </div>
-                <!-- Feature Card 2 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-left delay-2 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
@@ -227,7 +146,6 @@
                         Leverage cutting-edge AI for seamless edits, dynamic text, and enhanced visuals that make your content pop. Maximize impact with minimal effort.
                     </p>
                 </div>
-                <!-- Feature Card 3 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-left delay-3 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
@@ -241,7 +159,6 @@
                         Receive a strategic roadmap for consistent posting, ensuring your content reaches the right audience at the right time for sustained growth.
                     </p>
                 </div>
-                <!-- Feature Card 4 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-right delay-4 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
@@ -255,7 +172,6 @@
                         You upload your content, we deliver your ready-to-post assets in just 5 business days. No more waiting, just consistent momentum.
                     </p>
                 </div>
-                <!-- Feature Card 5 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-right delay-5 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg">
@@ -271,7 +187,6 @@
                 </div>
             </div>
 
-            <!-- Bonus Section: Highly Visual -->
             <div class="bg-white bg-opacity-10 rounded-xl p-8 md:p-12 mt-16 shadow-2xl border border-accent relative overflow-hidden reveal-up delay-6">
                 <div class="absolute inset-0 bg-gradient-to-br from-accent to-red-900 opacity-10 blur-xl z-0"></div>
                 <div class="relative z-10 text-center">
@@ -282,7 +197,6 @@
                         These powerful additions are only available with the Momentum Accelerator and vanish when the offer ends:
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                        <!-- Bonus Card 1 -->
                         <div class="bg-black bg-opacity-20 rounded-lg p-6 text-text-light shadow-xl border border-gray-600 reveal-left delay-7">
                             <div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-highlight rounded-full text-primary-dark text-4xl shadow-md">
                                 <i class="fas fa-headset"></i>
@@ -294,7 +208,6 @@
                                 Get direct, actionable insights tailored to your content strategy from our founder. ($500 Value)
                             </p>
                         </div>
-                        <!-- Bonus Card 2 -->
                         <div class="bg-black bg-opacity-20 rounded-lg p-6 text-text-light shadow-xl border border-gray-600 reveal-right delay-8">
                             <div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-highlight rounded-full text-primary-dark text-4xl shadow-md">
                                 <i class="fas fa-clipboard-check"></i>
@@ -315,7 +228,6 @@
         </div>
     </section>
 
-    <!-- Value Comparison: The "Why It's Foolish to Say No" -->
     <section id="value-comparison" class="bg-primary-light py-20 md:py-24 text-center">
         <div class="container mx-auto px-4">
             <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-text-dark leading-tight mb-8 reveal-up">
@@ -326,7 +238,6 @@
             </p>
 
             <div class="flex flex-wrap justify-center items-stretch gap-8 mb-16">
-                <!-- "Cost of Doing It Yourself" Card -->
                 <div class="flex flex-col bg-gray-100 rounded-xl p-8 shadow-xl text-center flex-1 min-w-[300px] max-w-md border-2 border-red-300
                             transform hover:scale-[1.01] transition duration-300 reveal-left delay-2">
                     <h3 class="font-heading text-2xl font-bold text-red-700 mb-4">
@@ -346,7 +257,6 @@
                     </p>
                 </div>
 
-                <!-- "Your Exclusive Price" Highlight Card -->
                 <div class="flex flex-col bg-primary-dark text-text-light rounded-xl p-8 shadow-2xl flex-1 min-w-[300px] max-w-md border-4 border-accent relative overflow-hidden
                             transform hover:scale-[1.02] transition duration-300 reveal-right delay-3">
                     <div class="absolute inset-0 bg-gradient-to-br from-red-800 to-primary-dark opacity-10 z-0"></div>
@@ -379,14 +289,12 @@
         </div>
     </section>
 
-    <!-- How It Works: Streamlined & Simple -->
     <section id="how-it-works" class="bg-primary-dark py-20 md:py-24">
         <div class="container mx-auto px-4">
             <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-text-light text-center mb-16 reveal-up">
                 Your Path to Content Domination in Just 4 Simple Steps:
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Step 1 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-up delay-1 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">
@@ -397,7 +305,6 @@
                         Secure a quick 15-minute strategy session to confirm fit and answer any questions. No obligations, just clarity.
                     </p>
                 </div>
-                <!-- Step 2 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-up delay-2 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">
@@ -408,7 +315,6 @@
                         Securely upload your chosen long-form audio or video content (podcast, YouTube, masterclass) via our simple portal.
                     </p>
                 </div>
-                <!-- Step 3 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-up delay-3 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">
@@ -419,7 +325,6 @@
                         Our RepurposeAI team gets to work, transforming your content into viral clips, carousels, and graphics. No oversight needed.
                     </p>
                 </div>
-                <!-- Step 4 -->
                 <div class="group bg-white bg-opacity-5 rounded-xl p-6 text-center text-text-light shadow-xl border border-gray-700 hover:border-accent
                             transform hover:scale-[1.02] transition duration-300 reveal-up delay-4 group-hover-subtle-pop">
                     <div class="bg-accent rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">
@@ -434,7 +339,6 @@
         </div>
     </section>
 
-    <!-- Final Call to Action -->
     <section id="call-to-action" class="bg-primary-dark py-20 md:py-24 text-center">
         <div class="container mx-auto px-4">
             <h2 class="font-heading text-4xl md:text-6xl font-extrabold text-highlight leading-tight mb-8 shadow-lg reveal-up">
@@ -462,7 +366,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-primary-dark text-gray-400 py-8 text-center border-t border-gray-700">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center mb-4">
@@ -472,14 +375,12 @@
                     <a href="#" class="hover:text-accent transition-colors">Terms of Service</a>
                 </div>
             </div>
-            <!-- Optional: Small, refined logo -->
             <div class="mt-4">
                 <img src="https://placehold.co/100x30/1A1A2E/FFFFFF?text=RepurposeAI" alt="RepurposeAI Logo" class="mx-auto opacity-70">
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Countdown Timer and Scroll Animations -->
     <script>
         // Customizing Tailwind colors for easy access in JS or for specific cases
         tailwind.config = {
