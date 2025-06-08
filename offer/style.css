@@ -1,10 +1,10 @@
 /* --- Core Variables & Global Styles --- */
 :root {
-    --primary-dark-bg: #1A2B3C;       /* Deep Slate Blue/Navy */
-    --accent-color: #00A896;         /* Rich, muted Teal */
-    --light-cool-gray: #F8F9FA;     /* Secondary background - Light, clean */
+    --primary-light-bg: #F5F5F5;     /* Soft Off-White - Main background */
+    --primary-dark-bg: #0F1E36;       /* Deep Navy Blue - for sections & key elements */
+    --accent-color: #C41E3A;         /* Ruby Red - for urgency & highlights */
     --pure-white: #FFFFFF;          /* Text on dark backgrounds */
-    --text-on-light-bg: #212121;    /* Text on light backgrounds - ensures density */
+    --text-on-light-bg: #212121;    /* Very dark gray for text on light backgrounds */
 
     --shadow-light: rgba(0, 0, 0, 0.08);
     --shadow-medium: rgba(0, 0, 0, 0.25);
@@ -31,7 +31,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.7;
     color: var(--text-on-light-bg);
-    background-color: var(--light-cool-gray);
+    background-color: var(--primary-light-bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -137,8 +137,8 @@ a:hover {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.cool-off-white-bg {
-    background-color: var(--light-cool-gray);
+.primary-light-bg {
+    background-color: var(--primary-light-bg);
 }
 
 .primary-dark-bg {
@@ -172,7 +172,7 @@ a:hover {
 }
 
 .btn-primary:hover {
-    background-color: #008F7E;
+    background-color: #A01931; /* Darker Ruby Red */
     transform: translateY(-4px);
     box-shadow: 0 14px 30px var(--shadow-medium);
 }
@@ -190,7 +190,7 @@ a:hover {
 
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-dark-bg) 0%, #2A4056 100%);
+    background: linear-gradient(135deg, var(--primary-dark-bg) 0%, #293855 100%); /* Deep Navy Gradient */
     color: var(--pure-white);
     padding: 10rem 0 8rem 0;
     text-align: center;
@@ -246,9 +246,9 @@ a:hover {
     margin-top: 2.5rem;
 }
 
-/* --- Urgency Section (Sticky Banner & Shrink Effect) --- */
+/* --- Urgency Section (Sticky Timer) --- */
 .urgency-section {
-    background-color: var(--accent-color);
+    background-color: var(--accent-color); /* Ruby Red accent */
     color: var(--pure-white);
     padding: 1rem 0;
     text-align: center;
@@ -322,8 +322,7 @@ a:hover {
     font-size: clamp(1.05rem, 1.8vw, 1.25rem);
     font-weight: 700;
     letter-spacing: 0.04em;
-    /* ENSURED VISIBILITY: Stronger text-shadow for readability */
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); /* Stronger shadow for visibility */
     margin-bottom: 0;
     transition: font-size var(--transition-speed);
     width: 100%;
@@ -374,92 +373,74 @@ a:hover {
     font-size: clamp(1.1rem, 1.8vw, 1.35rem);
 }
 
-
-/* --- Problem/Solution Section --- */
+/* --- Problem & Solution Section --- */
 .problem-solution .section-title .highlight {
     color: var(--accent-color);
 }
 
-/* --- Package Showcase Section (New design for RepurposeAI Momentum Package) --- */
-.package-showcase-section {
-    background-color: var(--light-cool-gray); /* Light background to make the package pop */
-    color: var(--text-on-light-bg);
-    padding-top: 8rem; /* Maintain top padding */
-    padding-bottom: 8rem; /* Maintain bottom padding */
-    position: relative;
-    z-index: 1;
-}
-.package-showcase-section .section-title h2 {
-    color: var(--text-on-light-bg); /* Ensure title is dark on light bg */
-}
-.package-showcase-section .section-description {
-    color: var(--text-on-light-bg); /* Ensure description is dark on light bg */
+/* --- Offer Details Section (NEW RepurposeAI Momentum Package Design) --- */
+.offer-details-section { /* Renamed for clarity, was #offer-details */
+    background-color: var(--primary-dark-bg); /* Dark background for this section */
+    color: var(--pure-white);
+    padding: 8rem 0;
 }
 
+.offer-details-section .section-title h2,
+.offer-details-section .section-title p {
+    color: var(--pure-white); /* Ensure titles/descriptions are white on dark bg */
+}
 
 .package-intro {
     text-align: center;
-    max-width: 850px;
+    max-width: 900px; /* Wider to accommodate larger text */
     margin: 0 auto 5rem auto;
-
-    /* NEW POP DESIGN: Dark box on a light background */
-    background-color: var(--primary-dark-bg); /* Dark background for the box */
-    border: 3px solid var(--accent-color); /* Strong accent border */
-    box-shadow: 0 40px 100px rgba(0,0,0,0.8), inset 0 0 60px rgba(0, 168, 150, 0.15); /* Deep shadows */
-    padding: 4rem 3rem;
-    border-radius: var(--border-radius);
-    color: var(--pure-white); /* White text inside the dark box */
+    padding: 0; /* No box-like padding here, content dictates spacing */
     position: relative;
-    overflow: hidden;
-    z-index: 2; /* Higher z-index to stand out */
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-}
-.package-intro:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 50px 120px rgba(0,0,0,0.9), inset 0 0 70px rgba(0, 168, 150, 0.2);
+    z-index: 1;
 }
 
 .package-intro .intro-heading {
-    color: var(--pure-white); /* Ensure heading is white */
-    font-size: clamp(2.2rem, 4vw, 3rem);
-    margin-bottom: 1rem;
-    font-weight: 800;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.4); /* Text shadow for pop */
+    color: var(--pure-white);
+    font-size: clamp(2.8rem, 5vw, 4rem); /* Very large for impact */
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 900; /* Extra bold */
+    text-shadow: 0 4px 8px rgba(0,0,0,0.6); /* Stronger shadow for readability */
 }
 
 .package-intro .intro-heading .check-icon {
-    font-size: 1.2em;
+    font-size: 0.9em; /* Slightly smaller relative to text size */
     vertical-align: middle;
     margin-right: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 168, 150, 0.7);
+    color: var(--accent-color); /* Ruby red checkmark */
+    text-shadow: none; /* No shadow on the icon itself */
 }
-
 
 .package-intro .intro-subtext {
-    font-size: clamp(1.15rem, 1.9vw, 1.4rem);
-    opacity: 0.98; /* Ensure full opacity for readability */
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem); /* Larger subtext */
+    opacity: 0.95;
     margin-bottom: 2.5rem;
-    color: var(--pure-white); /* Ensure subtext is white */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow */
+    color: var(--pure-white);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
-.divider-line {
-    width: 120px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent 0%, rgba(0, 168, 150, 0.7) 50%, transparent 100%);
-    margin: 3.5rem auto 3.5rem auto;
+.divider-line { /* Simple, elegant divider */
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color); /* Ruby red divider */
+    margin: 3rem auto 3rem auto;
     border-radius: 2px;
-    box-shadow: 0 0 15px rgba(0, 168, 150, 0.5);
+    box-shadow: 0 0 10px rgba(196, 30, 58, 0.7); /* Ruby red glow */
 }
 
 .package-intro .delivery-time {
-    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem); /* Larger delivery time */
     font-weight: 700;
-    color: var(--pure-white); /* Ensure white */
+    color: var(--pure-white);
     padding-top: 0;
     margin-top: 0;
     display: inline-block;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.4); /* Text shadow for pop */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 .package-intro .delivery-time .emphasis-white {
     color: var(--pure-white);
@@ -469,28 +450,29 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 3rem;
+    margin-top: 5rem; /* Space from intro text */
 }
 
 .feature-card {
-    background-color: var(--pure-white);
+    background-color: var(--pure-white); /* White cards on dark background */
     color: var(--text-on-light-bg);
     padding: 2.8rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px var(--shadow-light);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Stronger shadows */
     text-align: center;
     position: relative;
     overflow: hidden;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .feature-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 20px 45px var(--shadow-medium);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
 }
 
 .icon-wrapper {
-    background-color: var(--accent-color);
+    background-color: var(--accent-color); /* Ruby red icon circles */
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -504,7 +486,7 @@ a:hover {
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 .feature-card:hover .icon-wrapper {
-    background-color: var(--primary-dark-bg);
+    background-color: var(--primary-dark-bg); /* Navy on hover */
     transform: scale(1.08);
 }
 
@@ -578,15 +560,15 @@ a:hover {
     margin-bottom: 0;
 }
 
-/* --- Personal Media Machine Section (Text Visibility Fix) --- */
+/* --- Personal Media Machine Section (Fixed Text Visibility) --- */
 .personal-media-machine .section-title {
-    color: var(--pure-white); /* Ensure pure white */
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); /* More prominent text shadow */
+    color: var(--pure-white);
+    text-shadow: 0 3px 7px rgba(0, 0, 0, 0.8); /* Stronger shadow */
 }
 .personal-media-machine .section-description {
-    color: var(--pure-white); /* Ensure pure white */
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* More prominent text shadow */
-    opacity: 1; /* Ensure full opacity */
+    color: var(--pure-white);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    opacity: 1;
 }
 .personal-media-machine .section-description .emphasis-white {
     color: var(--pure-white);
@@ -601,14 +583,14 @@ a:hover {
 }
 .benefit-list li {
     font-size: clamp(1.15rem, 1.9vw, 1.35rem);
-    color: var(--pure-white); /* Ensure pure white */
+    color: var(--pure-white);
     margin-bottom: 1.5rem;
     position: relative;
     padding-left: 2.8rem;
     line-height: 1.6;
     font-weight: 400;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* More prominent text shadow */
-    opacity: 1; /* Ensure full opacity */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    opacity: 1;
 }
 .benefit-list li::before {
     content: '✓';
@@ -705,7 +687,7 @@ a:hover {
 
 .highlight-card {
     border: 3px solid var(--accent-color);
-    background-color: var(--primary-dark-bg);
+    background-color: var(--primary-dark-bg); /* Dark background for highlighted card */
     position: relative;
     overflow: hidden;
     color: var(--pure-white);
@@ -720,7 +702,7 @@ a:hover {
     color: rgba(255,255,255,0.9);
 }
 .highlight-card .price-feature-list li::before {
-    color: var(--accent-color); /* Ensure accent color for checks in dark card */
+    color: var(--accent-color);
 }
 
 .badge {
@@ -760,23 +742,35 @@ a:hover {
     margin-right: auto;
     text-align: center;
 }
-.cool-off-white-bg .final-value-statement {
+.primary-light-bg .final-value-statement {
     color: var(--text-on-light-bg);
 }
 
-/* --- Final CTA Section (Text Visibility Fix) --- */
+/* --- Final CTA Section (Fixed Text Visibility) --- */
+.call-to-action { /* Renamed for consistency */
+    background-color: var(--primary-dark-bg);
+    color: var(--pure-white);
+    padding: 8rem 0;
+}
+.call-to-action .section-title,
+.call-to-action .section-description {
+    color: var(--pure-white); /* Ensure titles/descriptions are white */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    opacity: 1;
+}
+
 .action-prompt {
     font-size: clamp(1.4rem, 2.4vw, 2rem);
     font-weight: 800;
-    color: var(--pure-white); /* Ensure pure white */
+    color: var(--pure-white);
     margin-bottom: 2.5rem;
     text-align: center;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); /* More prominent text shadow */
-    opacity: 1; /* Ensure full opacity */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    opacity: 1;
 }
 
 .action-prompt .green-dot {
-    color: var(--accent-color);
+    color: var(--accent-color); /* Now Ruby Red */
     margin-right: 0.6rem;
 }
 
@@ -794,10 +788,10 @@ a:hover {
     font-weight: 500;
     margin-top: 0;
     letter-spacing: 0.03em;
-    color: var(--pure-white); /* Ensure pure white */
+    color: var(--pure-white);
     text-align: center;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* More prominent text shadow */
-    opacity: 1; /* Ensure full opacity */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* Stronger shadow */
+    opacity: 1;
 }
 
 /* --- Footer --- */
@@ -862,9 +856,9 @@ a:hover {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.7); }
-    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(0, 168, 150, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(196, 30, 58, 0.7); } /* Pulse color uses Ruby Red */
+    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(196, 30, 58, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(196, 30, 58, 0); }
 }
 
 /* Staggered delays using animation-delay on is-visible (even faster delays) */
@@ -888,7 +882,7 @@ a:hover {
     .tagline { font-size: 0.85rem; padding: 0.6rem 1.5rem; }
 
     /* Urgency section on tablets */
-    .urgency-section:not(.shrunk) {
+    .urgency-section:not(.shrunk) { /* Apply only when not shrunk */
         padding: 0.8rem 0;
     }
     .urgency-section:not(.shrunk) .urgency-message { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
@@ -904,8 +898,8 @@ a:hover {
         font-size: clamp(1.2rem, 2.3vw, 1.4rem);
     }
 
-    .package-intro { padding: 3.5rem 2.5rem; margin-bottom: 4rem; }
-    .package-intro .intro-heading { font-size: clamp(2rem, 3.5vw, 2.8rem); }
+    .package-intro { padding: 0rem; margin-bottom: 4rem; } /* No padding, as it's not a self-contained box now */
+    .package-intro .intro-heading { font-size: clamp(2.5rem, 4.5vw, 3.5rem); } /* Adjusted font size */
     .features-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
     .feature-card { padding: 2.5rem; }
     .icon-wrapper { width: 70px; height: 70px; margin-bottom: 1.5rem; }
@@ -951,8 +945,8 @@ a:hover {
     .urgency-section:not(.shrunk) .spots-left { font-size: clamp(0.95rem, 1.6vw, 1.15rem); margin-top: 0.5rem; }
     .urgency-section:not(.shrunk) .spots-left .spot-count { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
 
-    .package-intro { padding: 3rem 2rem; margin-bottom: 3.5rem; }
-    .package-intro .intro-heading { font-size: clamp(1.8rem, 3.2vw, 2.5rem); }
+    .package-intro { padding: 0rem; margin-bottom: 3.5rem; } /* No padding, as it's not a self-contained box now */
+    .package-intro .intro-heading { font-size: clamp(2rem, 3.2vw, 2.8rem); } /* Adjusted font size */
     .features-grid { grid-template-columns: 1fr; gap: 2rem; }
     .feature-card { padding: 2rem; }
     .icon-wrapper { width: 65px; height: 65px; margin-bottom: 1.2rem; }
@@ -1002,8 +996,8 @@ a:hover {
     .btn-larger { padding: 1.2rem 2.5rem; font-size: clamp(1rem, 1.9vw, 1.2rem); }
     .btn-large { padding: 1.2rem 2.5rem; font-size: clamp(1rem, 1.9vw, 1.2rem); }
 
-    .package-intro { padding: 2.5rem 1.5rem; }
-    .package-intro .intro-heading { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+    .package-intro { padding: 0rem; margin-bottom: 2.5rem; }
+    .package-intro .intro-heading { font-size: clamp(1.8rem, 2.8vw, 2.5rem); }
     .features-grid { gap: 1.5rem; }
     .feature-card { padding: 1.8rem; }
     .icon-wrapper { width: 55px; height: 55px; margin-bottom: 1rem; }
