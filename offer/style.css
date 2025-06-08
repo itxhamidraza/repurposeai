@@ -1,7 +1,7 @@
 /* --- Core Variables & Global Styles --- */
 :root {
-    --primary-dark-bg: #1A2B3C;       /* Replacing deep-charcoal: Deep Slate Blue/Navy */
-    --accent-color: #00A896;         /* Replacing vibrant-emerald: Rich, muted Teal */
+    --primary-dark-bg: #1A2B3C;       /* Deep Slate Blue/Navy */
+    --accent-color: #00A896;         /* Rich, muted Teal */
     --light-cool-gray: #F8F9FA;     /* Secondary background - Light, clean */
     --pure-white: #FFFFFF;          /* Text on dark backgrounds */
     --text-on-light-bg: #212121;    /* Text on light backgrounds - ensures density */
@@ -76,7 +76,7 @@ p {
 }
 
 a {
-    color: var(--accent-color); /* Links use new accent color */
+    color: var(--accent-color);
     text-decoration: none;
     transition: color var(--transition-speed);
 }
@@ -96,7 +96,7 @@ a:hover {
 }
 
 .highlight {
-    color: var(--accent-color); /* Highlight in new accent color */
+    color: var(--accent-color);
     font-style: italic;
 }
 
@@ -133,7 +133,7 @@ a:hover {
     line-height: 1.8;
     font-weight: 300;
 }
-.primary-dark-bg .section-description { /* Adjusted selector */
+.primary-dark-bg .section-description {
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -141,11 +141,11 @@ a:hover {
     background-color: var(--light-cool-gray);
 }
 
-.primary-dark-bg { /* Renamed from deep-charcoal-bg */
+.primary-dark-bg {
     background-color: var(--primary-dark-bg);
     color: var(--pure-white);
 }
-.primary-dark-bg h2, .primary-dark-bg h3, .primary-dark-bg h4 { /* Adjusted selector */
+.primary-dark-bg h2, .primary-dark-bg h3, .primary-dark-bg h4 {
     color: var(--pure-white);
 }
 
@@ -167,12 +167,12 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: var(--accent-color); /* Button uses new accent color */
+    background-color: var(--accent-color);
     color: var(--pure-white);
 }
 
 .btn-primary:hover {
-    background-color: #008F7E; /* Slightly darker shade of accent */
+    background-color: #008F7E;
     transform: translateY(-4px);
     box-shadow: 0 14px 30px var(--shadow-medium);
 }
@@ -190,7 +190,7 @@ a:hover {
 
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-dark-bg) 0%, #2A4056 100%); /* Gradient with new dark color */
+    background: linear-gradient(135deg, var(--primary-dark-bg) 0%, #2A4056 100%);
     color: var(--pure-white);
     padding: 10rem 0 8rem 0;
     text-align: center;
@@ -248,7 +248,7 @@ a:hover {
 
 /* --- Urgency Section (Sticky Banner & Shrink Effect) --- */
 .urgency-section {
-    background-color: var(--accent-color); /* Timer uses new accent color */
+    background-color: var(--accent-color);
     color: var(--pure-white);
     padding: 1rem 0;
     text-align: center;
@@ -322,7 +322,8 @@ a:hover {
     font-size: clamp(1.05rem, 1.8vw, 1.25rem);
     font-weight: 700;
     letter-spacing: 0.04em;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* ENSURED VISIBILITY: Stronger text-shadow for readability */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
     margin-bottom: 0;
     transition: font-size var(--transition-speed);
     width: 100%;
@@ -379,86 +380,86 @@ a:hover {
     color: var(--accent-color);
 }
 
-/* --- Offer Details Section (Features) --- */
+/* --- Package Showcase Section (New design for RepurposeAI Momentum Package) --- */
+.package-showcase-section {
+    background-color: var(--light-cool-gray); /* Light background to make the package pop */
+    color: var(--text-on-light-bg);
+    padding-top: 8rem; /* Maintain top padding */
+    padding-bottom: 8rem; /* Maintain bottom padding */
+    position: relative;
+    z-index: 1;
+}
+.package-showcase-section .section-title h2 {
+    color: var(--text-on-light-bg); /* Ensure title is dark on light bg */
+}
+.package-showcase-section .section-description {
+    color: var(--text-on-light-bg); /* Ensure description is dark on light bg */
+}
+
+
 .package-intro {
     text-align: center;
     max-width: 850px;
     margin: 0 auto 5rem auto;
 
-    /* NEW REDESIGN FOR DEPTH AND PREMIUM FEEL WITH NEW COLORS */
-    background: radial-gradient(circle at center, #38526E 0%, var(--primary-dark-bg) 70%); /* Slightly lighter start */
-    border: 3px solid rgba(0, 168, 150, 0.3); /* Slightly thicker, more vibrant border */
-    box-shadow: 0 30px 70px rgba(0,0,0,0.7), inset 0 0 50px rgba(0, 168, 150, 0.1); /* More pronounced shadows */
+    /* NEW POP DESIGN: Dark box on a light background */
+    background-color: var(--primary-dark-bg); /* Dark background for the box */
+    border: 3px solid var(--accent-color); /* Strong accent border */
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8), inset 0 0 60px rgba(0, 168, 150, 0.15); /* Deep shadows */
     padding: 4rem 3rem;
     border-radius: var(--border-radius);
-    color: var(--pure-white);
+    color: var(--pure-white); /* White text inside the dark box */
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 2; /* Higher z-index to stand out */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
-
-.package-intro::before,
-.package-intro::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 3px;
-    background-color: var(--accent-color);
-    border-radius: 2px;
-    opacity: 0.7;
+.package-intro:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 50px 120px rgba(0,0,0,0.9), inset 0 0 70px rgba(0, 168, 150, 0.2);
 }
-
-.package-intro::before {
-    top: 1.5rem;
-    left: 1.5rem;
-    transform: rotate(-45deg);
-}
-
-.package-intro::after {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    transform: rotate(45deg);
-}
-
 
 .package-intro .intro-heading {
-    color: var(--pure-white);
+    color: var(--pure-white); /* Ensure heading is white */
     font-size: clamp(2.2rem, 4vw, 3rem);
     margin-bottom: 1rem;
     font-weight: 800;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4); /* Text shadow for pop */
 }
 
 .package-intro .intro-heading .check-icon {
     font-size: 1.2em;
     vertical-align: middle;
     margin-right: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 168, 150, 0.7); /* A subtle glow for the checkmark with new accent */
+    text-shadow: 0 0 10px rgba(0, 168, 150, 0.7);
 }
 
 
 .package-intro .intro-subtext {
     font-size: clamp(1.15rem, 1.9vw, 1.4rem);
-    opacity: 0.95;
+    opacity: 0.98; /* Ensure full opacity for readability */
     margin-bottom: 2.5rem;
-    color: var(--pure-white);
+    color: var(--pure-white); /* Ensure subtext is white */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow */
 }
 
 .divider-line {
     width: 120px;
     height: 4px;
-    background: linear-gradient(90deg, transparent 0%, rgba(0, 168, 150, 0.7) 50%, transparent 100%); /* Gradient for glow effect with new accent */
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 168, 150, 0.7) 50%, transparent 100%);
     margin: 3.5rem auto 3.5rem auto;
     border-radius: 2px;
-    box-shadow: 0 0 15px rgba(0, 168, 150, 0.5); /* Glow for the line with new accent */
+    box-shadow: 0 0 15px rgba(0, 168, 150, 0.5);
 }
 
 .package-intro .delivery-time {
     font-size: clamp(1.35rem, 2.2vw, 1.7rem);
     font-weight: 700;
-    color: var(--pure-white);
+    color: var(--pure-white); /* Ensure white */
     padding-top: 0;
     margin-top: 0;
     display: inline-block;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4); /* Text shadow for pop */
 }
 .package-intro .delivery-time .emphasis-white {
     color: var(--pure-white);
@@ -489,7 +490,7 @@ a:hover {
 }
 
 .icon-wrapper {
-    background-color: var(--accent-color); /* Icon color changed to new accent */
+    background-color: var(--accent-color);
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -503,7 +504,7 @@ a:hover {
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 .feature-card:hover .icon-wrapper {
-    background-color: var(--primary-dark-bg); /* Icon background changes on hover to new dark color */
+    background-color: var(--primary-dark-bg);
     transform: scale(1.08);
 }
 
@@ -550,7 +551,7 @@ a:hover {
 .step-icon {
     width: 80px;
     height: 80px;
-    background-color: var(--accent-color); /* Step icons in new accent */
+    background-color: var(--accent-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -577,14 +578,15 @@ a:hover {
     margin-bottom: 0;
 }
 
-/* --- Personal Media Machine Section --- */
+/* --- Personal Media Machine Section (Text Visibility Fix) --- */
 .personal-media-machine .section-title {
-    color: var(--pure-white);
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Added text shadow for readability */
+    color: var(--pure-white); /* Ensure pure white */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); /* More prominent text shadow */
 }
 .personal-media-machine .section-description {
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Added text shadow for readability */
+    color: var(--pure-white); /* Ensure pure white */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* More prominent text shadow */
+    opacity: 1; /* Ensure full opacity */
 }
 .personal-media-machine .section-description .emphasis-white {
     color: var(--pure-white);
@@ -599,17 +601,18 @@ a:hover {
 }
 .benefit-list li {
     font-size: clamp(1.15rem, 1.9vw, 1.35rem);
-    color: var(--pure-white);
+    color: var(--pure-white); /* Ensure pure white */
     margin-bottom: 1.5rem;
     position: relative;
     padding-left: 2.8rem;
     line-height: 1.6;
     font-weight: 400;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Added text shadow for readability */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* More prominent text shadow */
+    opacity: 1; /* Ensure full opacity */
 }
 .benefit-list li::before {
     content: '✓';
-    color: var(--accent-color); /* Checkmark in new accent */
+    color: var(--accent-color);
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -662,7 +665,7 @@ a:hover {
 .new-price {
     font-size: clamp(3.5rem, 5.5vw, 5rem);
     font-weight: 800;
-    color: var(--accent-color); /* Price in new accent */
+    color: var(--accent-color);
     margin-bottom: 2rem;
     text-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -686,7 +689,7 @@ a:hover {
 
 .price-feature-list li::before {
     content: '✓';
-    color: var(--accent-color); /* Checkmark in new accent */
+    color: var(--accent-color);
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -701,8 +704,8 @@ a:hover {
 }
 
 .highlight-card {
-    border: 3px solid var(--accent-color); /* New accent border for emphasis */
-    background-color: var(--primary-dark-bg); /* New dark background */
+    border: 3px solid var(--accent-color);
+    background-color: var(--primary-dark-bg);
     position: relative;
     overflow: hidden;
     color: var(--pure-white);
@@ -716,12 +719,15 @@ a:hover {
 .highlight-card .small-text, .highlight-card .price-feature-list li {
     color: rgba(255,255,255,0.9);
 }
+.highlight-card .price-feature-list li::before {
+    color: var(--accent-color); /* Ensure accent color for checks in dark card */
+}
 
 .badge {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--accent-color); /* Badge in new accent */
+    background-color: var(--accent-color);
     color: var(--pure-white);
     font-size: 0.95rem;
     font-weight: 700;
@@ -758,18 +764,19 @@ a:hover {
     color: var(--text-on-light-bg);
 }
 
-/* --- Final CTA Section --- */
+/* --- Final CTA Section (Text Visibility Fix) --- */
 .action-prompt {
     font-size: clamp(1.4rem, 2.4vw, 2rem);
     font-weight: 800;
-    color: var(--pure-white);
+    color: var(--pure-white); /* Ensure pure white */
     margin-bottom: 2.5rem;
     text-align: center;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Added text shadow for readability */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); /* More prominent text shadow */
+    opacity: 1; /* Ensure full opacity */
 }
 
 .action-prompt .green-dot {
-    color: var(--accent-color); /* Green dot using new accent */
+    color: var(--accent-color);
     margin-right: 0.6rem;
 }
 
@@ -787,14 +794,15 @@ a:hover {
     font-weight: 500;
     margin-top: 0;
     letter-spacing: 0.03em;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--pure-white); /* Ensure pure white */
     text-align: center;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Added text shadow for readability */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* More prominent text shadow */
+    opacity: 1; /* Ensure full opacity */
 }
 
 /* --- Footer --- */
 .footer-section {
-    background-color: var(--primary-dark-bg); /* Footer uses new dark background */
+    background-color: var(--primary-dark-bg);
     color: rgba(255, 255, 255, 0.6);
     padding: 3rem 0;
     text-align: center;
@@ -854,7 +862,7 @@ a:hover {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.7); } /* Pulse color updated to new accent */
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.7); }
     70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(0, 168, 150, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0); }
 }
@@ -880,7 +888,7 @@ a:hover {
     .tagline { font-size: 0.85rem; padding: 0.6rem 1.5rem; }
 
     /* Urgency section on tablets */
-    .urgency-section:not(.shrunk) { /* Apply only when not shrunk */
+    .urgency-section:not(.shrunk) {
         padding: 0.8rem 0;
     }
     .urgency-section:not(.shrunk) .urgency-message { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
@@ -962,7 +970,7 @@ a:hover {
     .price-card { max-width: 100%; padding: 2.8rem; }
     .old-price { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
     .new-price { font-size: clamp(2.8rem, 4.8vw, 4rem); }
-    .buy-back-text { font-size: clamp(1.1rem, 1.9vw, 1.4rem); }
+    .buy-back-text { font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
 
     .action-prompt { font-size: clamp(1.25rem, 2.2vw, 1.8rem); }
     .fine-print { font-size: 0.95rem; }
